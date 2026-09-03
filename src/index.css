@@ -1549,6 +1549,7 @@ body {
 @media (max-width: 768px) {
   .balance-card-grid,
   .signals-grid-2col,
+  .flagged-signals-grid,
   .paradigm-comparison-card {
     grid-template-columns: 1fr;
   }

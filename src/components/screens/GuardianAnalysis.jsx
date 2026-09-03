@@ -1,19 +1,15 @@
 import React from 'react';
 import { 
-  AlertTriangle, 
   ShieldAlert, 
   ShieldCheck, 
   ArrowRight, 
-  Clock, 
   TrendingUp, 
-  UserX, 
   MessageSquare, 
   AlertCircle, 
   Sparkles,
   CheckCircle2,
-  ChevronRight,
-  Shield,
-  HelpCircle
+  Clock,
+  Shield
 } from 'lucide-react';
 import { useGuardian } from '../../context/GuardianContext';
 
@@ -21,12 +17,16 @@ export default function GuardianAnalysis() {
   const { 
     analysisResult, 
     paymentDraft, 
-    scamMessage, 
-    setActiveScreen 
+    setActiveScreen,
+    setContinueDisclaimerOpen 
   } = useGuardian();
 
   if (!analysisResult) {
-    return <div>Loading analysis...</div>;
+    return (
+      <div style={{ textAlign: 'center', padding: '48px 0', color: 'var(--text-muted)' }}>
+        Loading Guardian Analysis...
+      </div>
+    );
   }
 
   const isHigh = analysisResult.riskLevel === 'HIGH';
@@ -40,7 +40,6 @@ export default function GuardianAnalysis() {
   const isMlScam = mlLabel === 'SCAM';
   const scamProbRaw = typeof analysisResult.scamProbability === 'number' ? analysisResult.scamProbability : 0;
   const scamProbDisplay = analysisResult.scamProbabilityPercent || `${(scamProbRaw * 100).toFixed(1)}%`;
-  const legitProbDisplay = analysisResult.legitimateProbabilityPercent || `${((1 - scamProbRaw) * 100).toFixed(1)}%`;
   const topFeatures = analysisResult.topFeatures || [];
 
   // Extract statistical behavioral values
@@ -62,431 +61,433 @@ export default function GuardianAnalysis() {
     components: {}
   };
 
+  const fusedScore = fusionResult.fusedScore ?? Math.round(analysisResult.riskScore || 0);
+  const isNewBeneficiary = paymentDraft.beneficiaryStatus === 'new' || analysisResult.isNewBeneficiary;
+
   return (
-    <div className="guardian-analysis-hero-view" style={{ maxWidth: '980px', margin: '0 auto' }}>
+    <div className="guardian-analysis-hero-view" style={{ maxWidth: '820px', margin: '0 auto', paddingTop: '10px', paddingBottom: '36px' }}>
       
-      {/* 5-SECOND HERO RISK CARD */}
-      <div className={`hero-analysis-header ${riskClass}`}>
-        <div className="risk-level-banner">
-          <div className={`risk-level-badge ${isMed ? 'badge-medium' : isLow ? 'badge-low' : ''}`}>
-            <ShieldAlert size={18} />
-            <span>{isHigh ? 'HIGH MANIPULATION RISK' : `${analysisResult.riskLevel} MANIPULATION RISK`}</span>
-          </div>
-          <div className="risk-signals-cue-chip">
-            <Sparkles size={14} style={{ flexShrink: 0 }} />
-            <span>
-              Prototype Risk Fusion: <strong>{fusionResult.fusedScore}/100</strong> ({analysisResult.riskLevel})
+      {/* 1. HERO SECTION */}
+      <div className={`hero-analysis-header ${riskClass}`} style={{ marginBottom: '16px', borderRadius: 'var(--radius-xl)' }}>
+        <div className="risk-level-banner" style={{ marginBottom: '12px' }}>
+          <div style={{ display: 'flex', alignItems: 'center', gap: '10px' }}>
+            <span style={{ 
+              fontSize: '0.78rem', 
+              fontWeight: 800, 
+              textTransform: 'uppercase', 
+              letterSpacing: '0.08em', 
+              color: isHigh ? '#991b1b' : isMed ? '#92400e' : '#065f46' 
+            }}>
+              Guardian Analysis
             </span>
+            <div className={`risk-level-badge ${isMed ? 'badge-medium' : isLow ? 'badge-low' : ''}`} style={{ margin: 0 }}>
+              <ShieldAlert size={14} />
+              <span>{analysisResult.riskLevel} RISK</span>
+            </div>
+          </div>
+
+          <div style={{
+            fontFamily: 'var(--font-mono)',
+            fontWeight: 800,
+            fontSize: '1.25rem',
+            color: isHigh ? '#991b1b' : isMed ? '#92400e' : '#065f46',
+            background: 'rgba(255, 255, 255, 0.85)',
+            padding: '4px 14px',
+            borderRadius: 'var(--radius-full)',
+            border: `1px solid ${isHigh ? '#fca5a5' : isMed ? '#fcd34d' : '#a7f3d0'}`,
+            boxShadow: '0 1px 2px rgba(0,0,0,0.05)'
+          }}>
+            {fusedScore} <span style={{ fontSize: '0.8rem', fontWeight: 600, opacity: 0.75 }}>/ 100</span>
           </div>
         </div>
 
-        <h1 className="diagnosis-headline">
+        <h1 className="diagnosis-headline" style={{ fontSize: '1.45rem', marginBottom: '8px', letterSpacing: '-0.02em' }}>
           {analysisResult.diagnosisTitle}
         </h1>
 
-        <div className="diagnosis-explanation">
+        <p className="diagnosis-explanation" style={{ margin: 0, fontSize: '0.94rem', lineHeight: 1.5, opacity: 0.95 }}>
           {analysisResult.explanation}
-        </div>
+        </p>
       </div>
 
-      {/* PROTOTYPE RISK FUSION ENGINE CARD */}
-      <div className="card" style={{ marginBottom: '24px', padding: '20px 24px', border: '1.5px solid var(--border-light)', borderRadius: 'var(--radius-lg)' }}>
-        <div style={{ display: 'flex', alignItems: 'flex-start', justifyContent: 'space-between', marginBottom: '14px', flexWrap: 'wrap', gap: 12 }}>
-          <div>
-            <div style={{ display: 'flex', alignItems: 'center', gap: 8 }}>
-              <Shield size={18} color="var(--brand-primary)" />
-              <h2 style={{ fontSize: '1.1rem', fontWeight: 800, margin: 0, color: 'var(--text-primary)' }}>
-                Prototype Risk Fusion Engine
-              </h2>
-              <span style={{ fontSize: '0.72rem', background: 'var(--brand-soft)', color: 'var(--brand-primary)', padding: '2px 8px', borderRadius: '4px', fontWeight: 700 }}>
-                Experimental Prototype
-              </span>
-            </div>
-            <p style={{ fontSize: '0.78rem', color: 'var(--text-muted)', marginTop: 4 }}>
-              Multi-signal risk synthesis combining ML message analysis (40%), behavioral Z-score (25%), payment intent (20%), and beneficiary exposure (15%). Not scientifically validated for production banking use.
-            </p>
-          </div>
-
-          <div style={{ textAlign: 'right' }}>
-            <span style={{ fontSize: '0.75rem', fontWeight: 700, color: 'var(--text-muted)', textTransform: 'uppercase', display: 'block' }}>
-              Fused Risk Score
-            </span>
-            <span style={{
-              fontFamily: 'var(--font-mono)',
-              fontWeight: 900,
-              fontSize: '1.6rem',
-              color: isHigh ? '#dc2626' : isMed ? '#d97706' : '#059669'
-            }}>
-              {fusionResult.fusedScore} <span style={{ fontSize: '0.9rem', color: 'var(--text-muted)', fontWeight: 600 }}>/ 100</span>
-            </span>
-          </div>
+      {/* 2. PRIMARY WARNING CARD */}
+      <div style={{
+        background: isHigh ? '#fef2f2' : isMed ? '#fffbeb' : '#f0fdf4',
+        border: `1.5px solid ${isHigh ? '#fecaca' : isMed ? '#fde68a' : '#bbf7d0'}`,
+        borderRadius: 'var(--radius-lg)',
+        padding: '16px 20px',
+        marginBottom: '24px',
+        display: 'flex',
+        alignItems: 'center',
+        gap: '16px'
+      }}>
+        <div style={{
+          width: '42px',
+          height: '42px',
+          borderRadius: '50%',
+          background: isHigh ? '#fee2e2' : isMed ? '#fef3c7' : '#dcfce7',
+          color: isHigh ? '#dc2626' : isMed ? '#d97706' : '#059669',
+          display: 'flex',
+          alignItems: 'center',
+          justifyContent: 'center',
+          flexShrink: 0
+        }}>
+          {isHigh ? <ShieldAlert size={22} /> : isMed ? <AlertCircle size={22} /> : <CheckCircle2 size={22} />}
         </div>
-
-        {/* 4 Multi-Signal Weight Components */}
-        <div style={{ display: 'grid', gridTemplateColumns: 'repeat(4, 1fr)', gap: '12px', marginBottom: '16px' }}>
-          {/* ML Component */}
-          <div style={{ background: 'var(--bg-subtle)', padding: '10px 12px', borderRadius: '8px', border: '1px solid var(--border-light)' }}>
-            <div style={{ fontSize: '0.7rem', color: 'var(--text-muted)', fontWeight: 600, display: 'flex', justifyContent: 'space-between' }}>
-              <span>ML SCAM PROB</span>
-              <span style={{ color: 'var(--brand-primary)', fontWeight: 700 }}>40% wt</span>
-            </div>
-            <div style={{ fontSize: '0.92rem', fontWeight: 800, marginTop: 4, color: 'var(--text-primary)' }}>
-              {analysisResult.scamProbabilityPercent || `${(analysisResult.scamProbability * 100).toFixed(1)}%`}
-            </div>
-            <div style={{ fontSize: '0.72rem', color: 'var(--text-secondary)', marginTop: 2 }}>
-              Contrib: +{fusionResult.components?.ml?.contribution ?? 0} pts
-            </div>
-          </div>
-
-          {/* Behavioral Component */}
-          <div style={{ background: 'var(--bg-subtle)', padding: '10px 12px', borderRadius: '8px', border: '1px solid var(--border-light)' }}>
-            <div style={{ fontSize: '0.7rem', color: 'var(--text-muted)', fontWeight: 600, display: 'flex', justifyContent: 'space-between' }}>
-              <span>BEHAVIORAL Z-SCORE</span>
-              <span style={{ color: 'var(--brand-primary)', fontWeight: 700 }}>25% wt</span>
-            </div>
-            <div style={{ fontSize: '0.92rem', fontWeight: 800, marginTop: 4, color: 'var(--text-primary)' }}>
-              {behavioralStats.zScore >= 0 ? '+' : ''}{behavioralStats.zScore.toFixed(2)}σ
-            </div>
-            <div style={{ fontSize: '0.72rem', color: 'var(--text-secondary)', marginTop: 2 }}>
-              Contrib: +{fusionResult.components?.behavior?.contribution ?? 0} pts
-            </div>
-          </div>
-
-          {/* Payment Intent Component */}
-          <div style={{ background: 'var(--bg-subtle)', padding: '10px 12px', borderRadius: '8px', border: '1px solid var(--border-light)' }}>
-            <div style={{ fontSize: '0.7rem', color: 'var(--text-muted)', fontWeight: 600, display: 'flex', justifyContent: 'space-between' }}>
-              <span>PAYMENT INTENT</span>
-              <span style={{ color: 'var(--brand-primary)', fontWeight: 700 }}>20% wt</span>
-            </div>
-            <div style={{ fontSize: '0.82rem', fontWeight: 800, marginTop: 4, color: 'var(--text-primary)', whiteSpace: 'nowrap', overflow: 'hidden', textOverflow: 'ellipsis' }} title={paymentDraft.paymentIntent}>
-              {paymentDraft.paymentIntent || 'Unspecified'}
-            </div>
-            <div style={{ fontSize: '0.72rem', color: 'var(--text-secondary)', marginTop: 2 }}>
-              Contrib: +{fusionResult.components?.intent?.contribution ?? 0} pts
-            </div>
-          </div>
-
-          {/* Beneficiary Status Component */}
-          <div style={{ background: 'var(--bg-subtle)', padding: '10px 12px', borderRadius: '8px', border: '1px solid var(--border-light)' }}>
-            <div style={{ fontSize: '0.7rem', color: 'var(--text-muted)', fontWeight: 600, display: 'flex', justifyContent: 'space-between' }}>
-              <span>BENEFICIARY STATUS</span>
-              <span style={{ color: 'var(--brand-primary)', fontWeight: 700 }}>15% wt</span>
-            </div>
-            <div style={{ fontSize: '0.92rem', fontWeight: 800, marginTop: 4, color: 'var(--text-primary)' }}>
-              {paymentDraft.beneficiaryStatus === 'new' ? 'New Payee' : 'Existing Contact'}
-            </div>
-            <div style={{ fontSize: '0.72rem', color: 'var(--text-secondary)', marginTop: 2 }}>
-              Contrib: +{fusionResult.components?.beneficiary?.contribution ?? 0} pts
-            </div>
-          </div>
-        </div>
-
-        {/* Contributing Reasons */}
-        <div style={{ background: isHigh ? '#fef2f2' : isMed ? '#fffbeb' : '#f0fdf4', padding: '12px 14px', borderRadius: '8px', border: `1px solid ${isHigh ? '#fecaca' : isMed ? '#fde68a' : '#bbf7d0'}` }}>
-          <div style={{ fontSize: '0.78rem', fontWeight: 700, color: 'var(--text-primary)', marginBottom: '6px' }}>
-            Signals Contributing to Fused Assessment:
-          </div>
-          <ul style={{ margin: 0, paddingLeft: '18px', fontSize: '0.78rem', color: 'var(--text-secondary)', display: 'flex', flexDirection: 'column', gap: '4px' }}>
-            {fusionResult.contributingReasons?.map((reason, idx) => (
-              <li key={idx}>{reason}</li>
-            ))}
-          </ul>
-        </div>
-      </div>
-
-      {/* TWO CLEARLY SEPARATED SIGNAL GROUPS */}
-      <div className="signals-grid-2col">
-        {/* GROUP 1: TRANSACTION SIGNALS */}
-        <div className="signal-group-card">
-          <div className="signal-group-header">
-            <TrendingUp size={20} color="#0284c7" />
-            <div>
-              <div className="signal-group-title">Transaction Signals</div>
-              <div style={{ fontSize: '0.75rem', color: 'var(--text-muted)' }}>Customer Behavioral Baseline & Statistical Z-Score</div>
-            </div>
-          </div>
-
-          {/* Real Behavioral Anomaly (Z-Score) Overview Card */}
-          <div style={{
-            background: behavioralStats.isAnomaly ? '#fef2f2' : '#f0fdf4',
-            border: `1.5px solid ${behavioralStats.isAnomaly ? '#fecaca' : '#bbf7d0'}`,
-            borderRadius: '12px',
-            padding: '16px',
-            marginBottom: '16px'
+        <div>
+          <h2 style={{
+            fontSize: '1.02rem',
+            fontWeight: 800,
+            margin: '0 0 3px 0',
+            color: isHigh ? '#991b1b' : isMed ? '#92400e' : '#065f46'
           }}>
-            <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between', marginBottom: '10px' }}>
-              <div>
-                <span style={{ fontSize: '0.75rem', fontWeight: 700, color: 'var(--text-muted)', textTransform: 'uppercase', display: 'block' }}>
-                  Behavioral Baseline Anomaly
-                </span>
-                <span style={{
-                  display: 'inline-flex',
-                  alignItems: 'center',
-                  gap: 6,
-                  fontWeight: 800,
-                  fontSize: '1.05rem',
-                  color: behavioralStats.isAnomaly ? '#dc2626' : '#059669',
-                  marginTop: 2
-                }}>
-                  {behavioralStats.isAnomaly ? <AlertTriangle size={16} /> : <CheckCircle2 size={16} />}
-                  Behavioral anomaly: {behavioralStats.isAnomaly ? 'Detected' : 'Normal'}
-                </span>
-              </div>
+            {isHigh 
+              ? 'Payment should be paused for verification' 
+              : isMed 
+                ? 'Verify before continuing' 
+                : 'Payment appears consistent with your normal activity'}
+          </h2>
+          <p style={{
+            fontSize: '0.85rem',
+            margin: 0,
+            color: isHigh ? '#7f1d1d' : isMed ? '#78350f' : '#064e3b',
+            lineHeight: 1.4
+          }}>
+            {isHigh 
+              ? 'Multiple signals suggest this payment may be influenced by social engineering.' 
+              : isMed 
+                ? 'Elevated signals detected across communication or transaction baseline. Please verify recipient identity independently.' 
+                : 'Transaction parameters align with your routine spending baselines and communication contains no scam patterns.'}
+          </p>
+        </div>
+      </div>
 
-              <div style={{ textAlign: 'right' }}>
-                <span style={{ fontSize: '0.75rem', fontWeight: 700, color: 'var(--text-muted)', textTransform: 'uppercase', display: 'block' }}>
-                  Behavioral Z-Score
-                </span>
-                <span style={{
-                  fontFamily: 'var(--font-mono)',
-                  fontWeight: 800,
-                  fontSize: '1.25rem',
-                  color: behavioralStats.isAnomaly ? '#b91c1c' : '#047857'
-                }}>
-                  {behavioralStats.zScore >= 0 ? '+' : ''}{behavioralStats.zScore.toFixed(2)}
-                </span>
-              </div>
-            </div>
+      {/* 3. "WHY WE FLAGGED THIS" SECTION */}
+      <div style={{ marginBottom: '24px' }}>
+        <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between', marginBottom: '12px' }}>
+          <h3 style={{ fontSize: '0.98rem', fontWeight: 800, color: 'var(--text-primary)', margin: 0 }}>
+            {isLow ? 'Verification Signals' : 'Why We Flagged This'}
+          </h3>
+          <span style={{ fontSize: '0.74rem', color: 'var(--text-muted)' }}>
+            3 core protective indicators
+          </span>
+        </div>
 
-            {/* Metrics List per Requirement 6 */}
-            <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: '8px', paddingTop: '10px', borderTop: '1px solid rgba(0,0,0,0.06)', fontSize: '0.82rem' }}>
-              <div>
-                <span style={{ color: 'var(--text-secondary)' }}>Customer baseline: </span>
-                <strong style={{ color: 'var(--text-primary)', fontFamily: 'var(--font-mono)' }}>₹{behavioralStats.mean.toLocaleString('en-IN')}</strong>
-              </div>
-              <div>
-                <span style={{ color: 'var(--text-secondary)' }}>Current transfer: </span>
-                <strong style={{ color: 'var(--text-primary)', fontFamily: 'var(--font-mono)' }}>₹{behavioralStats.currentAmount.toLocaleString('en-IN')}</strong>
-              </div>
-              <div>
-                <span style={{ color: 'var(--text-secondary)' }}>Behavioral Z-Score: </span>
-                <strong style={{ color: behavioralStats.isAnomaly ? '#dc2626' : '#059669', fontFamily: 'var(--font-mono)' }}>
-                  {behavioralStats.zScore.toFixed(2)}
-                </strong>
-              </div>
-              <div>
-                <span style={{ color: 'var(--text-secondary)' }}>Standard Deviation: </span>
-                <strong style={{ color: 'var(--text-primary)', fontFamily: 'var(--font-mono)' }}>₹{behavioralStats.stdDev.toLocaleString('en-IN')}</strong>
-              </div>
-            </div>
-          </div>
-
-          <div className="signals-list">
-            {analysisResult.transactionSignals.map(sig => {
-              const isAnomaly = sig.status === 'anomaly';
-              const isCaution = sig.status === 'caution';
-              return (
-                <div 
-                  key={sig.id} 
-                  className={`signal-item ${isAnomaly ? 'signal-anomaly' : isCaution ? 'signal-caution' : 'signal-normal'}`}
-                >
-                  <div className="signal-icon-wrap">
-                    {isAnomaly ? (
-                      <AlertTriangle size={18} color="#dc2626" />
-                    ) : isCaution ? (
-                      <AlertCircle size={18} color="#d97706" />
-                    ) : (
-                      <CheckCircle2 size={18} color="#059669" />
-                    )}
-                  </div>
-                  <div className="signal-text">
-                    <div className="signal-item-name">{sig.title}</div>
-                    <div className="signal-item-desc">{sig.desc}</div>
-                  </div>
+        <div className="flagged-signals-grid" style={{ display: 'grid', gridTemplateColumns: 'repeat(3, 1fr)', gap: '14px' }}>
+          
+          {/* Card A: Message Risk */}
+          <div style={{
+            background: 'var(--bg-surface)',
+            border: `1px solid ${isMlScam ? '#fca5a5' : 'var(--border-light)'}`,
+            borderRadius: 'var(--radius-lg)',
+            padding: '16px',
+            boxShadow: 'var(--shadow-sm)',
+            display: 'flex',
+            flexDirection: 'column',
+            justifyContent: 'space-between'
+          }}>
+            <div>
+              <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between', marginBottom: '10px' }}>
+                <div style={{ display: 'flex', alignItems: 'center', gap: 6 }}>
+                  <MessageSquare size={16} color={isMlScam ? '#dc2626' : '#059669'} />
+                  <span style={{ fontSize: '0.74rem', fontWeight: 700, color: 'var(--text-muted)', textTransform: 'uppercase', letterSpacing: '0.04em' }}>
+                    Message Risk
+                  </span>
                 </div>
-              );
-            })}
-          </div>
-        </div>
-
-        {/* GROUP 2: ML SCAM MESSAGE ANALYSIS */}
-        <div className="signal-group-card">
-          <div className="signal-group-header">
-            <MessageSquare size={20} color={isMlScam ? "#dc2626" : "#059669"} />
-            <div>
-              <div className="signal-group-title">ML Message Risk Analysis</div>
-              <div style={{ fontSize: '0.75rem', color: 'var(--text-muted)' }}>Trained TF-IDF + Logistic Regression Classifier</div>
-            </div>
-          </div>
-
-          {/* Model Prediction & Probability Card */}
-          <div style={{
-            background: isMlScam ? '#fef2f2' : '#f0fdf4',
-            border: `1.5px solid ${isMlScam ? '#fecaca' : '#bbf7d0'}`,
-            borderRadius: '12px',
-            padding: '16px',
-            marginBottom: '16px'
-          }}>
-            <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between', marginBottom: '10px' }}>
-              <div>
-                <span style={{ fontSize: '0.75rem', fontWeight: 700, color: 'var(--text-muted)', textTransform: 'uppercase', display: 'block' }}>
-                  Message Risk
-                </span>
                 <span style={{
-                  display: 'inline-flex',
-                  alignItems: 'center',
-                  gap: 6,
+                  fontSize: '0.7rem',
                   fontWeight: 800,
-                  fontSize: '1.05rem',
                   color: isMlScam ? '#dc2626' : '#059669',
-                  marginTop: 2
+                  background: isMlScam ? '#fef2f2' : '#f0fdf4',
+                  padding: '2px 7px',
+                  borderRadius: '4px',
+                  border: `1px solid ${isMlScam ? '#fecaca' : '#bbf7d0'}`
                 }}>
-                  {isMlScam ? <AlertTriangle size={16} /> : <CheckCircle2 size={16} />}
                   {mlLabel}
                 </span>
               </div>
 
-              <div style={{ textAlign: 'right' }}>
-                <span style={{ fontSize: '0.75rem', fontWeight: 700, color: 'var(--text-muted)', textTransform: 'uppercase', display: 'block' }}>
-                  Scam Probability
-                </span>
-                <span style={{
-                  fontFamily: 'var(--font-mono)',
-                  fontWeight: 800,
-                  fontSize: '1.25rem',
-                  color: isMlScam ? '#b91c1c' : '#047857'
-                }}>
+              <div style={{ display: 'flex', alignItems: 'baseline', gap: 6, marginBottom: '10px' }}>
+                <span style={{ fontSize: '1.5rem', fontWeight: 900, fontFamily: 'var(--font-mono)', color: isMlScam ? '#b91c1c' : '#047857' }}>
                   {scamProbDisplay}
                 </span>
+                <span style={{ fontSize: '0.74rem', color: 'var(--text-muted)' }}>scam probability</span>
+              </div>
+
+              {/* 2-3 Top Contributing ML Features */}
+              <div style={{ borderTop: '1px solid var(--border-light)', paddingTop: '10px', marginBottom: '12px' }}>
+                <div style={{ fontSize: '0.7rem', color: 'var(--text-muted)', marginBottom: '5px', fontWeight: 600 }}>
+                  Top influential tokens:
+                </div>
+                {topFeatures && topFeatures.length > 0 ? (
+                  <div style={{ display: 'flex', flexWrap: 'wrap', gap: '4px' }}>
+                    {topFeatures.slice(0, 3).map((f, i) => (
+                      <span key={i} style={{
+                        fontSize: '0.72rem',
+                        fontFamily: 'var(--font-mono)',
+                        background: f.direction === 'SCAM' ? '#fff1f2' : '#f0fdf4',
+                        color: f.direction === 'SCAM' ? '#be123c' : '#047857',
+                        padding: '2px 6px',
+                        borderRadius: '4px',
+                        border: `1px solid ${f.direction === 'SCAM' ? '#ffe4e6' : '#dcfce7'}`
+                      }}>
+                        &ldquo;{f.feature}&rdquo;
+                      </span>
+                    ))}
+                  </div>
+                ) : (
+                  <div style={{ fontSize: '0.72rem', color: 'var(--text-muted)' }}>No strong scam tokens</div>
+                )}
               </div>
             </div>
 
-            {/* Probability Progress Bar */}
-            <div style={{ width: '100%', height: '6px', background: '#e2e8f0', borderRadius: '4px', overflow: 'hidden', marginBottom: '6px' }}>
-              <div style={{
-                width: `${Math.min(Math.max(scamProbRaw * 100, 2), 100)}%`,
-                height: '100%',
-                background: isMlScam ? 'linear-gradient(90deg, #f87171, #dc2626)' : 'linear-gradient(90deg, #34d399, #059669)',
-                borderRadius: '4px',
-                transition: 'width 0.4s ease'
-              }} />
-            </div>
-
-            <div style={{ display: 'flex', justifyContent: 'space-between', fontSize: '0.72rem', color: 'var(--text-muted)' }}>
-              <span>Legitimate Confidence: {legitProbDisplay}</span>
-              <span>Model: TF-IDF + LogReg (v1.0)</span>
+            <div style={{ fontSize: '0.68rem', color: 'var(--text-muted)', paddingTop: '8px', borderTop: '1px solid var(--border-light)' }}>
+              TF-IDF + Logistic Regression
             </div>
           </div>
 
-          {/* Explainability Section */}
-          <div style={{ marginBottom: '14px' }}>
-            <div style={{ fontSize: '0.84rem', fontWeight: 700, color: 'var(--text-primary)', marginBottom: '4px' }}>
-              &ldquo;These features contributed strongly to the risk assessment.&rdquo;
-            </div>
-            <div style={{ fontSize: '0.74rem', color: 'var(--text-muted)', marginBottom: '10px' }}>
-              Feature-level contributions derived from learned logistic regression weights:
-            </div>
-
-            {topFeatures && topFeatures.length > 0 ? (
-              <div style={{ display: 'flex', flexDirection: 'column', gap: '8px' }}>
-                {topFeatures.map((f, i) => {
-                  const isScamFeature = f.direction === 'SCAM';
-                  return (
-                    <div 
-                      key={i} 
-                      style={{
-                        display: 'flex',
-                        alignItems: 'center',
-                        justifyContent: 'space-between',
-                        padding: '8px 12px',
-                        background: isScamFeature ? '#fff1f2' : '#f0fdf4',
-                        border: `1px solid ${isScamFeature ? '#ffe4e6' : '#dcfce7'}`,
-                        borderRadius: '8px',
-                        fontSize: '0.82rem'
-                      }}
-                    >
-                      <div style={{ display: 'flex', alignItems: 'center', gap: '8px' }}>
-                        <span style={{ color: isScamFeature ? '#e11d48' : '#059669', fontWeight: 700 }}>•</span>
-                        <strong style={{ color: 'var(--text-primary)', fontFamily: 'var(--font-mono)' }}>
-                          &ldquo;{f.feature}&rdquo;
-                        </strong>
-                      </div>
-                      <div style={{ display: 'flex', alignItems: 'center', gap: '10px' }}>
-                        <span style={{
-                          fontWeight: 700,
-                          fontSize: '0.75rem',
-                          color: isScamFeature ? '#be123c' : '#047857'
-                        }}>
-                          {isScamFeature ? '+' : ''}{f.contribution.toFixed(4)} impact
-                        </span>
-                        <span style={{
-                          fontSize: '0.7rem',
-                          color: 'var(--text-muted)',
-                          padding: '2px 6px',
-                          background: 'rgba(0,0,0,0.04)',
-                          borderRadius: '4px'
-                        }}>
-                          {f.direction}
-                        </span>
-                      </div>
-                    </div>
-                  );
-                })}
-              </div>
-            ) : (
-              <div style={{ fontSize: '0.78rem', color: 'var(--text-muted)' }}>
-                No significant vocabulary triggers matched the model vocabulary.
-              </div>
-            )}
-          </div>
-
-          {/* Separation Notice */}
+          {/* Card B: Payment Behavior */}
           <div style={{
-            padding: '10px 12px',
-            background: 'var(--bg-subtle)',
-            borderRadius: '8px',
-            fontSize: '0.73rem',
-            color: 'var(--text-secondary)',
-            borderLeft: '3px solid #0284c7',
-            lineHeight: 1.4
+            background: 'var(--bg-surface)',
+            border: `1px solid ${behavioralStats.isAnomaly ? '#fca5a5' : 'var(--border-light)'}`,
+            borderRadius: 'var(--radius-lg)',
+            padding: '16px',
+            boxShadow: 'var(--shadow-sm)',
+            display: 'flex',
+            flexDirection: 'column',
+            justifyContent: 'space-between'
           }}>
-            <strong>Multi-Signal Risk Fusion:</strong> Linguistic features evaluated alongside behavioral baseline deviation (Z-Score) and customer payment intent. The customer always retains control over the payment.
+            <div>
+              <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between', marginBottom: '10px' }}>
+                <div style={{ display: 'flex', alignItems: 'center', gap: 6 }}>
+                  <TrendingUp size={16} color={behavioralStats.isAnomaly ? '#dc2626' : '#0284c7'} />
+                  <span style={{ fontSize: '0.74rem', fontWeight: 700, color: 'var(--text-muted)', textTransform: 'uppercase', letterSpacing: '0.04em' }}>
+                    Payment Behavior
+                  </span>
+                </div>
+                <span style={{
+                  fontSize: '0.7rem',
+                  fontWeight: 800,
+                  color: behavioralStats.isAnomaly ? '#dc2626' : '#059669',
+                  background: behavioralStats.isAnomaly ? '#fef2f2' : '#f0fdf4',
+                  padding: '2px 7px',
+                  borderRadius: '4px',
+                  border: `1px solid ${behavioralStats.isAnomaly ? '#fecaca' : '#bbf7d0'}`
+                }}>
+                  {behavioralStats.isAnomaly ? 'Anomaly Detected' : 'Normal'}
+                </span>
+              </div>
+
+              <div style={{ display: 'flex', alignItems: 'baseline', gap: 6, marginBottom: '10px' }}>
+                <span style={{ fontSize: '1.5rem', fontWeight: 900, fontFamily: 'var(--font-mono)', color: behavioralStats.isAnomaly ? '#b91c1c' : '#0f172a' }}>
+                  {behavioralStats.zScore >= 0 ? '+' : ''}{behavioralStats.zScore.toFixed(2)}σ
+                </span>
+                <span style={{ fontSize: '0.74rem', color: 'var(--text-muted)' }}>Behavioral Z-Score</span>
+              </div>
+
+              <div style={{ borderTop: '1px solid var(--border-light)', paddingTop: '10px', marginBottom: '12px' }}>
+                <div style={{ display: 'flex', justifyContent: 'space-between', fontSize: '0.75rem', marginBottom: '3px' }}>
+                  <span style={{ color: 'var(--text-muted)' }}>Customer baseline:</span>
+                  <strong style={{ fontFamily: 'var(--font-mono)' }}>₹{behavioralStats.mean.toLocaleString('en-IN')}</strong>
+                </div>
+                <div style={{ display: 'flex', justifyContent: 'space-between', fontSize: '0.75rem' }}>
+                  <span style={{ color: 'var(--text-muted)' }}>Current transfer:</span>
+                  <strong style={{ fontFamily: 'var(--font-mono)', color: behavioralStats.isAnomaly ? '#dc2626' : 'var(--text-primary)' }}>
+                    ₹{Number(paymentDraft.amount).toLocaleString('en-IN')}
+                  </strong>
+                </div>
+              </div>
+            </div>
+
+            <div style={{ 
+              fontSize: '0.68rem', 
+              color: behavioralStats.isAnomaly ? '#b91c1c' : 'var(--text-muted)', 
+              fontWeight: 600,
+              paddingTop: '8px', 
+              borderTop: '1px solid var(--border-light)' 
+            }}>
+              {behavioralStats.isAnomaly ? 'Exceeds 3.0σ statistical outlier threshold' : 'Within routine spending baseline'}
+            </div>
           </div>
+
+          {/* Card C: Payment Context */}
+          <div style={{
+            background: 'var(--bg-surface)',
+            border: `1px solid ${isNewBeneficiary ? '#fde68a' : 'var(--border-light)'}`,
+            borderRadius: 'var(--radius-lg)',
+            padding: '16px',
+            boxShadow: 'var(--shadow-sm)',
+            display: 'flex',
+            flexDirection: 'column',
+            justifyContent: 'space-between'
+          }}>
+            <div>
+              <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between', marginBottom: '10px' }}>
+                <div style={{ display: 'flex', alignItems: 'center', gap: 6 }}>
+                  <Clock size={16} color="#0284c7" />
+                  <span style={{ fontSize: '0.74rem', fontWeight: 700, color: 'var(--text-muted)', textTransform: 'uppercase', letterSpacing: '0.04em' }}>
+                    Payment Context
+                  </span>
+                </div>
+                <span style={{
+                  fontSize: '0.7rem',
+                  fontWeight: 800,
+                  color: isNewBeneficiary ? '#d97706' : '#059669',
+                  background: isNewBeneficiary ? '#fffbeb' : '#f0fdf4',
+                  padding: '2px 7px',
+                  borderRadius: '4px',
+                  border: `1px solid ${isNewBeneficiary ? '#fde68a' : '#bbf7d0'}`
+                }}>
+                  {isNewBeneficiary ? 'New Payee' : 'Known Contact'}
+                </span>
+              </div>
+
+              <div style={{ marginBottom: '10px' }}>
+                <span style={{ fontSize: '0.7rem', color: 'var(--text-muted)', display: 'block', marginBottom: '2px' }}>
+                  Stated Intent:
+                </span>
+                <div style={{ fontSize: '0.84rem', fontWeight: 700, color: 'var(--text-primary)', lineHeight: 1.35 }}>
+                  {paymentDraft.paymentIntent || 'Following instructions from a message'}
+                </div>
+              </div>
+
+              <div style={{ borderTop: '1px solid var(--border-light)', paddingTop: '10px', marginBottom: '12px' }}>
+                <div style={{ display: 'flex', justifyContent: 'space-between', fontSize: '0.75rem', marginBottom: '3px' }}>
+                  <span style={{ color: 'var(--text-muted)' }}>Beneficiary:</span>
+                  <strong style={{ color: isNewBeneficiary ? '#d97706' : '#059669' }}>
+                    {isNewBeneficiary ? 'First-time added (<5 min)' : 'Established contact'}
+                  </strong>
+                </div>
+                <div style={{ display: 'flex', justifyContent: 'space-between', fontSize: '0.75rem' }}>
+                  <span style={{ color: 'var(--text-muted)' }}>Recipient:</span>
+                  <span style={{ fontWeight: 600, color: 'var(--text-primary)' }}>{paymentDraft.recipientName}</span>
+                </div>
+              </div>
+            </div>
+
+            <div style={{ fontSize: '0.68rem', color: 'var(--text-muted)', paddingTop: '8px', borderTop: '1px solid var(--border-light)' }}>
+              Context &amp; Relationship Exposure
+            </div>
+          </div>
+
         </div>
       </div>
 
-      {/* CORE DIFFERENTIATOR COMPARISON BANNER */}
-      <div className="paradigm-comparison-card">
-        <div className="paradigm-column">
-          <span className="paradigm-label">Traditional Fraud Detection</span>
-          <div className="paradigm-question">"Is this transaction suspicious?"</div>
-          <p className="paradigm-outcome">
-            ❌ <strong>Fails to catch:</strong> The user entered valid credentials, correct OTP, and clicked Send from a trusted phone. The system allows the transfer.
-          </p>
-        </div>
-
-        <div className="paradigm-column" style={{ borderLeft: '1px solid rgba(255,255,255,0.15)', paddingLeft: '20px' }}>
-          <span className="paradigm-label" style={{ color: '#38bdf8' }}>SafeBank Guardian</span>
-          <div className="paradigm-question" style={{ color: '#38bdf8' }}>"Is the customer being manipulated?"</div>
-          <p className="paradigm-outcome" style={{ color: '#e0f2fe' }}>
-            ✅ <strong>Catches the scam:</strong> Combined urgency + threat + large amount to new payee flags social engineering before money is lost.
-          </p>
-        </div>
-      </div>
-
-      {/* BOTTOM ACTION BAR */}
-      <div className="card" style={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between', padding: '18px 24px' }}>
-        <button 
-          className="btn btn-outline" 
+      {/* 4. ACTION AREA */}
+      <div className="card" style={{ 
+        padding: '18px 24px', 
+        display: 'flex', 
+        alignItems: 'center', 
+        justifyContent: 'space-between', 
+        marginBottom: '16px',
+        borderRadius: 'var(--radius-lg)',
+        boxShadow: 'var(--shadow-md)'
+      }}>
+        <button
+          type="button"
+          className="btn btn-outline"
           onClick={() => setActiveScreen('context')}
+          style={{ fontSize: '0.86rem', padding: '10px 18px' }}
         >
-          Modify Message Context
+          ← Edit Context
         </button>
 
-        <div style={{ display: 'flex', alignItems: 'center', gap: 14 }}>
-          <span style={{ fontSize: '0.85rem', color: 'var(--text-secondary)' }}>
-            Recommended Action: <strong>{analysisResult.recommendation}</strong>
-          </span>
-          <button 
-            className="btn btn-danger"
-            onClick={() => setActiveScreen('protection')}
-            style={{ padding: '14px 28px', fontSize: '1rem' }}
-          >
-            <span>Proceed to Guardian Protection</span>
-            <ArrowRight size={18} />
-          </button>
+        <div style={{ display: 'flex', alignItems: 'center', gap: '16px' }}>
+          {/* Secondary "Continue Anyway" text action for High / Medium */}
+          {!isLow && (
+            <button
+              type="button"
+              className="btn-secondary-link"
+              onClick={() => {
+                setActiveScreen('protection');
+                if (setContinueDisclaimerOpen) setContinueDisclaimerOpen(true);
+              }}
+              style={{
+                background: 'none',
+                border: 'none',
+                color: 'var(--text-muted)',
+                fontSize: '0.84rem',
+                cursor: 'pointer',
+                textDecoration: 'underline',
+                padding: '6px 4px',
+                fontWeight: 500
+              }}
+            >
+              Continue Anyway
+            </button>
+          )}
+
+          {/* Primary Action Button */}
+          {isHigh ? (
+            <button
+              type="button"
+              className="btn btn-danger"
+              onClick={() => setActiveScreen('protection')}
+              style={{ padding: '12px 26px', fontSize: '0.98rem', fontWeight: 700 }}
+            >
+              <span>Pause &amp; Verify</span>
+              <ArrowRight size={18} />
+            </button>
+          ) : isMed ? (
+            <button
+              type="button"
+              className="btn btn-primary"
+              onClick={() => setActiveScreen('protection')}
+              style={{ padding: '12px 26px', fontSize: '0.98rem', fontWeight: 700, background: 'var(--warning-amber)' }}
+            >
+              <span>Verify Payment</span>
+              <ArrowRight size={18} />
+            </button>
+          ) : (
+            <button
+              type="button"
+              className="btn btn-primary"
+              onClick={() => setActiveScreen('protection')}
+              style={{ padding: '12px 26px', fontSize: '0.98rem', fontWeight: 700, background: 'var(--safe-emerald)' }}
+            >
+              <span>Continue Payment</span>
+              <ArrowRight size={18} />
+            </button>
+          )}
         </div>
       </div>
+
+      {/* 5. COLLAPSED TECHNICAL DETAILS SECTION */}
+      <details style={{
+        padding: '12px 16px',
+        background: 'var(--bg-subtle)',
+        borderRadius: 'var(--radius-md)',
+        border: '1px solid var(--border-light)',
+        fontSize: '0.78rem',
+        color: 'var(--text-secondary)'
+      }}>
+        <summary style={{ cursor: 'pointer', fontWeight: 700, color: 'var(--text-muted)', userSelect: 'none' }}>
+          Technical fusion &amp; audit details
+        </summary>
+        <div style={{ marginTop: '12px', paddingTop: '10px', borderTop: '1px solid var(--border-light)', lineHeight: 1.5 }}>
+          <div style={{ display: 'grid', gridTemplateColumns: 'repeat(4, 1fr)', gap: '10px', marginBottom: '10px' }}>
+            <div>
+              <span style={{ color: 'var(--text-muted)', display: 'block' }}>ML Model (40%):</span>
+              <strong>+{fusionResult.components?.ml?.contribution ?? 0} pts</strong> ({scamProbDisplay})
+            </div>
+            <div>
+              <span style={{ color: 'var(--text-muted)', display: 'block' }}>Z-Score (25%):</span>
+              <strong>+{fusionResult.components?.behavior?.contribution ?? 0} pts</strong> ({behavioralStats.zScore.toFixed(2)}σ)
+            </div>
+            <div>
+              <span style={{ color: 'var(--text-muted)', display: 'block' }}>Intent (20%):</span>
+              <strong>+{fusionResult.components?.intent?.contribution ?? 0} pts</strong>
+            </div>
+            <div>
+              <span style={{ color: 'var(--text-muted)', display: 'block' }}>Beneficiary (15%):</span>
+              <strong>+{fusionResult.components?.beneficiary?.contribution ?? 0} pts</strong>
+            </div>
+          </div>
+          <p style={{ margin: 0, fontSize: '0.72rem', color: 'var(--text-muted)' }}>
+            Engine: {fusionResult.engineName || 'Prototype Risk Fusion'} • Fused Score: {fusedScore}/100 • Synergy: +{fusionResult.synergyModifier || 0} pts. Experimental prototype combining real client-side ML text inference, statistical baseline Z-score, stated payment intent, and beneficiary status.
+          </p>
+        </div>
+      </details>
 
     </div>
   );
