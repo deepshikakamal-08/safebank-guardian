@@ -648,6 +648,7 @@ export function analyzeTransactionWithGuardian({ amount, beneficiaryStatus, mess
     behavioralAnomalyDetected: isBehavioralAnomaly,
     // Real ML fields
     mlResult,
+    inferenceLatencyMs: mlResult.inferenceLatencyMs,
     predictedLabel: mlResult.label,
     scamProbability: mlResult.scamProbability,
     legitimateProbability: mlResult.legitimateProbability,

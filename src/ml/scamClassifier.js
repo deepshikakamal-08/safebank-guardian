@@ -149,13 +149,17 @@ export function createClassifier(modelData = defaultModel) {
         topFeatures: [],
         explanationNote: 'These features contributed strongly to the risk assessment.',
         confidence: 'NONE',
+        inferenceLatencyMs: 0.0,
         metadata: {
           tokenCount: 0,
           matchedVocabularyTerms: 0,
-          logOdds: intercept
+          logOdds: intercept,
+          inferenceLatencyMs: 0.0
         }
       };
     }
+
+    const t0 = (typeof performance !== 'undefined' && performance.now) ? performance.now() : Date.now();
 
     const { features, norm, totalTokens } = vectorize(message);
     const { dotProduct, contributions } = computeContributions(features);
@@ -190,6 +194,9 @@ export function createClassifier(modelData = defaultModel) {
       frequency: item.frequency
     }));
 
+    const t1 = (typeof performance !== 'undefined' && performance.now) ? performance.now() : Date.now();
+    const inferenceLatencyMs = Number((t1 - t0).toFixed(4));
+
     return {
       text: message,
       label,
@@ -199,11 +206,13 @@ export function createClassifier(modelData = defaultModel) {
       topFeatures,
       // Explainability statement adhering to the design principle:
       explanationNote: 'These features contributed strongly to the risk assessment.',
+      inferenceLatencyMs,
       metadata: {
         tokenCount: totalTokens,
         matchedVocabularyTerms: features.length,
         logOdds: Number(z.toFixed(6)),
-        intercept: Number(intercept.toFixed(6))
+        intercept: Number(intercept.toFixed(6)),
+        inferenceLatencyMs
       }
     };
   }
