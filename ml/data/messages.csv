@@ -1,0 +1,501 @@
+text,label,category
+"Dear Customer, your SBI account 4829 has been temporarily locked due to irregular transactions. Visit http://sbi-unblock-portal.net immediately to restore access.",SCAM,bank_impersonation
+URGENT: HDFC Vigilance Cell detected unauthorized access on your account. Transfer funds to Safe Vault Account 9928102931 within 30 minutes to safeguard your balance.,SCAM,bank_impersonation
+Axis Bank Alert: Your netbanking credentials will expire tonight at 11:59 PM. Validate your account profile at http://axis-security-update.com or face indefinite suspension.,SCAM,bank_impersonation
+"Dear ICICI user, suspicious login detected from unknown IP in Moscow. Click http://icici-verify-user.co to verify your identity now or your debit card will be permanently blocked.",SCAM,bank_impersonation
+"RBI Compliance Dept: Your savings account has exceeded standard AML risk thresholds. Deposit ₹25,000 security escrow to reserve verification account to prevent freeze.",SCAM,bank_impersonation
+"Dear Customer, Punjab National Bank has blocked your internet banking due to unlinked security mandate. Update immediately at http://pnb-online-helpdesk.in",SCAM,bank_impersonation
+Kotak Mahindra Alert: Your primary savings account is under review by cyber cell. Confirm your mobile number and account details at http://kotak-portal-kyc.org to keep account active.,SCAM,bank_impersonation
+"Alert from Canara Bank Vigilance: Unrecognized debit request of ₹49,999 initiated. If not you, contact our security officer immediately at 9811223344 to reverse.",SCAM,bank_impersonation
+Bank of Baroda Notice: Account 8821 scheduled for deactivation in 2 hours due to pending regulatory clearance. Call nodal verification officer at 9876501234 now.,SCAM,bank_impersonation
+SafeBank Security Division: We noticed high-risk activity on your mobile app. Please authenticate your customer ID and MPIN at http://safebank-customer-desk.xyz immediately.,SCAM,bank_impersonation
+"Dear Union Bank user, incoming wire transfer of ₹1,45,000 is on hold due to missing security certificate. Clear tax verification at http://union-wire-clearance.in",SCAM,bank_impersonation
+State Bank Alert: Your YONO account access has been restricted. Complete verification at http://yono-support-update.info within 1 hour to avoid account termination.,SCAM,bank_impersonation
+HDFC Bank Warning: Multiple failed login attempts detected. Your net banking is locked. Reactivate your profile now via our emergency portal: http://hdfc-reactivate.site,SCAM,bank_impersonation
+"Dear customer, your Bank of India savings account is flagged for illegal inward remittances. Call our anti-fraud wing immediately at 9845012398 to avoid seizure.",SCAM,bank_impersonation
+Central Bank Alert: Your ATM card service has been suspended due to server upgrade compliance. Restore card instantly at http://cbi-card-reactivate.com,SCAM,bank_impersonation
+"IndusInd Bank Notice: Security audit requires all premium account holders to re-register their UPI VPA today. Failure will lead to ₹1,500 daily penalty. Link: http://indusind-upi.link",SCAM,bank_impersonation
+Federal Bank Alert: Immediate customer verification required under RBI circular 2024. Verify your identity at http://fednet-security.net before 6 PM today.,SCAM,bank_impersonation
+"IDFC FIRST Bank: Unrecognized transfer attempt of ₹75,000 detected. To block this transaction immediately, open http://idfc-antifraud-desk.in and confirm cancellation.",SCAM,bank_impersonation
+"Dear customer, Indian Bank notification: Your debit card is disabled for domestic transactions. Renew card security parameters at http://indianbank-cards.online right away.",SCAM,bank_impersonation
+Yes Bank Security Alert: We detected dual SIM swap on your registered number. Verify account ownership at http://yesbank-sim-protect.com or account will be frozen.,SCAM,bank_impersonation
+RBL Bank Customer Notice: Your account will be frozen by midnight due to pending compliance audit. Submit online verification at http://rbl-online-audit.co immediately.,SCAM,bank_impersonation
+"Dear SBI Account Holder, you have an unverified inward credit of ₹68,500 waiting. Authorize receipt by authenticating at http://sbi-inward-remit.top",SCAM,bank_impersonation
+"Standard Chartered Alert: Regulatory hold placed on account ending 9102. Transfer ₹10,000 refundable compliance fee to clear verification escrow account.",SCAM,bank_impersonation
+UCO Bank Warning: Your net banking profile is scheduled for permanent cancellation. Prevent cancellation by submitting user details at http://uco-reactivate.info,SCAM,bank_impersonation
+Attention: Reserve Bank of India has marked your account 3910 for suspicious transaction investigation. Call verification desk at 9988112233 immediately.,SCAM,bank_impersonation
+"Dear customer, your SBI KYC has expired today. Your account will be blocked within 24 hours. Update your Aadhaar and PAN immediately at http://sbi-kyc-update.com",SCAM,kyc
+URGENT: Paytm Wallet KYC verification failed. Your wallet balance will be forfeited tonight. Click http://paytm-kyc-desk.in to complete instant video KYC.,SCAM,kyc
+Airtel Payments Bank Alert: Your FASTag and Wallet KYC is incomplete. Services will terminate today. Submit documents at http://airtel-fastag-kyc.org,SCAM,kyc
+HDFC Bank Notice: Your PAN card is not linked to your savings account. Pay ₹50 penalty and link PAN at http://hdfc-pan-link.net to keep account running.,SCAM,kyc
+"Dear Jio user, your e-KYC documents are invalid. Your outgoing calls and UPI services will be disconnected within 2 hours. Call KYC executive at 9823019283.",SCAM,kyc
+Axis Bank Alert: Mandatory KYC re-verification is pending for A/C 9941. Upload copy of Aadhaar and bank passbook at http://axis-kyc-online.info to avoid freeze.,SCAM,kyc
+"Dear customer, PNB KYC department notice: Account will be suspended permanently today. Download PNB Quick KYC App from http://pnb-quick-kyc.apk to verify.",SCAM,kyc
+Bank of Baroda Alert: Your biometric KYC is outdated per latest RBI guidelines. Update details at http://bob-biometric-kyc.co within 3 hours.,SCAM,kyc
+ICICI Bank: Your saving account is temporarily restricted because KYC was not updated. Click http://icici-quick-kyc.net to reactivate immediately.,SCAM,kyc
+Kotak 811 Notice: Immediate action required! Your digital savings account will be closed due to incomplete full-KYC. Complete now: http://kotak811-kyc.link,SCAM,kyc
+"Dear Customer, your BSNL SIM card KYC has expired. Your incoming SMS and banking OTPs will stop in 1 hour. Dial 9871234560 for instant verification.",SCAM,kyc
+Canara Bank Alert: Your ATM card has been blocked due to unlinked PAN card. Visit http://canara-pan-update.in to restore ATM card privileges.,SCAM,kyc
+"Dear Google Pay user, your UPI ID will be deactivated today due to non-compliance with NPCI KYC standards. Update KYC at http://gpay-npci-verify.org",SCAM,kyc
+"Union Bank KYC Alert: Re-KYC deadline ends in 2 hours. Failure to update will freeze existing balance of ₹84,200. Link: http://union-rekyc.site",SCAM,kyc
+"Dear customer, your PhonePe wallet is suspended due to pending document verification. Verify PAN number at http://phonepe-wallet-kyc.co to unlock wallet.",SCAM,kyc
+"IndusInd Bank Notice: Your Aadhaar authentication failed during annual audit. Avoid ₹2,000 non-compliance charge by updating at http://indusind-kyc-desk.top",SCAM,kyc
+"Alert: Vi (Vodafone Idea) customer, your SIM will be deactivated by 8 PM due to pending paperless KYC. Contact verification team at 9899123456 immediately.",SCAM,kyc
+"Dear customer, Central Bank of India informs: Your account is placed on debit freeze due to incomplete KYC. Upload documents at http://cbi-online-kyc.info",SCAM,kyc
+SBI Card Alert: Your SimplyCLICK Credit Card is blocked for online transactions due to overdue KYC. Submit income and PAN at http://sbicard-kyc.net now.,SCAM,kyc
+Indian Bank Notice: Immediate attention! Your KYC compliance status is marked INACTIVE. Prevent account freeze by clicking http://indianbank-rekyc.in,SCAM,kyc
+"Dear user, your FASTag wallet has been blacklisted at all national toll plazas due to KYC failure. Recharge and verify at http://fastag-kyc-portal.net",SCAM,kyc
+RBL Bank Alert: Complete your periodic KYC re-submission today to keep UPI and ATM services active. Click http://rbl-kyc-verify.co,SCAM,kyc
+IDFC FIRST Bank Notice: Submit PAN verification immediately at http://idfc-kyc-update.org to restore debit card and international remittance permissions.,SCAM,kyc
+Bank Alert: Your savings account has been frozen under Section 133A due to missing KYC documents. Contact compliance officer at 9811445566 immediately.,SCAM,kyc
+"Dear Customer, your Mobikwik wallet balance of ₹4,500 will lapse tonight due to incomplete KYC. Complete KYC at http://mobikwik-kyc.link to withdraw.",SCAM,kyc
+"Dear customer, your excess electricity bill payment of ₹3,450 has been approved for refund. Claim your refund instantly to your UPI account: http://bijli-bill-refund.in",SCAM,refund
+"Income Tax Department Notice: Your tax refund of ₹24,890 for FY 2023-24 has been calculated. Enter your bank details at http://incometax-refund-gov.co to claim.",SCAM,refund
+Swiggy Refund Desk: We apologize for order cancellation. A refund of ₹850 is waiting. Approve the UPI collect request of ₹850 on your PhonePe app to receive money.,SCAM,refund
+"Indian Oil LPG Subsidy: You have an unclaimed gas cylinder subsidy refund of ₹1,850. Click http://lpg-subsidy-claim.org and enter UPI PIN to credit your account.",SCAM,refund
+"Flipkart Support: Your returned order refund of ₹4,999 failed due to invalid IFSC. Claim refund directly into bank account via http://flipkart-refund-portal.net",SCAM,refund
+"IRCTC Refund Notice: Train ticket cancellation refund of ₹2,340 is pending verification. Approve the pending payment request in Google Pay to credit your savings account.",SCAM,refund
+"Amazon Pay Refund: Your accidental recharge of ₹1,499 has been reversed. Tap the link http://amzn-refund-claim.co and enter your UPI PIN to accept credit.",SCAM,refund
+"Dear user, duplicate debit of ₹12,500 detected on your SBI card. To receive instant refund into account, confirm verification OTP sent to your phone.",SCAM,refund
+"Air India Refund Department: Your cancelled flight ticket refund of ₹8,900 is ready for transfer. Authorize the UPI collect link sent to your registered VPA.",SCAM,refund
+"Electricity Board Alert: You overpaid your power bill by ₹1,280 last month. To credit back amount to your bank, install Electricity Refund App from http://power-refund.apk",SCAM,refund
+"MakeMyTrip Customer Care: Hotel refund of ₹6,200 is awaiting customer acceptance. Click http://mmt-instant-refund.site and submit your card CVV to receive payment.",SCAM,refund
+Zomato Refund Desk: Compensation voucher of ₹450 converted to cash refund. Click http://zomato-cash-refund.in to transfer balance directly to your bank account.,SCAM,refund
+"Dear customer, your pending FASTag security deposit refund of ₹1,500 is approved. Claim immediately at http://nhai-fastag-refund.org or amount will expire.",SCAM,refund
+"BSNL Billing: Overcharge refund of ₹940 pending. Open Google Pay, find request from BSNL-Refund-Desk, and enter your UPI PIN to accept incoming deposit.",SCAM,refund
+"Airtel Broadband: We are refunding ₹2,100 security deposit for closed connection. Click http://airtel-refund-claim.com to provide bank account for instant transfer.",SCAM,refund
+"Dear user, insurance premium excess deduction of ₹15,400 has been sanctioned for refund. Call claims officer at 9877112233 to initiate direct bank deposit.",SCAM,refund
+Uber Support: Overcharged ride fare refund of ₹320 is pending. Please approve the incoming UPI payment request in your payment app to collect.,SCAM,refund
+"Credit Card Overpayment: You have an overpayment credit of ₹18,750 on your credit card. Transfer to your savings account by clicking http://card-refund-settle.co",SCAM,refund
+"Jio Fiber: Installation cancellation refund of ₹2,500 is ready. Enter your UPI ID and PIN at http://jio-refund-desk.in to credit your bank account instantly.",SCAM,refund
+"Dear customer, refund of ₹5,600 towards failed ATM cash withdrawal is processed. Authenticate your debit card number and ATM PIN at http://atm-refund-help.in",SCAM,refund
+"Provident Fund (EPFO): Unclaimed PF settlement balance of ₹42,100 is approved for release. Verify banking details at http://epfo-claim-refund.co within 48 hours.",SCAM,refund
+"BookMyShow Refund: Event cancellation refund of ₹3,100 waiting for bank routing. Provide your net banking username and password at http://bms-refund.net",SCAM,refund
+"Tata Neu Refund Desk: Cashback voucher worth ₹1,200 could not be credited. Complete account authentication at http://tata-neu-refund.org to claim.",SCAM,refund
+Delhi Metro Rail Corporation: Smart card excess deduction refund of ₹600 approved. Click http://dmrc-refund-card.top to transfer money to Google Pay.,SCAM,refund
+"Dear Shopper, Myntra refund of ₹2,799 has been reversed to virtual escrow. Release escrow to your UPI account by verifying credentials at http://myntra-refund.cc",SCAM,refund
+"Amazon Customer Service: Your order for Apple iPhone 15 Pro (₹1,29,900) has been placed. If you did not place this order, call fraud helpline 9822001122 immediately.",SCAM,support_impersonation
+Flipkart Delivery Executive: Your parcel cannot be delivered due to wrong delivery address pin code. Pay ₹5 redelivery fee at http://flipkart-address-update.in or parcel returns.,SCAM,support_impersonation
+Airtel Customer Care: Your postpaid SIM card is scheduled for disconnection in 30 minutes due to tower upgrade. Call support officer at 9844001122 to avoid blackout.,SCAM,support_impersonation
+WhatsApp Support Desk: Your WhatsApp account will be deleted tonight due to report of suspicious activity. Verify ownership at http://whatsapp-support-verify.com,SCAM,support_impersonation
+Netflix Billing Team: Your subscription has been suspended because payment method was declined. Update card details at http://netflix-billing-update.in within 1 hour.,SCAM,support_impersonation
+BlueDart Courier Alert: Delivery of shipment 92837192 is held at regional customs warehouse. Pay clearance customs fee of ₹48 at http://bluedart-tracking-fee.com,SCAM,support_impersonation
+Microsoft Windows Support: Critical Trojan alert detected on your personal laptop. Call certified Windows engineer at 1800-201-9988 immediately to protect your bank accounts.,SCAM,support_impersonation
+"DHL Express: Your international courier from UK contains restricted items. Pay inspection fee of ₹2,400 via UPI immediately to prevent confiscation and police inquiry.",SCAM,support_impersonation
+Swiggy Delivery Partner: Customer address incomplete. Please call support team at 9811002233 and share one-time PIN to allow delivery boy to access society gate.,SCAM,support_impersonation
+Google Security Operations: Unauthorized login attempt detected from Russia on your Google Account. Call Google technical support immediately at 9876540011.,SCAM,support_impersonation
+Apple Support India: Your iCloud account is locked due to multiple unauthorized access attempts. Verify your Apple ID at http://apple-icloud-secure.net right now.,SCAM,support_impersonation
+India Post Courier: Your speed post consignment could not be delivered due to missing house number. Pay ₹10 address update charge at http://indiapost-update.top,SCAM,support_impersonation
+Uber India Helpline: Your driver reported dispute regarding unpaid toll charge of ₹380. Clear toll immediately via http://uber-toll-pay.in to unblock your account.,SCAM,support_impersonation
+"Zomato Support Alert: Suspicious dining voucher redemption of ₹4,500 detected on your profile. Contact customer security desk at 9866001122 to cancel deduction.",SCAM,support_impersonation
+SBI Card Customer Service: Your credit card annual fee waiver request is ready. Call customer representative at 9833004455 to claim lifetime free card upgrade.,SCAM,support_impersonation
+Delhivery Courier Support: Consignment 7718290 on hold. Update delivery time slot and pay nominal ₹15 verification fee at http://delhivery-slot-book.site,SCAM,support_impersonation
+"Hotstar Disney Support: Your annual VIP membership will auto-renew for ₹4,999 tonight. To cancel recurring debit, call cancellation desk at 9899003311 immediately.",SCAM,support_impersonation
+HP Printer Support: Your wireless printer driver license expired. Call printer helpline 9871002244 to avoid remote network lockdown and data compromise.,SCAM,support_impersonation
+Cred Customer Support: Suspicious login from Samsung Galaxy device in Dubai. Verify your registered mobile number at http://cred-security-desk.co immediately.,SCAM,support_impersonation
+"MakeMyTrip Flight Support: Indigo flight cancellation insurance of ₹1,800 is due. Contact ticketing officer at 9822334455 to avoid seat cancellation.",SCAM,support_impersonation
+Urban Company Desk: Service professional cannot locate your premises. Confirm society access gate pass by clicking http://urban-gatepass-verify.in,SCAM,support_impersonation
+BookMyShow Support: Duplicate ticket booking detected on your phone number. Call ticketing support at 9811882233 within 15 minutes to receive instant refund.,SCAM,support_impersonation
+Jio Customer Service: Your 5G unlimited trial plan is terminating today. Call 9845009988 to upgrade to complimentary lifetime 5G without bill increase.,SCAM,support_impersonation
+Shadowfax Courier: Delivery boy waiting outside society. Confirm OTP code sent to your phone to release fragile parcel shipment.,SCAM,support_impersonation
+"SonyLiv Support: Unauthorized login from unknown Chrome browser. If not you, contact our security desk immediately at 9888001122 to secure subscription.",SCAM,support_impersonation
+"SafeBank Alert: A debit request of ₹48,000 is being processed on your account. To cancel this transaction immediately, provide OTP 839201 to our security agent.",SCAM,otp_pin
+"Dear customer, do not share this OTP with anyone except the customer care executive on call to reverse the fraudulent transaction of ₹22,500.",SCAM,otp_pin
+"Enter your 6-digit UPI PIN on the incoming payment prompt to receive the winning cashback amount of ₹15,000 directly into your bank account.",SCAM,otp_pin
+"Bank Verification: Share the 6-digit authorization code received via SMS to complete cancellation of your auto-debit request of ₹35,000.",SCAM,otp_pin
+"To accept ₹4,999 refund from PhonePe into your State Bank account, enter your UPI PIN on the screen when prompted by our executive.",SCAM,otp_pin
+"Alert: Login attempted from unknown device. To protect your netbanking account, tell the 6-digit security code to the customer verification officer now.",SCAM,otp_pin
+"Dear user, your credit card reward points worth ₹8,200 are ready to redeem. Provide your 4-digit ATM PIN to our executive to credit cash to your savings account.",SCAM,otp_pin
+"Axis Bank Fraud Alert: An unauthorized transaction of ₹65,000 is pending approval. Reply with your OTP 492018 to decline and block card immediately.",SCAM,otp_pin
+Please read out the 6-digit confirmation code sent to your mobile phone to verify your identity and stop the ongoing international transfer of $500.,SCAM,otp_pin
+"Google Pay Reward: You won ₹7,500 in Diwali lucky draw. Enter your Google Pay secret PIN to deposit money into your account.",SCAM,otp_pin
+"Bank Security Notice: We are cancelling an unapproved Amazon transaction of ₹38,900. Dictate the OTP received from SafeBank to our fraud investigator.",SCAM,otp_pin
+"Dear Customer, share the 6-digit SMS verification code with the executive on line to prevent debit of ₹19,999 on your Kotak credit card.",SCAM,otp_pin
+"To reverse the accidental charge of ₹12,000, please input your UPI PIN on the secure payment link sent to your WhatsApp number.",SCAM,otp_pin
+"HDFC Bank Alert: NetBanking password reset requested from IP 104.28.19.2. To reject this request, tell your OTP to our helpline officer immediately.",SCAM,otp_pin
+"Enter your UPI PIN to approve receipt of ₹25,000 insurance claim credit into your bank account.",SCAM,otp_pin
+"Alert: Your debit card is being linked to a new Samsung Pay wallet. If not initiated by you, share OTP with the support representative to block wallet linking.",SCAM,otp_pin
+"Dear customer, tell the 6-digit verification code to our representative to unlock your frozen ATM card privileges without visiting branch.",SCAM,otp_pin
+"To cancel the pending mandate of ₹8,500 on your Canara Bank account, provide the 6-digit OTP received from VM-CANBNK to the executive.",SCAM,otp_pin
+"PhonePe Cashback: Receive ₹3,200 cash reward. Open PhonePe, tap Pay, enter your UPI PIN to transfer cashback into your account.",SCAM,otp_pin
+"Immediate Action: Share the secret code sent to your SMS to block unauthorized wire transfer of ₹95,000 initiated from your account.",SCAM,otp_pin
+"Dear user, to accept payment of ₹18,000 for your OLX item, enter your UPI MPIN on the QR code scanner prompt.",SCAM,otp_pin
+"ICICI Bank: One-Time Password for transaction of INR 44,900 is 773192. Share with bank officer only if you wish to reverse this transaction.",SCAM,otp_pin
+"To claim your income tax assessment refund of ₹14,200, input your 4-digit ATM PIN on our automated telephone system now.",SCAM,otp_pin
+"Confirm the 6-digit code received on your mobile to allow customer care to reverse the duplicate utility bill deduction of ₹6,700.",SCAM,otp_pin
+Urgent security verification: Provide the 6-digit passcode to our fraud prevention specialist to freeze unauthorized card transactions.,SCAM,otp_pin
+"Hi Aarav, it's Rahul. I got into a severe bike accident near Pune highway and am at City Hospital. Need ₹25,000 for surgery deposit immediately, please UPI now!",SCAM,urgent_transfer
+"Bhai, my phone battery is dying at 2%. I am stuck at Delhi airport police checkpoint and lost my wallet. Please transfer ₹15,000 to this officer UPI ID right now!",SCAM,urgent_transfer
+"Emergency! This is Dr. Mehta from Apollo Clinic. Your friend Vikram is admitted in ICU. Please transfer ₹40,000 to clinic UPI desk to begin emergency treatment.",SCAM,urgent_transfer
+"Beta, my phone fell down and broke, I am messaging from stranger phone. Please transfer ₹20,000 urgently to chemist UPI: chemist99@okaxis for urgent medicines.",SCAM,urgent_transfer
+"Hi sir, this is your junior Amit. My mother got sudden cardiac arrest and hospital requires ₹50,000 down payment within 15 minutes. Please transfer, will return tomorrow!",SCAM,urgent_transfer
+"Hey bro, custom duty officers held my luggage at Mumbai customs. They are demanding ₹35,000 clearance penalty right now or they will register FIR. Please help me out!",SCAM,urgent_transfer
+"Aarav, it's Priya. My car broke down on lonely expressway and towing truck driver is demanding ₹8,500 cash via UPI before he helps. Please transfer immediately!",SCAM,urgent_transfer
+"Urgent message from uncle: Landlord is throwing cousin Neha out of hostel right now. Please transfer ₹18,000 hostel rent to this UPI urgently, I have no signal here.",SCAM,urgent_transfer
+"Hi boss, this is Sandeep from accounts. Supplier is threatening to stop plant machinery unless we clear ₹45,000 invoice right now. Please send to supplier UPI.",SCAM,urgent_transfer
+"Hello friend, I was travelling to Goa and got detained at toll plaza for expired vehicle permit. Need ₹12,000 fine paid immediately to release car. Please send!",SCAM,urgent_transfer
+"Urgent request: My sister delivered premature baby and hospital blood bank requires ₹30,000 deposit right now. Please UPI transfer to hospital account urgently.",SCAM,urgent_transfer
+"Hey buddy, lost my credit card while travelling abroad and hotel is threatening to call police over room bill. Please send ₹28,000 to hotel UPI urgently!",SCAM,urgent_transfer
+"Bhai please help, police caught me for wrong-way driving in urgent rush. Cop agreed to let me go if I pay ₹5,000 spot fine via UPI. Transfer fast please!",SCAM,urgent_transfer
+"Hi Aarav, this is your college friend Rohit. House caught small fire, need ₹16,000 urgently to pay electrician and emergency repair team. Please do not call, just UPI.",SCAM,urgent_transfer
+"Urgent: Flight boarding gates closing in 10 minutes and airline luggage excess fee is ₹7,200. My debit card declined. Please transfer to counter UPI quickly!",SCAM,urgent_transfer
+"Bhai please send ₹22,000 right now. I took an urgent private loan from dangerous people and they are standing outside my house threatening violence. Please save me.",SCAM,urgent_transfer
+"Uncle please transfer ₹35,000 to college account right now. Today is last hour for semester exam fees submission or my whole academic year will be cancelled!",SCAM,urgent_transfer
+"Hello sir, this is your driver Ramesh. My child fell from school stairs and is bleeding. Doctor asking ₹14,000 for stitches and scan. Please send urgently!",SCAM,urgent_transfer
+"Urgent family emergency: Relative passed away in village, need ₹25,000 for ambulance and funeral transport right away. Please transfer to this UPI ID.",SCAM,urgent_transfer
+"Bro, my laptop motherboard died during client presentation and shop owner requires ₹18,500 deposit for express 1-hour motherboard replacement. Please send!",SCAM,urgent_transfer
+"Aarav, please send ₹10,000 to chemist UPI right away. Grandfather asthma medication finished and pharmacy closing in 10 minutes. Please hurry!",SCAM,urgent_transfer
+"Emergency: In Goa with friends, police seized rental scooter for missing documents. Need ₹9,000 settlement fine immediately. Please send to shop UPI.",SCAM,urgent_transfer
+"Hi dear, my online banking login got blocked and I need to pay ₹32,000 urgent court fee before 4 PM today. Please transfer for me, returning cash tonight.",SCAM,urgent_transfer
+"Brother, stuck in flood water near railway station and rescue boat operator asking ₹6,000 payment. Please send immediately to rescue UPI.",SCAM,urgent_transfer
+"Urgent: Uncle suffered fracture at railway station. Station dispensary requires ₹11,000 transfer before shifting to main hospital. Please UPI now!",SCAM,urgent_transfer
+"Work from Home Opportunity: Earn ₹3,000 to ₹8,000 daily by simply liking YouTube videos and rating Google maps. Deposit ₹1,000 security fee to start earning today!",SCAM,investment
+"Special IPO Pre-Allotment Quota: Guaranteed allotment for upcoming tech IPO with 300% listing gains. Deposit ₹50,000 in VIP institutional account to book quota.",SCAM,investment
+"Exclusive Crypto Arbitrage Club: Earn 25% daily compounded profit. Deposit USDT or INR 20,000 into automated bot account. Withdrawal guaranteed in 24 hours.",SCAM,investment
+"Part-time Telegram Task Job: Earn ₹500 per hotel review. High daily payouts! Join VIP group at http://t.me/vip-daily-earning-hub and transfer ₹2,500 registration fee.",SCAM,investment
+"Forex Trading Secret: Daily 100% accuracy buy/sell signals. Minimum investment ₹10,000 yields ₹35,000 weekly. Contact trading guru on WhatsApp at 9811998877.",SCAM,investment
+"Dear investor, your initial investment of ₹5,000 has grown to ₹1,48,200 in our global stock pool. Pay 15% capital gains tax of ₹22,230 to release your full profit.",SCAM,investment
+"Amazon Merchant Partnership: Earn commission by completing product review orders. Invest ₹5,000 to unlock tier-1 earning portfolio with guaranteed daily returns.",SCAM,investment
+"Gold Trading VIP Group: Earn ₹15,000 per hour following certified SEBI analyst signals. Join exclusive Telegram group and fund your trading wallet now.",SCAM,investment
+"Work 30 minutes daily on your phone and earn ₹50,000 monthly. No experience needed. Transfer ₹999 onboarding license fee at http://work-home-india.biz",SCAM,investment
+"Special Bitcoin Multiplier: Send 0.01 BTC or ₹25,000 to our smart contract pool and receive double amount back in 48 hours. Limited slots remaining!",SCAM,investment
+"Dear Member, your crypto wallet holds ₹2,80,000 profit. To activate withdrawal pipeline, transfer ₹14,000 anti-money laundering verification deposit.",SCAM,investment
+"Earn daily rental income of ₹4,500 by investing in virtual solar power plant shares. Minimum entry ₹15,000. Sign up at http://solar-green-invest.org",SCAM,investment
+"Instant Doubling Scheme: Approved by international financial board. Invest ₹10,000 today and receive ₹20,000 tomorrow directly into your bank account.",SCAM,investment
+"Stock Market Insider Tips: Get 100% multibagger penny stock tips before market open. Pay ₹12,000 quarterly membership fee to our expert WhatsApp desk.",SCAM,investment
+"YouTube Video Like Task: You completed 3 tasks and earned ₹600. To unlock high-value ₹10,000 merchant task, deposit ₹3,000 into merchant liquidity wallet.",SCAM,investment
+"Exclusive Pre-Market Equity Fund: Get shares at 50% discount before public listing. Transfer ₹40,000 to angel syndicate account to reserve allocation.",SCAM,investment
+"Earn ₹2,000 per hour from home typing captcha codes. Pay ₹1,499 software activation fee to commence immediate work and receive weekly bank transfers.",SCAM,investment
+"Dear Trader, congratulations on winning ₹3,50,000 on algorithmic trading app. Pay ₹28,000 processing charges to transfer profits to your savings bank account.",SCAM,investment
+"Passive Income Club: Invest in foreign currency hedge pool with zero loss guarantee. Starting at ₹20,000 with daily interest credits. Inquire on WhatsApp.",SCAM,investment
+Earn 10% daily return by staking USDT in decentralized peer-to-peer liquidity loan pools. Transfer investment funds to smart wallet address to start.,SCAM,investment
+"Work from home watching movie trailers and earn ₹1,200 per video. Deposit ₹2,000 refundable security amount to activate your verified viewer account.",SCAM,investment
+"High Yield Investment Program: 200% return in 7 days guaranteed by sovereign bond backing. Minimum deposit ₹25,000. Contact finance advisor at 9877223344.",SCAM,investment
+"Dear investor, unlock your pending ₹95,000 trading bonus by depositing matching balance of ₹20,000 into trading escrow account before 5 PM today.",SCAM,investment
+"Mutual Fund Arbitrage Loophole: Legal risk-free arbitrage system generating 40% monthly returns. Enroll in mentorship program for one-time fee of ₹8,000.",SCAM,investment
+"Earn lucrative commission rating luxury mobile apps on Google Play Store. Transfer ₹4,999 security bond to get assigned 10 premium daily review tasks.",SCAM,investment
+Bank Technical Support: Your mobile banking app is infected with dangerous malware. Download AnyDesk from Play Store and share the 9-digit code to let us disinfect your phone.,SCAM,remote_access
+"Dear customer, your UPI transactions are failing due to outdated device security certificate. Install QuickSupport app and grant remote screen access to our technician.",SCAM,remote_access
+Alert from Telecom Security: Your phone is broadcasting unauthorized SMS. Install RustDesk application immediately so our engineer can patch your SIM network.,SCAM,remote_access
+"Electricity Dept Warning: To resolve pending smart meter sync error, download TeamViewer on your phone and connect with our field technician at 9811220099.",SCAM,remote_access
+SafeBank Fraud Desk: We detected unauthorized screen mirroring on your device. Install AirDroid from http://safebank-antivirus.apk to let our cyber cell inspect your phone.,SCAM,remote_access
+"Dear customer, your SBI YONO login requires manual device binding. Download ScreenShare support tool and share meeting code with customer care agent.",SCAM,remote_access
+"Google Pay Technical Support: To fix UPI payment timeout error, install AnyDesk app and keep Google Pay open while our technical representative guides you.",SCAM,remote_access
+Axis Bank Alert: Your netbanking session is compromised. Install our certified remote diagnostics tool from http://axis-remote-assist.top and follow voice instructions.,SCAM,remote_access
+"To refund your failed recharge of ₹650, download TeamViewer QuickSupport app on your mobile and provide the temporary partner ID to our support staff.",SCAM,remote_access
+BSNL Technical Helpdesk: Your broadband speed is capped due to router misconfiguration. Install AnyDesk to let our broadband engineer optimize network settings.,SCAM,remote_access
+Paytm Security Team: Your merchant wallet is locked. Download Remote Support app from link http://paytm-security-assist.in to enable biometric unlock with our officer.,SCAM,remote_access
+"Dear user, your phone contains an illegal remote banking trojan. Download our bank-approved cleaner app and give full accessibility permissions immediately.",SCAM,remote_access
+"ICICI Bank Support: To complete high-value payment clearance of ₹1,20,000, connect your device to our bank server via TeamViewer QuickSupport now.",SCAM,remote_access
+"Airtel 5G Setup: To activate free 5G network on your smartphone, install AnyDesk and permit our technician to update internal APN system configuration.",SCAM,remote_access
+PhonePe Support Desk: Your transaction is stuck on pending status. Install RustDesk on your phone and accept screen share request from our support agent.,SCAM,remote_access
+"Dear customer, your credit card loyalty portal has a sync failure. Install ScreenAssist tool and open your banking app so our executive can verify balance.",SCAM,remote_access
+"HDFC Security Helpline: To prevent unauthorized withdrawal of ₹50,000, install remote security tool from http://hdfc-shield-tool.apk and accept all permissions.",SCAM,remote_access
+"FASTag Toll Desk: To fix blacklisted tag, install AnyDesk app on your phone, open your banking app and show your QR code to our technician.",SCAM,remote_access
+"Dear user, your device IP is blacklisted by National Cyber Crime portal. Install Remote Assist tool immediately to allow cyber officer to clear your device log.",SCAM,remote_access
+"Kotak Support: To process ATM refund of ₹3,000, install TeamViewer QuickSupport and keep your debit card ready in front of camera for verification.",SCAM,remote_access
+Apple Support Desk: Malicious spyware installed on your iPhone. Connect your phone to our remote desktop diagnostic session using code 482-910-231.,SCAM,remote_access
+"Dear Customer, your mobile banking token is corrupted. Install ScreenShare application and read out the 9-digit session code to our bank helpline executive.",SCAM,remote_access
+"Zomato Merchant Support: To fix payment settlement gateway on your phone, download AnyDesk and allow our engineer to review your POS software.",SCAM,remote_access
+"Income Tax Portal Helpdesk: For quick filing of pending audit rectification, permit our tax assistant to access your screen via TeamViewer app.",SCAM,remote_access
+"Dear customer, your WhatsApp has been linked to an unknown PC in Nigeria. Download RustDesk now so our technical executive can delink rogue devices.",SCAM,remote_access
+"Congratulations! You won a cash prize of ₹1,50,000 in the Google Pay Festive Dhamaka lucky draw! Click http://gpay-festive-prize.in to claim your money into your bank.",SCAM,rewards_cashback
+"Dear customer, your SBI credit card reward points worth ₹9,450 will expire at 11:59 PM tonight. Redeem points for cash directly into savings account at http://sbipoints-cash.co",SCAM,rewards_cashback
+"PhonePe Special Reward: You have unlocked a scratch card worth ₹4,850 for regular UPI usage! Tap http://phonepe-scratch-win.top and claim your cash instantly.",SCAM,rewards_cashback
+"HDFC Bank Festive Offer: You are selected for pre-approved cashback of ₹12,000 on your debit card. Authenticate card details at http://hdfc-cashback-claim.net to receive credit.",SCAM,rewards_cashback
+"CRED Scratch Card: You won 10 grams 24K Gold Coin voucher or ₹62,000 cash equivalent. Claim reward by paying ₹499 shipping insurance fee at http://cred-gold-reward.in",SCAM,rewards_cashback
+"Dear Shopper, you have been selected as the 1st prize winner of ₹2,50,000 in Diwali Shopping Carnival! Call prize distribution officer at 9811440022 to claim.",SCAM,rewards_cashback
+"Airtel Thanks Reward: Claim your complimentary ₹2,500 lifestyle voucher or bank transfer today. Enter bank account details at http://airtel-thanks-bonus.org",SCAM,rewards_cashback
+"Congratulations Aarav Sharma! Your mobile number 9876543210 won ₹5,00,000 in Kaun Banega Crorepati WhatsApp Lucky Draw! Contact manager Rana Pratap at 9822339900.",SCAM,rewards_cashback
+"Paytm Cashback Alert: Unclaimed wallet cashback of ₹1,890 waiting for transfer. Tap http://paytm-unclaimed-cash.site to transfer funds directly to UPI account.",SCAM,rewards_cashback
+"Amazon Pay Festive Gift: You have an unredeemed gift balance of ₹8,000. Link your savings account at http://amazon-gift-transfer.co before midnight to withdraw.",SCAM,rewards_cashback
+"Dear Customer, your Indian Oil reward points worth ₹3,600 are expiring today. Redeem for instant fuel cashback into your bank account at http://iocl-points-redeem.in",SCAM,rewards_cashback
+"Flipkart SuperCoins Alert: Convert your 2,000 SuperCoins into ₹10,000 hard cash! Limited time window ends today. Redeem at http://flipkart-coins-cash.net",SCAM,rewards_cashback
+"Exclusive ICICI Bank Offer: Claim your annual festive bonus credit of ₹7,500. Log in to http://icici-bonus-claim.info using netbanking ID and password to credit account.",SCAM,rewards_cashback
+"TATA Neu Surprise Reward: Congratulations! You won a brand new Tata Safari car or ₹15,00,000 cash prize! Register your claim at http://tata-safari-winner.org",SCAM,rewards_cashback
+"Dear Customer, you received an exclusive cashback voucher of ₹3,750 from NPCI UPI Rewards. Tap http://npci-upi-reward.top to claim instantly into your linked account.",SCAM,rewards_cashback
+"Congratulations! You won ₹1,00,000 in Jio 10th Anniversary Lucky Draw! Call prize verification officer at 9844110022 and pay nominal processing fee of ₹1,500 to release.",SCAM,rewards_cashback
+"Axis Bank EDGE Rewards: Your 18,500 EDGE points worth ₹9,250 expire today. Convert points into statement cash credit at http://axis-edge-redeem.co now.",SCAM,rewards_cashback
+"Zomato Gold Loyalty Prize: You are customer of the month! Claim ₹5,000 dining credit directly transferred to your bank account at http://zomato-loyalty-cash.in",SCAM,rewards_cashback
+"Congratulations! Your name was picked in international remittance lottery for ₹10,00,000. Transfer ₹10,000 clearance tax to RBI escrow to receive full amount.",SCAM,rewards_cashback
+"Dear user, claim your ₹2,200 festive cashback on UPI transfers. Enter your UPI ID and PIN at http://upi-festive-cashback.top to receive credit within 5 minutes.",SCAM,rewards_cashback
+"Shoppers Stop Bonus: You have an unclaimed shopping credit voucher worth ₹6,500. Redeem voucher for cash into bank account at http://shoppers-voucher-cash.net",SCAM,rewards_cashback
+"Dear cardholder, redeem your accrued reward points worth ₹4,800 on your Kotak credit card before they lapse on 30th Sep: http://kotak-rewards-portal.co",SCAM,rewards_cashback
+"Congratulations! You won Apple iPad Air in Flipkart Big Billion Days Spin the Wheel contest! Claim gadget or ₹45,000 cash at http://flipkart-spin-winner.site",SCAM,rewards_cashback
+"Swiggy One Reward: Claim your complimentary cashback bonus of ₹1,450 on food orders. Click http://swiggy-cash-reward.top to transfer to your Paytm wallet.",SCAM,rewards_cashback
+"Dear user, your Google Pay reward points of ₹5,200 are ready for transfer to your bank account. Claim at http://gpay-reward-collect.in before link expires.",SCAM,rewards_cashback
+"Electricity Power Cut Alert: Dear customer, your electricity power will be disconnected tonight at 9:30 PM from power substation because previous bill was not updated. Immediately call officer at 9811004455.",SCAM,threats
+"National Cyber Crime Portal Alert: An arrest warrant has been issued against you under IPC Section 420 for money laundering. Deposit ₹50,000 bail bond to court escrow at 9822331122 to avoid arrest.",SCAM,threats
+Mumbai Police Crime Branch: A FedEx international courier booked under your Aadhaar number was intercepted at airport containing 250g MDMA narcotics. Digital arrest ordered. Contact Inspector Sharma on WhatsApp immediately.,SCAM,threats
+Notice from Telecom Regulatory Authority (TRAI): All mobile phone numbers linked to your Aadhaar will be disconnected within 2 hours due to illegal harassment complaints. Call TRAI desk at 9844002211.,SCAM,threats
+CBI Headquarters Notice: FIR 482/2024 registered against your bank account for foreign funding violations. Transfer entire savings balance to RBI surveillance account for forensic inspection.,SCAM,threats
+"Dear consumer, your Piped Natural Gas (PNG) connection will be permanently plugged tomorrow morning due to overdue meter charge. Call Adani Gas officer at 9877001122 to prevent cutoff.",SCAM,threats
+"Urgent Legal Notice: A non-bailable arrest warrant has been approved by Metropolitan Magistrate Court regarding unpaid credit card dues of ₹48,000. Settle today or police will visit your residence.",SCAM,threats
+"Income Tax Investigation Directorate: Tax evasion prosecution initiated against you. Penalty assessment notice of ₹1,85,000 generated. Pay settlement at http://incometax-settlement.org within 2 hours.",SCAM,threats
+"Customs Department Notice: A seized parcel with illegal electronic contraband addressed to your name requires immediate explanation. Deposit ₹30,000 clearance fine or face detention at regional airport.",SCAM,threats
+"Dear user, your bank accounts across all commercial banks will be frozen by midnight under Order 14-B of Ministry of Home Affairs. Contact vigilance director at 9833110022.",SCAM,threats
+Urgent: Mumbai Cyber Police has initiated video digital arrest against your PAN card for financial fraud. Keep your Skype camera on and do not leave room until audit is finished.,SCAM,threats
+Water Supply Dept Notice: Your municipal drinking water connection will be disconnected tomorrow at 8 AM due to unpaid drainage tax. Call recovery officer at 9866110022.,SCAM,threats
+"Delhi Police Traffic Cell: You have 14 unpaid speed violation challans totaling ₹18,500. Vehicle confiscation order dispatched. Settle immediately at http://echallan-parivahan-settle.in",SCAM,threats
+"Narcotics Control Bureau (NCB) Alert: Passport seized due to suspected international drug parcel forwarding. Pay ₹75,000 verification bond immediately to clear your name from FIR.",SCAM,threats
+"Dear customer, recovery agents have been dispatched to your home address to seize household goods for defaulted loan EMI. Call recovery manager at 9811990011 to stop visit.",SCAM,threats
+Enforcement Directorate (ED) Summons: You are ordered to appear tomorrow morning at ED zonal office regarding hawala money trail. Call investigative officer at 9855001122 to settle inquiry.,SCAM,threats
+BSNL Legal Department: Your landline and internet will be permanently dismantled today due to non-payment of disputed penalty. Dial 9822113344 immediately to avoid disconnection.,SCAM,threats
+Court Bailiff Notice: Property attachment proceedings scheduled for Friday morning regarding unpaid civil arbitration award. Contact advocate at 9844221100 for out-of-court settlement.,SCAM,threats
+"Dear citizen, criminal defamation suit filed against your phone number for abusive messages. Pay pre-trial compromise fine of ₹12,000 to avoid non-bailable police custody.",SCAM,threats
+"Electricity Vigilance Squad: Power line meter tampering detected at your premises. Heavy fine of ₹65,000 slapped. Pay settlement within 1 hour to prevent power cutoff and FIR.",SCAM,threats
+"UIDAI Aadhaar Security Warning: Your Aadhaar has been misused in illegal hawala transactions in Dubai. Transfer ₹40,000 security deposit to cyber safe account to protect your identity.",SCAM,threats
+Ministry of Finance Alert: Bank account ending 4829 marked for asset freeze by order of revenue intelligence. Contact compliance desk at 9877441100 immediately to lift freeze.,SCAM,threats
+"Reserve Bank Enforcement Wing: Account flagged for suspicious peer-to-peer crypto transactions. Failure to deposit ₹35,000 compliance fee will result in freezing of all family accounts.",SCAM,threats
+"LPG Gas Authority Notice: Commercial illegal refill notice served on your domestic cylinder connection. Pay ₹4,500 inspection penalty at http://lpg-fine-clear.org or face connection cancellation.",SCAM,threats
+"Cyber Defense Agency: Compromising personal webcam videos will be published to all your social media contacts in 24 hours unless ₹50,000 bitcoin payment is sent to this address.",SCAM,threats
+"Your A/C XX4829 has been debited by INR 1,450.00 on 03-Sep-24 via UPI to Swiggy. UPI Ref 424789123456. Avail Bal: INR 1,41,400.00. -SafeBank",LEGITIMATE,payment_confirmation
+"INR 320.00 debited from A/C XX1042 on 02-Sep-24 14:15:10 via UPI to Zomato Media Pvt Ltd. Ref: 424690123891. Updated Balance: INR 28,450.00 -HDFC Bank",LEGITIMATE,payment_confirmation
+"Dear SBI UPI user, your A/C XX3819 debited by Rs 2,150.00 on 01-Sep-24. Transfer to Tata Power Mumbai. Ref no 424512908123. -State Bank of India",LEGITIMATE,payment_confirmation
+"A/C XX9012 debited for INR 4,200.00 on 30-Aug-24 19:22:15 at Apollo Pharmacy via POS. Avail Bal: INR 65,300.00. -Axis Bank",LEGITIMATE,payment_confirmation
+"ICICI Bank: Paid INR 85.00 from A/C XX5102 to Mumbai Metro Rail on 03-Sep-24 08:45:12. UPI Ref: 424710928371. Available balance: INR 42,910.00",LEGITIMATE,payment_confirmation
+Your account XX7721 has been debited with INR 899.00 on 02-Sep-24 towards payment to Netflix Entertainment Services. Ref: NETFLX492019. -Kotak Bank,LEGITIMATE,payment_confirmation
+"SafeBank: Your A/C XX4829 has been debited by INR 2,499.00 on 26-Feb-24 towards Flipkart Internet Pvt Ltd. UPI Ref 405789123456. Bal: INR 1,42,850.00",LEGITIMATE,payment_confirmation
+Debit Alert: Rs 150.00 debited from your A/C XX6019 on 03-Sep-24 10:11 AM via UPI to Chai Point. UPI Ref: 424700119922. -IndusInd Bank,LEGITIMATE,payment_confirmation
+"HDFC Bank: INR 12,400.00 debited from account ending 3021 on 28-Aug-24 for payment to Croma Electronics. Ref: 424109283719. Avail Bal: INR 88,100.00",LEGITIMATE,payment_confirmation
+"A/C XX2201 debited by INR 650.00 on 01-Sep-24 at Shell Petrol Pump. Card ending 4812. Available Balance: INR 19,450.00 -Punjab National Bank",LEGITIMATE,payment_confirmation
+"Dear Customer, your Bank of Baroda A/C XX8812 has been debited by INR 1,800.00 on 31-Aug-24 via IMPS to Dr. Lal PathLabs. UTR: BOB2489102931.",LEGITIMATE,payment_confirmation
+"Axis Bank: Rs 550.00 paid from A/C XX9012 to Uber India Systems on 03-Sep-24 09:30 AM. UPI Ref 424719283019. Balance: Rs 52,140.00",LEGITIMATE,payment_confirmation
+"SafeBank: Paid INR 420.00 to Swiggy Online Food on 03-Sep-24 13:15:00. Mode: UPI/swiggy@icici. Reference: TX10192831. Avail Bal: INR 1,42,430.00",LEGITIMATE,payment_confirmation
+"A/C XX1940 debited by INR 3,120.00 on 29-Aug-24 towards BigBasket grocery order. Ref: BB49102931. Avail Bal: INR 31,500.00 -Canara Bank",LEGITIMATE,payment_confirmation
+"SBI: Your account XX4829 debited by Rs 180.00 on 02-Sep-24 for fastag toll at Kherki Daula Plaza. Remaining Balance Rs 91,240.00",LEGITIMATE,payment_confirmation
+"ICICI Bank: INR 7,999.00 debited from A/C XX5102 on 25-Aug-24 for purchase at Reliance Digital. Ref: POS8829102. Avail Bal: INR 72,000.00",LEGITIMATE,payment_confirmation
+Your Union Bank A/C XX4102 debited by INR 250.00 on 03-Sep-24 11:20 AM via UPI to Zepto Delivery. UPI Ref: 424781920192.,LEGITIMATE,payment_confirmation
+"A/C XX7721 debited for INR 1,299.00 on 27-Aug-24 towards Myntra Designs Pvt Ltd. UTR: KKBK2489102931. -Kotak Mahindra Bank",LEGITIMATE,payment_confirmation
+"Debit Alert: INR 45.00 debited from A/C XX3021 on 03-Sep-24 via UPI to Mother Dairy. UPI Ref 424799102931. Balance: INR 39,400.00 -HDFC Bank",LEGITIMATE,payment_confirmation
+"SafeBank: INR 80.00 debited from A/C XX4829 on 25-Feb-24 08:45 AM via UPI to mmrcl@sbi for Mumbai Metro ticket. Avail Bal: INR 1,42,850.00",LEGITIMATE,payment_confirmation
+"Dear Customer, A/C XX9012 debited with INR 3,450.00 on 29-Aug-24 towards payment to Decathlon Sports India. Ref: 424190283190. -Axis Bank",LEGITIMATE,payment_confirmation
+"SBI Alert: Rs 1,120.00 debited from A/C XX3819 on 01-Sep-24 20:15:30 via UPI to Domino's Pizza. UPI Ref: 424590123891.",LEGITIMATE,payment_confirmation
+"A/C XX5102 debited by INR 5,500.00 on 28-Aug-24 towards MakeMyTrip India Pvt Ltd flight booking. Ref: MMT491029312. -ICICI Bank",LEGITIMATE,payment_confirmation
+IndusInd Bank: INR 499.00 debited from A/C XX6019 on 02-Sep-24 for Disney+ Hotstar annual subscription renewal. Ref: IND49201923.,LEGITIMATE,payment_confirmation
+Your A/C XX1042 debited by INR 950.00 on 01-Sep-24 via UPI to BookMyShow for movie tickets. UPI Ref: 424519283019. -HDFC Bank,LEGITIMATE,payment_confirmation
+"Salary Credit: Your Salary for August 2024 of INR 95,000.00 has been credited to A/C XX4829 on 31-Aug-24 by Apex Technologies Ltd. UTR: APEX2489102931. -SafeBank",LEGITIMATE,salary_credit
+"HDFC Bank: Salary of INR 82,500.00 credited to your A/C XX3021 on 31-Aug-24 by Infosys Limited via NEFT. Total Avail Bal: INR 1,15,400.00.",LEGITIMATE,salary_credit
+"Dear Customer, INR 1,12,000.00 credited to your Salary A/C XX9012 on 30-Aug-24 by Tata Consultancy Services Ltd via NACH. -Axis Bank",LEGITIMATE,salary_credit
+"ICICI Bank: Your account XX5102 has been credited with monthly salary of INR 68,000.00 on 31-Aug-24 from Wipro Technologies. UTR: CMS8920192831.",LEGITIMATE,salary_credit
+"SBI: Your account XX3819 is credited with Rs 74,500.00 on 01-Sep-24 by Tech Mahindra Ltd towards August Salary. Balance: Rs 89,200.00.",LEGITIMATE,salary_credit
+"Salary Alert: INR 1,45,000.00 credited to your Corporate Salary A/C XX7721 on 31-Aug-24 by Microsoft India R&D Pvt Ltd. -Kotak Bank",LEGITIMATE,salary_credit
+"Your A/C XX1042 has been credited with INR 58,000.00 on 30-Aug-24 towards monthly remuneration by Cognizant Technology Solutions. -HDFC Bank",LEGITIMATE,salary_credit
+"SafeBank: Monthly payroll credit of INR 95,000.00 received from Apex Technologies Ltd on 28-Feb-24. Avail Bal: INR 1,42,850.00.",LEGITIMATE,salary_credit
+"Dear Customer, salary of INR 52,400.00 credited to your A/C XX8812 on 31-Aug-24 by Larsen & Toubro Limited via RTGS. -Bank of Baroda",LEGITIMATE,salary_credit
+"IndusInd Bank: INR 88,000.00 credited to your A/C XX6019 on 31-Aug-24 by Accenture Solutions Pvt Ltd. Available balance: INR 1,04,200.00.",LEGITIMATE,salary_credit
+"Axis Bank: Your account XX9012 credited with INR 63,200.00 on 30-Aug-24 by HCL Technologies Ltd towards salary for August. UTR: AXS892019283.",LEGITIMATE,salary_credit
+"Salary Credited: INR 1,25,000.00 credited to your A/C XX4829 on 31-Aug-24 by Google India Pvt Ltd via NEFT. Avail Bal: INR 1,84,000.00. -SafeBank",LEGITIMATE,salary_credit
+"Dear Customer, your PNB Salary Account XX2201 credited with Rs 46,500.00 on 31-Aug-24 by Delhi Public School. Ref: PNB2489102931.",LEGITIMATE,salary_credit
+"HDFC Bank: Monthly stipend of INR 35,000.00 credited to A/C XX3021 on 31-Aug-24 by Amazon Development Centre India. Bal: INR 41,200.00.",LEGITIMATE,salary_credit
+"ICICI Bank: INR 91,000.00 credited to account XX5102 on 31-Aug-24 by Deloitte Shared Services India LLP towards payroll. UTR: DEL892019283.",LEGITIMATE,salary_credit
+"SBI Salary Notice: Account XX3819 credited with Rs 61,000.00 on 01-Sep-24 by Indian Oil Corporation Ltd. Total Balance: Rs 78,450.00.",LEGITIMATE,salary_credit
+"Kotak Bank: Your account XX7721 has received monthly compensation credit of INR 1,05,000.00 on 30-Aug-24 from Ernst & Young LLP.",LEGITIMATE,salary_credit
+"A/C XX4102 credited with INR 49,800.00 on 31-Aug-24 by Bharat Heavy Electricals Ltd towards monthly salary. -Union Bank of India",LEGITIMATE,salary_credit
+"Dear Customer, Canara Bank A/C XX1940 credited with INR 55,000.00 on 31-Aug-24 by Bosch Global Software Technologies. UTR: CNRB2489102.",LEGITIMATE,salary_credit
+"SafeBank: Your Salary Account XX4829 credited with INR 95,000.00 on 31-Jul-24 from Apex Technologies Ltd. Avail Bal: INR 1,38,900.00.",LEGITIMATE,salary_credit
+"Salary Credit Alert: INR 78,200.00 credited to your A/C XX9012 on 30-Aug-24 by Capgemini Technology Services. -Axis Bank",LEGITIMATE,salary_credit
+"HDFC Bank: INR 1,35,000.00 credited to your Salary A/C XX1042 on 31-Aug-24 by Flipkart Internet Pvt Ltd. Available balance: INR 1,62,400.00.",LEGITIMATE,salary_credit
+"Credit Alert: INR 84,000.00 credited to account ending 5102 on 31-Aug-24 by Genpact India Pvt Ltd towards August payroll. -ICICI Bank",LEGITIMATE,salary_credit
+"SBI: Your account XX3819 credited with Rs 67,500.00 on 01-Sep-24 by State Government Treasury towards monthly salary.",LEGITIMATE,salary_credit
+"Salary Notification: INR 92,000.00 credited to A/C XX6019 on 31-Aug-24 by Oracle India Pvt Ltd via NEFT. -IndusInd Bank",LEGITIMATE,salary_credit
+"Dear Customer, your SafeBank Credit Card ending 4829 total amount due is INR 14,280.00 by 12-Sep-24. Pay through NetBanking to avoid late payment charges.",LEGITIMATE,reminder
+"HDFC Bank Reminder: Your Tata Power bill of INR 2,150.00 is due on 08-Sep-24. Pay via HDFC PayZapp or NetBanking to avoid late fee.",LEGITIMATE,reminder
+"Reminder: Your SIP installment of INR 5,000.00 for HDFC Top 100 Mutual Fund is scheduled for deduction on 05-Sep-24 from A/C XX3021.",LEGITIMATE,reminder
+"Axis Bank Alert: Total due on Credit Card XX9012 is INR 8,450.00. Minimum due INR 500.00 payable by 15-Sep-24. View statement via mobile app.",LEGITIMATE,reminder
+"SBI Card Reminder: Bill for card ending 3819 generated on 25-Aug-24 for Rs 19,340.00. Payment due date is 14-Sep-24. Ignore if already paid.",LEGITIMATE,reminder
+"Dear Customer, your broadband bill of INR 943.00 for Airtel Xstream account 011482910 is due on 07-Sep-24. -Airtel Payments Bank",LEGITIMATE,reminder
+"ICICI Bank: Friendly reminder that your home loan EMI of INR 32,450.00 is due for auto-debit on 10-Sep-24 from your savings account XX5102.",LEGITIMATE,reminder
+"Kotak Bank: Payment reminder for Personal Loan A/C 994012. Monthly EMI of INR 8,200.00 is due on 05-Sep-24. Please maintain adequate balance.",LEGITIMATE,reminder
+"SafeBank: Please maintain a minimum balance of INR 10,000 in your SafeShield account to avoid quarterly non-maintenance charges.",LEGITIMATE,reminder
+"IndusInd Bank Reminder: Your Car Loan EMI of INR 14,500.00 will be auto-debited from A/C XX6019 on 07-Sep-24. Ensure sufficient funds.",LEGITIMATE,reminder
+"Dear Customer, your Mahanagar Gas piped gas bill of INR 680.00 is due on 10-Sep-24. Avoid interruption by paying through banking app.",LEGITIMATE,reminder
+"HDFC Life Reminder: Your term insurance policy 4829102 premium of INR 12,500.00 is due on 18-Sep-24. Pay online via netbanking.",LEGITIMATE,reminder
+"SBI Reminder: Your locker rental charges of Rs 2,500.00 for FY 2024-25 are due for deduction from A/C XX3819 on 15-Sep-24.",LEGITIMATE,reminder
+"Canara Bank: Dear customer, recurring deposit installment of INR 3,000.00 is due for debit on 10-Sep-24 for RD A/C 482910.",LEGITIMATE,reminder
+"Axis Bank: Credit Card XX9012 statement is available. Due Date: 12-Sep-24. Amount Due: INR 6,890.00. Settle dues on Axis Mobile App.",LEGITIMATE,reminder
+"Dear Customer, your electricity bill of INR 1,840.00 for CA 102938192 is due on 09-Sep-24. -Adani Electricity Mumbai Ltd",LEGITIMATE,reminder
+ICICI Lombard Reminder: Your motor insurance policy for vehicle MH02DE4829 expires on 22-Sep-24. Renew online to maintain no-claim bonus.,LEGITIMATE,reminder
+"SafeBank: Your monthly recurring deposit of INR 5,000 will be auto-transferred from your savings balance on 10-Sep-24.",LEGITIMATE,reminder
+"Kotak Bank Reminder: Your credit card bill of INR 11,200.00 is due tomorrow 04-Sep-24. Pay immediately via NetBanking to avoid finance charges.",LEGITIMATE,reminder
+Bank of Baroda: Reminder to submit Form 15G/15H for tax deduction exemption on term deposits for FY 2024-25 through Baroda M-Connect.,LEGITIMATE,reminder
+"Dear Customer, your post-paid mobile bill for 9876543210 of INR 471.00 is due on 11-Sep-24. -Jio Postpaid Plus",LEGITIMATE,reminder
+"HDFC Bank Reminder: Your Education Loan EMI of INR 18,900.00 is scheduled for auto-debit on 06-Sep-24 from A/C XX1042.",LEGITIMATE,reminder
+Union Bank: Reminder to update your nominee details for savings account XX4102 via branch or Internet Banking portal.,LEGITIMATE,reminder
+"SBI Card: Gentle reminder that payment of Rs 14,800.00 towards your credit card ending 3819 is due on 07-Sep-24. Pay now via SBI Card App.",LEGITIMATE,reminder
+"IndusInd Bank: Your Two-Wheeler Loan EMI of INR 3,450.00 is due for debit on 05-Sep-24 from your savings account ending 6019.",LEGITIMATE,reminder
+"Dear Customer, your SafeBank branch at Bandra West will observe holiday on 07-Sep-24 on account of Ganesh Chaturthi. NetBanking and ATMs remain 24x7 functional.",LEGITIMATE,bank_service
+HDFC Bank: Your new personalized Cheque Book containing 25 leaves has been dispatched via BlueDart with AWB 8920192831. Track at bluedart.com,LEGITIMATE,bank_service
+SBI: Your request for new EMV chip International Debit Card ending 9102 has been processed. Card dispatched via Speed Post tracking number ED892019283IN.,LEGITIMATE,bank_service
+"ICICI Bank: The login password for your Internet Banking User ID ending in 4829 has been successfully changed on 02-Sep-24 16:30. If not done by you, call 18002008.",LEGITIMATE,bank_service
+"Axis Bank: Your standing instruction request for monthly transfer of INR 5,000 to RD A/C 99102 has been successfully set up with effect from 10-Sep-24.",LEGITIMATE,bank_service
+"Dear Customer, your fixed deposit receipt for FD A/C XX4829 of INR 1,00,000.00 created on 01-Sep-24 at 7.25% p.a. is available for download on mobile app. -SafeBank",LEGITIMATE,bank_service
+Kotak Bank: Your registered email address has been successfully updated to a****@gmail.com on 03-Sep-24 per your request through net banking.,LEGITIMATE,bank_service
+Bank of Baroda: Your savings account transfer request to Nariman Point branch has been completed successfully. Your new IFSC code is BARB0NARIMA.,LEGITIMATE,bank_service
+Canara Bank: Your request for change of communication address has been approved after document verification. Updated address reflected in profile.,LEGITIMATE,bank_service
+"Dear Customer, SafeBank has revised interest rates on Savings Accounts and Term Deposits effective 01-Oct-24. View the new schedule on our official website safebank.com",LEGITIMATE,bank_service
+HDFC Bank: Mobile Banking App version 14.2 is now available on Google Play Store with enhanced security features. Please update at your convenience.,LEGITIMATE,bank_service
+IndusInd Bank: Your auto-debit mandate for utility bill payment has been successfully registered under UMRN INDU89201928310293.,LEGITIMATE,bank_service
+"SBI: Your positive pay declaration for Cheque No 482910 of Rs 1,50,000 in favor of LIC of India has been recorded successfully.",LEGITIMATE,bank_service
+ICICI Bank: Your request for upgrade to Sapphiro Debit Card has been accepted. Card will be delivered to registered address in 5 working days.,LEGITIMATE,bank_service
+Union Bank of India: Scheduled maintenance on NetBanking and Mobile Banking servers on Sunday 08-Sep-24 from 02:00 AM to 05:00 AM. Inconvenience regretted.,LEGITIMATE,bank_service
+Axis Bank: Your physical bank passbook has been updated with 12 recent transactions at our Indiranagar self-service kiosk.,LEGITIMATE,bank_service
+"Dear Customer, your nominee registration for Account ending 4829 has been updated to Priya Sharma (Sister) per your submission. -SafeBank",LEGITIMATE,bank_service
+Punjab National Bank: PNB One app maintenance scheduled for 06-Sep-24 01:00 AM to 03:00 AM. UPI and ATM cash withdrawals remain unaffected.,LEGITIMATE,bank_service
+HDFC Bank: Your request to link PAN card with your Savings Account XX3021 has been verified with NSDL database and processed successfully.,LEGITIMATE,bank_service
+"SafeBank: Your international transaction activation request for Debit Card ending 4829 has been enabled with a daily limit of INR 50,000.",LEGITIMATE,bank_service
+"Kotak Mahindra Bank: Your auto-sweep facility has been activated on A/C XX7721. Threshold limit set at INR 25,000 with auto-transfer to flexi-deposit.",LEGITIMATE,bank_service
+SBI: Form 16A (TDS Certificate) for Q1 FY 2024-25 is available for download on Onlinesbi.com under My Accounts > Tax Details.,LEGITIMATE,bank_service
+"Dear Customer, your SafeBank locker safe deposit box agreement has been renewed for the period 2024-2027. Confirmation sent to registered email.",LEGITIMATE,bank_service
+Bank of India: Your request for reissue of lost ATM PIN has been processed. Green PIN generation SMS sent to your registered mobile number.,LEGITIMATE,bank_service
+"ICICI Bank: Your request for doorstep cash delivery of INR 20,000 on 05-Sep-24 between 11 AM - 1 PM has been confirmed.",LEGITIMATE,bank_service
+"Dear Aarav Sharma, your monthly e-Statement for SafeBank Account ending 4829 for August 2024 has been sent to your registered email. Password is your DOB + last 4 PAN digits.",LEGITIMATE,account_statement
+HDFC Bank: Your monthly account statement for A/C ending 3021 for the month of August 2024 is ready. Download from NetBanking or view in HDFC Mobile App.,LEGITIMATE,account_statement
+SBI: e-Statement for Account XX3819 for period 01-Aug-24 to 31-Aug-24 has been dispatched to your email address a****@gmail.com. -State Bank of India,LEGITIMATE,account_statement
+"Axis Bank: Your Credit Card ending 9012 e-Statement for billing cycle ending 28-Aug-24 is generated. Total Spends: INR 18,450.00. Statement sent to email.",LEGITIMATE,account_statement
+ICICI Bank: Account statement for Savings A/C XX5102 for August 2024 is available on iMobile Pay app under Accounts > Statement tab.,LEGITIMATE,account_statement
+Kotak Bank: Your consolidated monthly statement for August 2024 covering savings and investments has been sent to your registered email id.,LEGITIMATE,account_statement
+SafeBank: Your Quarterly Interest Certificate for FY 2024-25 Q1 is available for download on our Internet Banking portal under Tax Documents.,LEGITIMATE,account_statement
+IndusInd Bank: Your e-statement for the period 01-Aug-24 to 31-Aug-24 for Account ending 6019 is sent to your email. Password format: First 4 letters of name + DDMM.,LEGITIMATE,account_statement
+Canara Bank: Monthly e-statement for SB A/C XX1940 for August 2024 has been successfully delivered to your verified email address.,LEGITIMATE,account_statement
+"Dear Customer, your annual summary of deposits and interest earned for FY 2023-24 is ready for download in SafeBank NetBanking portal.",LEGITIMATE,account_statement
+HDFC Bank: Credit card statement for card ending 1042 for billing period 15-Jul to 14-Aug is generated. Download password protected PDF from email.,LEGITIMATE,account_statement
+Bank of Baroda: Baroda e-Statement for A/C XX8812 for August 2024 has been emailed. Open using your 9-digit Customer ID as password.,LEGITIMATE,account_statement
+Union Bank of India: Your statement of account for period 01-Jul-24 to 31-Aug-24 has been generated upon request and sent to email.,LEGITIMATE,account_statement
+"SBI Card: Statement for your SBI Card ending 3819 generated on 25-Aug-24. Total Spends: Rs 24,190.00. Check detailed itemized bill on sbicard.com",LEGITIMATE,account_statement
+Punjab National Bank: Monthly account statement for A/C ending 2201 for August 2024 sent to your registered email address.,LEGITIMATE,account_statement
+"SafeBank: Your mini-statement for A/C XX4829: 03-Sep Dr 420.00, 02-Sep Dr 2150.00, 31-Aug Cr 95000.00, 26-Aug Dr 2499.00. Bal: INR 142850.00",LEGITIMATE,account_statement
+Axis Bank: Your Demat and Trading Account quarterly transaction statement for Q1 FY25 has been emailed per SEBI regulations.,LEGITIMATE,account_statement
+ICICI Bank: Your home loan interest certificate for income tax deduction FY 2024-25 is available on Internet Banking under Tax Center.,LEGITIMATE,account_statement
+Kotak Mahindra Bank: Account statement for Smart Saver account ending 7721 for August 2024 is now available in your Kotak Mobile Banking app.,LEGITIMATE,account_statement
+"Dear Customer, your SafeBank PPF (Public Provident Fund) annual statement for FY 2023-24 has been updated with interest credit of INR 38,450.00.",LEGITIMATE,account_statement
+HDFC Bank: Tax Deducted at Source (TDS) statement for fixed deposits for the quarter ending June 2024 has been mailed to your email address.,LEGITIMATE,account_statement
+SBI: Your requested statement for A/C XX3819 from 01-Jan-24 to 31-Aug-24 has been generated. File size: 145 KB. Sent to registered email.,LEGITIMATE,account_statement
+IndusInd Bank: Monthly credit card statement for card ending 6019 is generated. Minimum payment due: INR 900.00. Due date: 18-Sep-24.,LEGITIMATE,account_statement
+Canara Bank: Detailed transaction ledger for current account ending 1940 for August 2024 is available on corporate netbanking.,LEGITIMATE,account_statement
+SafeBank: Your annual consolidated financial statement for all linked accounts is ready. Access securely via NetBanking > Reports.,LEGITIMATE,account_statement
+"Security Advisory: SafeBank will NEVER ask for your NetBanking password, OTP, CVV, or ATM PIN. Do not share confidential credentials with anyone.",LEGITIMATE,genuine_security_notice
+"HDFC Bank Alert: NetBanking login recorded from Chrome browser on Windows on 03-Sep-24 10:15 AM. If this was you, no action is needed. If not, call 18002026161.",LEGITIMATE,genuine_security_notice
+"SBI Security Alert: Your Internet Banking profile was accessed from IP 115.240.90.12 on 02-Sep-24 at 18:40. If you did not log in, lock your access immediately via SMS.",LEGITIMATE,genuine_security_notice
+"ICICI Bank: Daily UPI transaction limit for your account XX5102 is currently set to INR 1,00,000.00 per NPCI guidelines. Manage limits on iMobile app.",LEGITIMATE,genuine_security_notice
+"Axis Bank: New mobile device iPhone 15 registered for Axis Mobile app on 01-Sep-24 14:20. If not authorized by you, block your app immediately by calling 18604195555.",LEGITIMATE,genuine_security_notice
+SafeBank Guardian Shield: Your account is protected by behavioral risk monitoring. Remember that official bank staff will never ask you to transfer money to verify an account.,LEGITIMATE,genuine_security_notice
+Kotak Bank: International usage on your Debit Card ending 7721 has been disabled per your preference on mobile app. Enable anytime via Card Controls.,LEGITIMATE,genuine_security_notice
+"Dear Customer, your SafeBank contactless Wi-Fi tap-and-pay limit is set to INR 5,000 per transaction per RBI guidelines. Manage limits in your NetBanking portal.",LEGITIMATE,genuine_security_notice
+Punjab National Bank: Alert! Beware of fraudulent calls asking for remote access apps like AnyDesk or TeamViewer. PNB never asks customers to install third-party apps.,LEGITIMATE,genuine_security_notice
+Bank of Baroda Alert: Your registered mobile number was updated on 28-Aug-24 through branch submission. Contact nodal officer if not requested by you.,LEGITIMATE,genuine_security_notice
+"Canara Bank Security Tip: Always verify the merchant name on UPI payment screen before entering your UPI PIN. UPI PIN is only required to send money, never to receive.",LEGITIMATE,genuine_security_notice
+"HDFC Bank: Your online e-commerce transaction limit for Debit Card ending 3021 has been modified to INR 50,000 on 02-Sep-24 via NetBanking.",LEGITIMATE,genuine_security_notice
+SBI Security Notice: Never scan random QR codes sent by unknown buyers on OLX or social media to receive money. Scanning QR code deducts money from your account.,LEGITIMATE,genuine_security_notice
+IndusInd Bank: Two-Factor Authentication (2FA) is active for all your online debit card purchases. Keep your mobile number updated to receive OTP alerts.,LEGITIMATE,genuine_security_notice
+SafeBank Security Desk: Your account baseline security score is 98% (Known Personal Device: iPhone 15 Pro). Zero credential sharing policy active.,LEGITIMATE,genuine_security_notice
+"Axis Bank: Daily ATM cash withdrawal limit on your Priority Debit Card has been updated to INR 40,000 per day as requested via netbanking.",LEGITIMATE,genuine_security_notice
+ICICI Bank: Biometric fingerprint login was successfully enabled on your iMobile Pay app on 03-Sep-24 08:30 AM.,LEGITIMATE,genuine_security_notice
+"Union Bank Security Reminder: Official bank SMS alerts will always originate from official sender IDs such as VK-UNIONB or AD-UNIONB, never 10-digit numbers.",LEGITIMATE,genuine_security_notice
+Kotak Bank: Your debit card has been temporarily locked via Card Controls in mobile app. Unlock anytime when you are ready to use.,LEGITIMATE,genuine_security_notice
+"Dear Customer, SafeBank reminds you to change your Internet Banking login and transaction passwords once every 90 days for optimal account security.",LEGITIMATE,genuine_security_notice
+"HDFC Bank: We noticed a login to your NetBanking from a new location (Bengaluru). If this was you, please ignore this notice.",LEGITIMATE,genuine_security_notice
+SBI Card Security Alert: Online international transactions disabled on card ending 3819. You can toggle this setting in the SBI Card mobile application.,LEGITIMATE,genuine_security_notice
+Bank of India: Do not click on unsolicited links received in SMS or email claiming to update your PAN or KYC. Visit official branch for assistance.,LEGITIMATE,genuine_security_notice
+SafeBank Alert: Your registered device token for push notifications was refreshed on 03-Sep-24 on your trusted home Wi-Fi network.,LEGITIMATE,genuine_security_notice
+Canara Bank: Security advisory: Government subsidies or refunds are directly credited via DBT into your account and never require paying an advance fee.,LEGITIMATE,genuine_security_notice
+"NACH Mandate Alert: INR 4,500.00 will be auto-debited from your A/C XX4829 on 05-Sep-24 towards HDFC Ergo General Insurance. UMRN: HDFC781920192831. -SafeBank",LEGITIMATE,scheduled_payment
+UPI Autopay: Your mandate of INR 649.00 for Netflix Entertainment Services is scheduled for execution on 06-Sep-24 from A/C XX3021. -HDFC Bank,LEGITIMATE,scheduled_payment
+"SBI: Your recurring deposit monthly standing instruction of Rs 5,000.00 was executed successfully on 01-Sep-24. Transferred to RD A/C 482910.",LEGITIMATE,scheduled_payment
+"Axis Bank: Standing instruction for monthly mutual fund SIP of INR 2,500.00 to Axis Bluechip Fund successfully debited from A/C XX9012 on 02-Sep-24.",LEGITIMATE,scheduled_payment
+"ICICI Bank: Scheduled biller autopay of INR 1,420.00 towards Mahanagar Gas Ltd executed from A/C XX5102 on 01-Sep-24. Biller Ref: MGL482910.",LEGITIMATE,scheduled_payment
+"Kotak Bank: Scheduled transfer of INR 10,000.00 to Recurring Deposit Account 994012 executed on 01-Sep-24 per your mandate.",LEGITIMATE,scheduled_payment
+"SafeBank: Scheduled autopay of INR 2,150.00 for Tata Power Mumbai executed on 02-Sep-24. Transaction ID: TX1029381. Available Balance: INR 1,42,850.00",LEGITIMATE,scheduled_payment
+"HDFC Bank: Your ECS debit of INR 18,200.00 for HDFC Housing Finance loan A/C 9910293 was successfully processed on 01-Sep-24.",LEGITIMATE,scheduled_payment
+IndusInd Bank: Auto-debit for Spotify Premium monthly subscription of INR 119.00 processed from A/C XX6019 on 03-Sep-24 via UPI Autopay.,LEGITIMATE,scheduled_payment
+"SBI: Standing instruction executed: Rs 3,000.00 debited from A/C XX3819 on 01-Sep-24 for PPF Account 1029384910.",LEGITIMATE,scheduled_payment
+"Canara Bank: Automated NACH mandate of INR 6,200.00 for Bajaj Finance EMI executed successfully on 02-Sep-24 from A/C XX1940.",LEGITIMATE,scheduled_payment
+Axis Bank: UPI Autopay notification: INR 299.00 will be debited on 05-Sep-24 towards Apple Services subscription from A/C XX9012.,LEGITIMATE,scheduled_payment
+"SafeBank: Scheduled mandate for Child Education Savings Plan of INR 8,000.00 executed successfully on 01-Sep-24. Avail Bal: INR 1,34,850.00",LEGITIMATE,scheduled_payment
+ICICI Bank: Scheduled autopay of INR 850.00 for Airtel Postpaid mobile bill executed on 02-Sep-24 from A/C XX5102.,LEGITIMATE,scheduled_payment
+"Bank of Baroda: Standing instruction of INR 4,000.00 towards Baroda Pioneer Growth Fund debited from A/C XX8812 on 01-Sep-24.",LEGITIMATE,scheduled_payment
+"HDFC Bank: Standing instruction executed: INR 15,000.00 transferred from Savings A/C XX3021 to Fixed Deposit A/C 994829 on 01-Sep-24.",LEGITIMATE,scheduled_payment
+"Kotak Bank: Auto-debit mandate of INR 7,500.00 for Aditya Birla Sun Life Insurance premium executed on 02-Sep-24 from A/C XX7721.",LEGITIMATE,scheduled_payment
+"Union Bank: Scheduled deduction of INR 1,200.00 towards municipal water tax auto-debit processed on 01-Sep-24 from A/C XX4102.",LEGITIMATE,scheduled_payment
+"SBI: Auto-debit of Rs 22,000.00 for SBI Life Insurance Policy 992810293 processed successfully from A/C XX3819 on 01-Sep-24.",LEGITIMATE,scheduled_payment
+IndusInd Bank: UPI Autopay of INR 199.00 for YouTube Premium subscription processed on 02-Sep-24 from A/C XX6019.,LEGITIMATE,scheduled_payment
+"SafeBank: Auto-debit notification: Your monthly maintenance fee of INR 3,500 for Sea Green Cooperative Housing Society will execute on 05-Sep-24.",LEGITIMATE,scheduled_payment
+"Punjab National Bank: Standing instruction for monthly recurring transfer of Rs 2,000.00 to Senior Citizens Savings Account executed on 01-Sep-24.",LEGITIMATE,scheduled_payment
+HDFC Bank: Auto-debit of INR 999.00 for Amazon Prime Annual Membership executed on 30-Aug-24 from your savings account ending 1042.,LEGITIMATE,scheduled_payment
+"ICICI Bank: Scheduled bill payment of INR 3,240.00 for Torrent Power electricity bill executed on 02-Sep-24 from A/C XX5102.",LEGITIMATE,scheduled_payment
+"Axis Bank: Mandate for Nippon India Small Cap Fund SIP of INR 3,000.00 executed on 03-Sep-24 from A/C XX9012. UTR: AXS48291029.",LEGITIMATE,scheduled_payment
+"Thank you for shopping at Reliance Fresh Bandra. INR 1,450.00 paid via UPI on 03-Sep-24 18:30. Invoice No: RF-482910. Hope to see you again!",LEGITIMATE,merchant_payment
+Starbucks India: Thank you for your payment of INR 475.00 via Tata Pay UPI on 03-Sep-24 at Mumbai Domestic Airport. Order #482.,LEGITIMATE,merchant_payment
+"Indian Oil Fuel Point: Paid INR 2,000.00 for petrol on 02-Sep-24 16:45 via Card ending 4829 at Auto Care Centre, Worli. Loyalty points earned: 40.",LEGITIMATE,merchant_payment
+BookMyShow: Booking confirmed! 2 tickets for Inception at PVR Phoenix Mills for 04-Sep 07:30 PM. Total paid: INR 780.00 via NetBanking. Booking ID: WXZ4829.,LEGITIMATE,merchant_payment
+"Decathlon Sports: Thank you for your purchase of INR 3,199.00 at Decathlon Thane on 01-Sep-24. E-bill sent to registered mobile.",LEGITIMATE,merchant_payment
+Uber Trip Receipt: Your ride with driver Suresh on 03-Sep-24 09:15 AM is completed. Total fare: INR 342.00 paid via linked Paytm Wallet.,LEGITIMATE,merchant_payment
+Zomato Order Confirmation: Your food order #482910 from Biryani By Kilo is confirmed. Total: INR 685.00 paid via UPI. Delivery in 35 mins.,LEGITIMATE,merchant_payment
+"Nature's Basket: Thank you for shopping with us. Amount of INR 2,340.00 received via ICICI UPI on 02-Sep-24 19:10 at Bandra outlet.",LEGITIMATE,merchant_payment
+Apollo Pharmacy: Payment of INR 840.00 received on 03-Sep-24 for prescription 892019 via SafeBank UPI. Medicines packed for delivery.,LEGITIMATE,merchant_payment
+"Croma Electronics: Payment of INR 4,990.00 for Philips Air Fryer confirmed via HDFC Debit Card at Croma Juhu on 31-Aug-24.",LEGITIMATE,merchant_payment
+"Shoppers Stop: INR 4,200.00 debited for your shopping bill at Malad store on 01-Sep-24. 42 First Citizen points credited.",LEGITIMATE,merchant_payment
+"BigBasket: Your grocery delivery order BB-4829102 for INR 1,890.00 is scheduled for tomorrow 7-9 AM. Paid online via UPI.",LEGITIMATE,merchant_payment
+"MakeMyTrip: Flight ticket confirmed! Indigo 6E-204 Mumbai to Delhi for 10-Sep-24. Paid INR 5,420.00 via NetBanking. PNR: W8Z9KL.",LEGITIMATE,merchant_payment
+"IKEA India: Receipt for your order #892019. Total INR 6,850.00 paid via UPI on 30-Aug-24 at IKEA Navi Mumbai store.",LEGITIMATE,merchant_payment
+McDonald's India: Order #148 paid via Google Pay for INR 385.00 on 02-Sep-24 13:40 at Bandra West drive-through.,LEGITIMATE,merchant_payment
+Blinkit: Order delivered in 11 minutes! Paid INR 412.00 via PhonePe UPI on 03-Sep-24. Fresh fruits and milk delivered.,LEGITIMATE,merchant_payment
+"Fastrack Store: Thank you for shopping. Paid INR 1,850.00 for watch purchase on 01-Sep-24 via Axis Bank Debit Card ending 9012.",LEGITIMATE,merchant_payment
+"Nykaa: Payment of INR 1,650.00 confirmed for order #NYK-892019. Paid via SafeBank NetBanking on 02-Sep-24.",LEGITIMATE,merchant_payment
+"HPCL Petrol Pump: Paid INR 1,500.00 for diesel on 03-Sep-24 08:20 AM via UPI/hpcl@icici. Transaction ID: 424789123019.",LEGITIMATE,merchant_payment
+CCD Cafe Coffee Day: Bill of INR 320.00 paid on 02-Sep-24 17:15 via UPI at Churchgate outlet. Thank you for visiting.,LEGITIMATE,merchant_payment
+Zepto: Your order of INR 290.00 is out for delivery. Paid via SafeBank UPI on 03-Sep-24 16:10.,LEGITIMATE,merchant_payment
+"Fabindia: Thank you for your purchase of INR 3,490.00 at Kala Ghoda on 31-Aug-24. Mode: Visa Debit Card ending 4829.",LEGITIMATE,merchant_payment
+Dominos Pizza: Order #59 received! INR 540.00 paid via Amazon Pay UPI on 01-Sep-24 20:30. Hot pizza reaching in 25 minutes.,LEGITIMATE,merchant_payment
+Ola Cabs: Ride completed. Fare INR 215.00 deducted from Ola Money wallet on 03-Sep-24 11:45 AM. Invoice sent to email.,LEGITIMATE,merchant_payment
+"Westside: Bill of INR 2,890.00 paid via HDFC UPI on 02-Sep-24 at Westside Linking Road. 28 Clubwest points credited.",LEGITIMATE,merchant_payment
+"Hey Aarav, here is my share for the grocery bill we split yesterday. Whenever you can send it. -Karan",LEGITIMATE,normal_transfer
+"Transferred INR 1,200 to your Google Pay for last night's dinner and movie tickets, thanks bro!",LEGITIMATE,normal_transfer
+"Hi beta, I transferred ₹15,000 to your account for this month's rent and groceries. Let me know when you receive it. Love, Mom.",LEGITIMATE,normal_transfer
+Sent you ₹450 for the shared Uber ride back from office today. Cheers!,LEGITIMATE,normal_transfer
+"Hi Aarav, sent ₹8,000 to your account for the Goa trip hotel advance booking. Check and confirm.",LEGITIMATE,normal_transfer
+"Hey mate, transferred ₹2,500 to your UPI for the football turf booking we played yesterday.",LEGITIMATE,normal_transfer
+"Transferred my ₹1,500 contribution for Neha's birthday gift to your UPI ID. -Pooja",LEGITIMATE,normal_transfer
+"Bhai, sent ₹3,200 for the broadband and electricity bill split. Settle it with the landlord when you pay.",LEGITIMATE,normal_transfer
+"Hey, sent you ₹600 for the pizzas we ordered during the match yesterday. Thanks for paying then!",LEGITIMATE,normal_transfer
+"Hi Aarav, transferred ₹12,000 towards the badminton annual club membership share as discussed.",LEGITIMATE,normal_transfer
+Transferred ₹500 for my share of the cab fare to airport. Thanks for booking it!,LEGITIMATE,normal_transfer
+"Hi brother, transferred ₹20,000 to your savings account to help with the laptop purchase. Pay me back after salary.",LEGITIMATE,normal_transfer
+"Hey Aarav, sent ₹1,100 to your UPI for the dinner at Social yesterday. Let me know if you got it. -Vikram",LEGITIMATE,normal_transfer
+"Sent you ₹4,500 for the concert passes you booked for Saturday night. Super excited!",LEGITIMATE,normal_transfer
+"Hi Aarav, transferred ₹750 for the medicine strip you bought for me from pharmacy. Thanks a lot!",LEGITIMATE,normal_transfer
+"Beta, transferred ₹5,000 pocket money into your SafeBank account. Study well for your exams.",LEGITIMATE,normal_transfer
+"Hey buddy, here is ₹1,800 for the car fuel we filled up during our road trip on Sunday.",LEGITIMATE,normal_transfer
+Sent my ₹900 share for the office farewell gift for Sandeep sir. -Ananya,LEGITIMATE,normal_transfer
+"Hi Aarav, transferred ₹3,500 for the camping tent rental we shared last weekend. Thanks for organizing.",LEGITIMATE,normal_transfer
+Sent ₹250 for today's lunch at the cafeteria via Google Pay. Thanks for covering me!,LEGITIMATE,normal_transfer
+"Transferred ₹6,000 to your account towards our weekend cottage advance payment. -Rohan",LEGITIMATE,normal_transfer
+"Hey, sent you ₹350 for the coffee and snacks at Starbucks today. Catch you tomorrow!",LEGITIMATE,normal_transfer
+"Hi Aarav, transferred ₹2,200 for the books we ordered together online. Thanks for ordering them.",LEGITIMATE,normal_transfer
+"Sent ₹1,400 for my share of the society clubhouse badminton court booking charges.",LEGITIMATE,normal_transfer
+"Hey bro, sent ₹5,000 as agreed for the shared graphic card purchase. Cheers!",LEGITIMATE,normal_transfer
+"ATM Cash Withdrawal: INR 5,000.00 withdrawn from SafeBank ATM at Hill Road Bandra on 02-Sep-24 11:20 AM using Card ending 4829. Avail Bal: INR 1,42,850.00",LEGITIMATE,account_activity
+"HDFC Bank: Cash withdrawal of INR 10,000.00 from ATM HDFC00192 on 01-Sep-24 17:45. Card ending 3021. Available Balance: INR 75,400.00.",LEGITIMATE,account_activity
+"SBI: Cash withdrawal of Rs 2,000.00 on 03-Sep-24 at SBI ATM South Ext Delhi. Available Balance: Rs 41,200.00. Call 1800112211 if not done by you.",LEGITIMATE,account_activity
+"SafeBank: Your account balance enquiry was made at SafeBank ATM Bandra on 03-Sep-24 09:10 AM. Available balance: INR 1,42,850.00.",LEGITIMATE,account_activity
+"Axis Bank: Cash deposit of INR 25,000.00 received at Cash Deposit Machine (CDM) Indiranagar branch into A/C XX9012 on 31-Aug-24. Bal: INR 92,000.00",LEGITIMATE,account_activity
+"ICICI Bank: ATM withdrawal of INR 4,000.00 at ICICI Bank ATM Nariman Point on 02-Sep-24 15:10. Remaining balance: INR 68,000.00.",LEGITIMATE,account_activity
+"Kotak Bank: INR 2,500.00 withdrawn from Kotak ATM at MG Road on 30-Aug-24 20:05 using Debit Card ending 7721. Balance: INR 44,200.00.",LEGITIMATE,account_activity
+"Dear Customer, quarterly interest of INR 1,245.00 has been credited to your SafeShield Savings Account XX4829 on 30-Jun-24. -SafeBank",LEGITIMATE,account_activity
+"IndusInd Bank: Cash withdrawal of INR 6,000.00 on 01-Sep-24 13:20 from ATM IND0293. Card ending 6019. Updated balance: INR 52,100.00.",LEGITIMATE,account_activity
+"Canara Bank: INR 3,000.00 withdrawn at Canara Bank ATM Jayanagar Bangalore on 03-Sep-24 10:45 AM. Available balance: INR 22,400.00.",LEGITIMATE,account_activity
+"SafeBank: Inward fund transfer of INR 5,000.00 received in A/C XX4829 on 25-Aug-24 via IMPS from Priya Sharma. Ref: 4238192019.",LEGITIMATE,account_activity
+HDFC Bank: Quarterly savings bank interest of INR 890.00 credited to your A/C XX3021 on 30-Jun-24. TDS deducted: Nil.,LEGITIMATE,account_activity
+"Bank of Baroda: Cash deposit of Rs 15,000.00 processed at branch counter into A/C XX8812 on 02-Sep-24. Avail Bal: Rs 64,500.00.",LEGITIMATE,account_activity
+"Punjab National Bank: ATM cash withdrawal of Rs 1,500.00 on 02-Sep-24 from PNB ATM Connaught Place. Avail Bal: Rs 18,900.00.",LEGITIMATE,account_activity
+"Axis Bank: Cheque No 482910 of INR 12,500.00 drawn on your A/C XX9012 has been passed in clearing on 02-Sep-24.",LEGITIMATE,account_activity
+"ICICI Bank: Inward NEFT credit of INR 18,000.00 received from Suresh Sharma on 29-Aug-24. UTR: ICICN248910293. Balance: INR 86,000.00.",LEGITIMATE,account_activity
+"SafeBank: Card swipe transaction of INR 3,200.00 approved at Zara Palladium Mumbai on 01-Sep-24 18:40. Avail Bal: INR 1,42,850.00.",LEGITIMATE,account_activity
+Kotak Bank: Interest credit of INR 680.00 for July-August credited to your 811 Savings Account XX7721 on 31-Aug-24.,LEGITIMATE,account_activity
+"Union Bank: Cash withdrawal of INR 5,000.00 at Union Bank ATM Fort Mumbai on 01-Sep-24 12:15 PM. Balance: INR 38,400.00.",LEGITIMATE,account_activity
+"SBI: Cheque deposit of Rs 35,000.00 cleared in your A/C XX3819 on 02-Sep-24. Cheque No: 910283 drawn on HDFC Bank.",LEGITIMATE,account_activity
+"Canara Bank: Balance enquiry initiated via Mobile Banking on 03-Sep-24 14:00. Savings Account XX1940 ledger balance: INR 48,200.00.",LEGITIMATE,account_activity
+"IndusInd Bank: Reward points earned update: You earned 120 reward points on recent debit card spends. Total active points: 1,840.",LEGITIMATE,account_activity
+"HDFC Bank: Inward RTGS credit of INR 2,00,000.00 received from Tata Consultancy Services on 28-Aug-24 in A/C XX1042.",LEGITIMATE,account_activity
+"SafeBank: Cash deposit of INR 10,000.00 accepted at Smart BNA (Cash Recycler) Bandra West into A/C XX4829 on 01-Sep-24.",LEGITIMATE,account_activity
+"Bank of Baroda: ATM cash withdrawal of INR 2,000.00 on 03-Sep-24 08:30 at BOB ATM Alkapuri Vadodara. Available Balance: INR 29,800.00.",LEGITIMATE,account_activity
