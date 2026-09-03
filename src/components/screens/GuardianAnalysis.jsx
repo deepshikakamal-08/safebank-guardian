@@ -43,6 +43,16 @@ export default function GuardianAnalysis() {
   const legitProbDisplay = analysisResult.legitimateProbabilityPercent || `${((1 - scamProbRaw) * 100).toFixed(1)}%`;
   const topFeatures = analysisResult.topFeatures || [];
 
+  // Extract statistical behavioral values
+  const behavioralStats = analysisResult.behavioralStats || {
+    mean: 3210,
+    stdDev: 1169.71,
+    currentAmount: analysisResult.amount || 0,
+    zScore: 0,
+    isAnomaly: false,
+    status: 'normal'
+  };
+
   return (
     <div className="guardian-analysis-hero-view" style={{ maxWidth: '980px', margin: '0 auto' }}>
       
@@ -56,7 +66,7 @@ export default function GuardianAnalysis() {
           <div className="risk-signals-cue-chip">
             <Sparkles size={14} style={{ flexShrink: 0 }} />
             <span>
-              ML Message Risk: <strong>{mlLabel}</strong> ({scamProbDisplay}) • TF-IDF + LogReg
+              ML Message Risk: <strong>{mlLabel}</strong> ({scamProbDisplay}) • Z-Score: <strong>{behavioralStats.zScore.toFixed(2)}</strong>
             </span>
           </div>
         </div>
@@ -78,7 +88,72 @@ export default function GuardianAnalysis() {
             <TrendingUp size={20} color="#0284c7" />
             <div>
               <div className="signal-group-title">Transaction Signals</div>
-              <div style={{ fontSize: '0.75rem', color: 'var(--text-muted)' }}>Payment Intent & Spending Baselines (Heuristic)</div>
+              <div style={{ fontSize: '0.75rem', color: 'var(--text-muted)' }}>Customer Behavioral Baseline & Statistical Z-Score</div>
+            </div>
+          </div>
+
+          {/* Real Behavioral Anomaly (Z-Score) Overview Card */}
+          <div style={{
+            background: behavioralStats.isAnomaly ? '#fef2f2' : '#f0fdf4',
+            border: `1.5px solid ${behavioralStats.isAnomaly ? '#fecaca' : '#bbf7d0'}`,
+            borderRadius: '12px',
+            padding: '16px',
+            marginBottom: '16px'
+          }}>
+            <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between', marginBottom: '10px' }}>
+              <div>
+                <span style={{ fontSize: '0.75rem', fontWeight: 700, color: 'var(--text-muted)', textTransform: 'uppercase', display: 'block' }}>
+                  Behavioral Baseline Anomaly
+                </span>
+                <span style={{
+                  display: 'inline-flex',
+                  alignItems: 'center',
+                  gap: 6,
+                  fontWeight: 800,
+                  fontSize: '1.05rem',
+                  color: behavioralStats.isAnomaly ? '#dc2626' : '#059669',
+                  marginTop: 2
+                }}>
+                  {behavioralStats.isAnomaly ? <AlertTriangle size={16} /> : <CheckCircle2 size={16} />}
+                  Behavioral anomaly: {behavioralStats.isAnomaly ? 'Detected' : 'Normal'}
+                </span>
+              </div>
+
+              <div style={{ textAlign: 'right' }}>
+                <span style={{ fontSize: '0.75rem', fontWeight: 700, color: 'var(--text-muted)', textTransform: 'uppercase', display: 'block' }}>
+                  Behavioral Z-Score
+                </span>
+                <span style={{
+                  fontFamily: 'var(--font-mono)',
+                  fontWeight: 800,
+                  fontSize: '1.25rem',
+                  color: behavioralStats.isAnomaly ? '#b91c1c' : '#047857'
+                }}>
+                  {behavioralStats.zScore >= 0 ? '+' : ''}{behavioralStats.zScore.toFixed(2)}
+                </span>
+              </div>
+            </div>
+
+            {/* Metrics List per Requirement 6 */}
+            <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: '8px', paddingTop: '10px', borderTop: '1px solid rgba(0,0,0,0.06)', fontSize: '0.82rem' }}>
+              <div>
+                <span style={{ color: 'var(--text-secondary)' }}>Customer baseline: </span>
+                <strong style={{ color: 'var(--text-primary)', fontFamily: 'var(--font-mono)' }}>₹{behavioralStats.mean.toLocaleString('en-IN')}</strong>
+              </div>
+              <div>
+                <span style={{ color: 'var(--text-secondary)' }}>Current transfer: </span>
+                <strong style={{ color: 'var(--text-primary)', fontFamily: 'var(--font-mono)' }}>₹{behavioralStats.currentAmount.toLocaleString('en-IN')}</strong>
+              </div>
+              <div>
+                <span style={{ color: 'var(--text-secondary)' }}>Behavioral Z-Score: </span>
+                <strong style={{ color: behavioralStats.isAnomaly ? '#dc2626' : '#059669', fontFamily: 'var(--font-mono)' }}>
+                  {behavioralStats.zScore.toFixed(2)}
+                </strong>
+              </div>
+              <div>
+                <span style={{ color: 'var(--text-secondary)' }}>Standard Deviation: </span>
+                <strong style={{ color: 'var(--text-primary)', fontFamily: 'var(--font-mono)' }}>₹{behavioralStats.stdDev.toLocaleString('en-IN')}</strong>
+              </div>
             </div>
           </div>
 

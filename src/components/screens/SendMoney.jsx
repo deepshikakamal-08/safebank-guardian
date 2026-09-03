@@ -9,9 +9,64 @@ import {
   Clock, 
   AlertCircle,
   HelpCircle,
-  Sparkles
+  Sparkles,
+  UserCheck,
+  Store,
+  RotateCcw,
+  MessageSquareQuote
 } from 'lucide-react';
 import { useGuardian } from '../../context/GuardianContext';
+
+const INTENT_OPTIONS = [
+  {
+    id: "Paying a known person",
+    title: "Paying a known person",
+    desc: "Friend, family member, roommate, or personal contact.",
+    icon: UserCheck,
+    iconColor: "#059669",
+    isAlertStyle: false
+  },
+  {
+    id: "Paying a merchant",
+    title: "Paying a merchant",
+    desc: "Retail store, online shopping, utility bill, or service.",
+    icon: Store,
+    iconColor: "#0284c7",
+    isAlertStyle: false
+  },
+  {
+    id: "Receiving a refund",
+    title: "Receiving a refund",
+    desc: "Instructed to send money or scan QR to receive a refund.",
+    icon: RotateCcw,
+    iconColor: "#d97706",
+    isAlertStyle: true
+  },
+  {
+    id: "Verifying my account",
+    title: "Verifying my account",
+    desc: "Instructed to deposit funds to unblock or verify account.",
+    icon: ShieldAlert,
+    iconColor: "#dc2626",
+    isAlertStyle: true
+  },
+  {
+    id: "Following instructions from a message",
+    title: "Following instructions from a message",
+    desc: "Prompted by phone call, SMS, WhatsApp, or unfamiliar request.",
+    icon: MessageSquareQuote,
+    iconColor: "#dc2626",
+    isAlertStyle: true
+  },
+  {
+    id: "Other",
+    title: "Other",
+    desc: "General payment or unspecified personal reason.",
+    icon: HelpCircle,
+    iconColor: "#64748b",
+    isAlertStyle: false
+  }
+];
 
 export default function SendMoney() {
   const { 
@@ -34,6 +89,19 @@ export default function SendMoney() {
     setPaymentDraft(prev => ({ ...prev, beneficiaryStatus: status }));
   };
 
+  const setPaymentIntent = (intent) => {
+    setPaymentDraft(prev => ({ ...prev, paymentIntent: intent }));
+  };
+
+  const handleFormSubmit = (e) => {
+    e.preventDefault();
+    if (!paymentDraft.paymentIntent) {
+      alert("Please select why you are making this payment before continuing.");
+      return;
+    }
+    setActiveScreen('context');
+  };
+
   return (
     <div className="send-money-view" style={{ maxWidth: '720px', margin: '0 auto' }}>
       <div className="card">
@@ -47,7 +115,7 @@ export default function SendMoney() {
           <span className="brand-badge">Step 2 of 5</span>
         </div>
 
-        <form onSubmit={(e) => { e.preventDefault(); setActiveScreen('context'); }} className="form-grid">
+        <form onSubmit={handleFormSubmit} className="form-grid">
           {/* Recipient Name */}
           <div className="form-group">
             <label className="form-label" htmlFor="recipientName">
@@ -174,6 +242,44 @@ export default function SendMoney() {
                   <div className="toggle-desc">Recognized payee with previous confirmed transactions.</div>
                 </div>
               </div>
+            </div>
+          </div>
+
+          {/* Customer Payment Intent Section */}
+          <div className="form-group">
+            <label className="form-label">
+              <span>Why are you making this payment?</span>
+              <span className="form-label-hint">Required • Customer intent signal</span>
+            </label>
+            <div className="beneficiary-toggle-group">
+              {INTENT_OPTIONS.map((opt) => {
+                const isSelected = paymentDraft.paymentIntent === opt.id;
+                const Icon = opt.icon;
+                return (
+                  <div 
+                    key={opt.id}
+                    className={`toggle-card ${isSelected ? (opt.isAlertStyle ? 'selected alert-style' : 'selected') : ''}`}
+                    onClick={() => setPaymentIntent(opt.id)}
+                  >
+                    <input 
+                      type="radio" 
+                      name="paymentIntent" 
+                      value={opt.id}
+                      checked={isSelected} 
+                      onChange={() => setPaymentIntent(opt.id)}
+                      required
+                      className="toggle-radio"
+                    />
+                    <div>
+                      <div className="toggle-title" style={{ display: 'flex', alignItems: 'center', gap: 6 }}>
+                        <Icon size={16} color={opt.iconColor} />
+                        <span>{opt.title}</span>
+                      </div>
+                      <div className="toggle-desc">{opt.desc}</div>
+                    </div>
+                  </div>
+                );
+              })}
             </div>
           </div>
 

@@ -14,7 +14,8 @@ export function GuardianProvider({ children }) {
     recipientName: DEMO_SCENARIOS.highRisk.recipientName,
     recipientUpi: DEMO_SCENARIOS.highRisk.recipientUpi,
     amount: DEMO_SCENARIOS.highRisk.amount,
-    beneficiaryStatus: DEMO_SCENARIOS.highRisk.beneficiaryStatus
+    beneficiaryStatus: DEMO_SCENARIOS.highRisk.beneficiaryStatus,
+    paymentIntent: DEMO_SCENARIOS.highRisk.paymentIntent || "Following instructions from a message"
   });
 
   const [scamMessage, setScamMessage] = useState(DEMO_SCENARIOS.highRisk.scamMessage);
@@ -35,7 +36,8 @@ export function GuardianProvider({ children }) {
       amount: DEMO_SCENARIOS.highRisk.amount,
       beneficiaryStatus: DEMO_SCENARIOS.highRisk.beneficiaryStatus,
       message: DEMO_SCENARIOS.highRisk.scamMessage,
-      recipientName: DEMO_SCENARIOS.highRisk.recipientName
+      recipientName: DEMO_SCENARIOS.highRisk.recipientName,
+      paymentIntent: DEMO_SCENARIOS.highRisk.paymentIntent || "Following instructions from a message"
     });
     setAnalysisResult(initialAnalysis);
   }, []);
@@ -61,7 +63,8 @@ export function GuardianProvider({ children }) {
       recipientName: scenario.recipientName,
       recipientUpi: scenario.recipientUpi,
       amount: scenario.amount,
-      beneficiaryStatus: scenario.beneficiaryStatus
+      beneficiaryStatus: scenario.beneficiaryStatus,
+      paymentIntent: scenario.paymentIntent || "Following instructions from a message"
     });
     setScamMessage(scenario.scamMessage);
 
@@ -70,7 +73,8 @@ export function GuardianProvider({ children }) {
       amount: scenario.amount,
       beneficiaryStatus: scenario.beneficiaryStatus,
       message: scenario.scamMessage,
-      recipientName: scenario.recipientName
+      recipientName: scenario.recipientName,
+      paymentIntent: scenario.paymentIntent || "Following instructions from a message"
     });
     setAnalysisResult(result);
   };
@@ -83,7 +87,8 @@ export function GuardianProvider({ children }) {
         amount: paymentDraft.amount,
         beneficiaryStatus: paymentDraft.beneficiaryStatus,
         message: scamMessage,
-        recipientName: paymentDraft.recipientName
+        recipientName: paymentDraft.recipientName,
+        paymentIntent: paymentDraft.paymentIntent
       });
       setAnalysisResult(result);
       setIsAnalyzing(false);
