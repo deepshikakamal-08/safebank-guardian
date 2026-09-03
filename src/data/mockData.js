@@ -226,7 +226,205 @@ export function calculateBehavioralZScore(currentAmount, history = HISTORICAL_TR
 
 import { analyzeMessage } from '../ml/scamClassifier.js';
 
-// Analysis engine that inspects transaction intent + scam message context using real ML model and Z-score
+/**
+ * PROTOTYPE RISK FUSION CONFIGURATION
+ * -------------------------------------------------------------
+ * NOTE: This is an experimental, transparent prototype heuristic.
+ * It is NOT scientifically validated for real-world production banking.
+ *
+ * Weights (Sum to 1.0):
+ *  - mlScamProbability: 0.40 (40%) - Linguistic cues of social engineering
+ *  - behavioralAnomaly: 0.25 (25%) - Statistical deviation from customer transfer baseline (Z-Score)
+ *  - paymentIntent:     0.20 (20%) - Customer-stated context / pressure vector
+ *  - beneficiaryStatus: 0.15 (15%) - Recipient exposure level (New vs Existing)
+ *
+ * Thresholds:
+ *  - Fused Score >= 70 : HIGH   -> Pause payment + explain risk + ask customer to verify + optionally offer trusted contact
+ *  - Fused Score >= 40 : MEDIUM -> Explain risk + ask customer to verify
+ *  - Fused Score < 40  : LOW    -> Continue
+ */
+export const RISK_FUSION_CONFIG = {
+  engineName: "Prototype Risk Fusion",
+  status: "Experimental Prototype (Not Scientifically Validated for Production)",
+  weights: {
+    mlScamProbability: 0.40,
+    behavioralAnomaly: 0.25,
+    paymentIntent: 0.20,
+    beneficiaryStatus: 0.15
+  },
+  thresholds: {
+    high: 70,
+    medium: 40
+  },
+  intentRiskMap: {
+    "Following instructions from a message": 1.00,
+    "Verifying my account": 1.00,
+    "Receiving a refund": 0.85,
+    "Other": 0.25,
+    "Paying a merchant": 0.05,
+    "Paying a known person": 0.00
+  }
+};
+
+/**
+ * Transparent Prototype Risk Fusion Function
+ * Combines ML text classification, behavioral Z-Score, payment intent, and beneficiary status.
+ */
+export function evaluateRiskFusion({ mlResult, behavioralStats, paymentIntent, beneficiaryStatus, amount }) {
+  const scamProb = mlResult?.scamProbability ?? 0;
+  const isNewBeneficiary = beneficiaryStatus === "new";
+  const zScore = behavioralStats?.zScore ?? 0;
+  const cfg = RISK_FUSION_CONFIG;
+
+  // 1. ML Scam Component (Weight 40%)
+  const mlScore = Math.min(Math.max(scamProb, 0), 1);
+  const mlContrib = cfg.weights.mlScamProbability * mlScore;
+
+  // 2. Behavioral Component (Weight 25%)
+  let behaviorScore = 0;
+  // Handle missing/insufficient history safely: does not penalize customer
+  if (behavioralStats?.status === "insufficient_data" || !behavioralStats?.stdDev) {
+    behaviorScore = 0;
+  } else if (zScore <= 0) {
+    behaviorScore = 0;
+  } else if (zScore < 2.0) {
+    behaviorScore = (zScore / 2.0) * 0.25;
+  } else if (zScore < 3.0) {
+    behaviorScore = 0.25 + ((zScore - 2.0) / 1.0) * 0.35;
+  } else {
+    // z >= 3.0 indicates strong statistical anomaly
+    behaviorScore = Math.min(1.0, 0.60 + ((zScore - 3.0) / 5.0) * 0.40);
+  }
+  const behaviorContrib = cfg.weights.behavioralAnomaly * behaviorScore;
+
+  // 3. Payment Intent Component (Weight 20%)
+  const normalizedIntent = (paymentIntent || "").trim();
+  const intentScore = cfg.intentRiskMap[normalizedIntent] !== undefined
+    ? cfg.intentRiskMap[normalizedIntent]
+    : 0.20;
+  const intentContrib = cfg.weights.paymentIntent * intentScore;
+
+  // 4. Beneficiary Status Component (Weight 15%)
+  const beneficiaryScore = isNewBeneficiary ? 1.00 : 0.00;
+  const beneficiaryContrib = cfg.weights.beneficiaryStatus * beneficiaryScore;
+
+  // Base Fused Score (0 to 100)
+  const baseScore = (mlContrib + behaviorContrib + intentContrib + beneficiaryContrib) * 100;
+
+  // Multi-Signal Compound Synergy Modifier
+  let synergyModifier = 0;
+  if (mlScore >= 0.70 && intentScore >= 0.85 && isNewBeneficiary) {
+    synergyModifier = 5; // Signals mutually amplify manipulation hypothesis
+  } else if (mlScore < 0.20 && !isNewBeneficiary && intentScore === 0) {
+    synergyModifier = -5; // Benign routine payment discount
+  }
+
+  const fusedScore = Math.round(Math.min(Math.max(baseScore + synergyModifier, 0), 99));
+
+  // Determine Risk Level & Intervention Recommendation
+  let riskLevel = "LOW";
+  let recommendation = "Continue";
+  let actionCode = "CONTINUE";
+  let diagnosisTitle = "Routine Transfer - Normal Baseline";
+  let explanation = "The transfer parameters align with normal customer baselines and no significant manipulation markers were detected.";
+
+  if (fusedScore >= cfg.thresholds.high) {
+    riskLevel = "HIGH";
+    recommendation = "Pause payment + explain risk + ask customer to verify + optionally offer trusted contact";
+    actionCode = "PAUSE_PAYMENT";
+    diagnosisTitle = "High Social Engineering Risk Detected";
+    explanation = `Prototype Risk Fusion detected high manipulation risk (Score: ${fusedScore}/100). The combination of high ML scam indicators (${(scamProb * 100).toFixed(1)}%), anomalous amount (Z-Score: ${zScore.toFixed(2)}), and unverified payee indicates active social engineering.`;
+  } else if (fusedScore >= cfg.thresholds.medium) {
+    riskLevel = "MEDIUM";
+    recommendation = "Explain risk + ask customer to verify";
+    actionCode = "EXPLAIN_AND_VERIFY";
+    diagnosisTitle = "Elevated Risk - Customer Verification Recommended";
+    explanation = `Prototype Risk Fusion detected moderate risk (Score: ${fusedScore}/100). Elevated signals were observed in payment intent or transfer distribution. Independent payee verification is recommended before proceeding.`;
+  }
+
+  // Short Human-Readable Reasons Explaining Contributing Signals
+  const contributingReasons = [];
+  if (mlScore >= 0.5) {
+    contributingReasons.push(`High ML scam confidence (${(scamProb * 100).toFixed(1)}%) in customer communication`);
+  } else if (mlScore >= 0.25) {
+    contributingReasons.push(`Moderate scam probability (${(scamProb * 100).toFixed(1)}%) in message context`);
+  } else {
+    contributingReasons.push(`Low scam probability (${(scamProb * 100).toFixed(1)}%) in message context`);
+  }
+
+  if (behavioralStats?.isAnomaly) {
+    contributingReasons.push(`Transfer amount is ${zScore.toFixed(2)} standard deviations above customer baseline (Z-Score anomaly)`);
+  } else if (behavioralStats?.status === "caution") {
+    contributingReasons.push(`Transfer amount is ${zScore.toFixed(2)} standard deviations above baseline (elevated)`);
+  } else if (behavioralStats?.status === "insufficient_data") {
+    contributingReasons.push("Customer historical baseline is limited (handled neutrally without risk penalty)");
+  } else {
+    contributingReasons.push(`Transfer amount is within normal historical baseline (Z-Score: ${zScore.toFixed(2)})`);
+  }
+
+  if (intentScore >= 0.85) {
+    contributingReasons.push(`Payment intent ("${normalizedIntent}") matches known social engineering coercion`);
+  } else if (intentScore === 0) {
+    contributingReasons.push(`Payment intent ("${normalizedIntent}") matches routine personal payment`);
+  } else {
+    contributingReasons.push(`Payment intent: "${normalizedIntent}"`);
+  }
+
+  if (isNewBeneficiary) {
+    contributingReasons.push("Recipient is an unverified new beneficiary added recently");
+  } else {
+    contributingReasons.push("Recipient is an established contact with past transfer history");
+  }
+
+  return {
+    engineName: cfg.engineName,
+    disclaimer: cfg.status,
+    fusedScore,
+    riskLevel,
+    recommendation,
+    actionCode,
+    diagnosisTitle,
+    explanation,
+    contributingReasons,
+    components: {
+      ml: {
+        name: "ML Scam Probability",
+        score: mlScore,
+        weight: cfg.weights.mlScamProbability,
+        weightPercent: "40%",
+        contribution: Math.round(mlContrib * 100),
+        detail: `${(scamProb * 100).toFixed(1)}% scam confidence`
+      },
+      behavior: {
+        name: "Behavioral Z-Score",
+        score: behaviorScore,
+        weight: cfg.weights.behavioralAnomaly,
+        weightPercent: "25%",
+        contribution: Math.round(behaviorContrib * 100),
+        detail: `${zScore.toFixed(2)}σ deviation`
+      },
+      intent: {
+        name: "Payment Intent",
+        score: intentScore,
+        weight: cfg.weights.paymentIntent,
+        weightPercent: "20%",
+        contribution: Math.round(intentContrib * 100),
+        detail: normalizedIntent || "Unspecified"
+      },
+      beneficiary: {
+        name: "Beneficiary Status",
+        score: beneficiaryScore,
+        weight: cfg.weights.beneficiaryStatus,
+        weightPercent: "15%",
+        contribution: Math.round(beneficiaryContrib * 100),
+        detail: isNewBeneficiary ? "New Beneficiary" : "Existing Contact"
+      }
+    },
+    synergyModifier
+  };
+}
+
+// Analysis engine that inspects transaction intent + scam message context using real ML model, Z-score, and Risk Fusion
 export function analyzeTransactionWithGuardian({ amount, beneficiaryStatus, message, recipientName, paymentIntent, transferHistory }) {
   const amt = Number(amount) || 0;
   const isNewBeneficiary = beneficiaryStatus === "new";
@@ -245,6 +443,22 @@ export function analyzeTransactionWithGuardian({ amount, beneficiaryStatus, mess
   const behavioralStats = calculateBehavioralZScore(amt, history);
   const isBehavioralAnomaly = behavioralStats.isAnomaly;
   const isBehavioralCaution = behavioralStats.status === "caution";
+
+  // 3. PROTOTYPE RISK FUSION ENGINE
+  // Synthesizes ML Scam Probability, Behavioral Z-Score, Payment Intent, and Beneficiary Status
+  const fusionResult = evaluateRiskFusion({
+    mlResult,
+    behavioralStats,
+    paymentIntent,
+    beneficiaryStatus,
+    amount: amt
+  });
+
+  const riskLevel = fusionResult.riskLevel;
+  const riskScore = fusionResult.fusedScore;
+  const diagnosisTitle = fusionResult.diagnosisTitle;
+  const explanation = fusionResult.explanation;
+  const recommendation = fusionResult.recommendation;
 
   const transactionSignals = [
     {
@@ -274,7 +488,7 @@ export function analyzeTransactionWithGuardian({ amount, beneficiaryStatus, mess
     }
   ];
 
-  // 3. ML SCAM CONTEXT SIGNALS (Derived directly from trained model inference)
+  // 4. ML SCAM CONTEXT SIGNALS (Derived directly from trained model inference)
   const scamContextSignals = [
     {
       id: "sig_ctx_ml_1",
@@ -303,27 +517,9 @@ export function analyzeTransactionWithGuardian({ amount, beneficiaryStatus, mess
     }
   ];
 
-  // 4. Interim Risk Level calculation (Separating ML from future full fusion engine)
-  let riskLevel = "LOW";
-  let diagnosisTitle = "Routine Low Risk Transfer";
-  let explanation = `The message was classified as LEGITIMATE (${(legitProb * 100).toFixed(1)}% confidence). SafeBank Guardian detected no significant social engineering markers.`;
-  let recommendation = "Safe to proceed with standard verification.";
-
-  if (isScamDetected && (isBehavioralAnomaly || isNewBeneficiary)) {
-    riskLevel = "HIGH";
-    diagnosisTitle = "Possible Social Engineering Scam";
-    explanation = `The message was classified as SCAM by the trained ML model (${(scamProb * 100).toFixed(1)}% scam probability). Combined with an anomalous transfer amount (Z-Score: ${behavioralStats.zScore.toFixed(2)}) to a new beneficiary, this indicates high manipulation risk.`;
-    recommendation = "Pause Payment. Banks never ask customers to transfer funds to verify an account.";
-  } else if (isScamDetected || scamProb >= 0.4 || isBehavioralAnomaly || (isBehavioralCaution && isNewBeneficiary)) {
-    riskLevel = "MEDIUM";
-    diagnosisTitle = "Elevated Scam Risk Alert";
-    explanation = `The message exhibits suspicious language patterns (${(scamProb * 100).toFixed(1)}% scam probability, Z-Score: ${behavioralStats.zScore.toFixed(2)}). Proceed with heightened caution and verify the payee.`;
-    recommendation = "Verify the recipient's identity independently before releasing funds.";
-  }
-
   return {
     riskLevel,
-    riskScore: Math.round(scamProb * 100),
+    riskScore,
     diagnosisTitle,
     explanation,
     recommendation,
@@ -332,6 +528,9 @@ export function analyzeTransactionWithGuardian({ amount, beneficiaryStatus, mess
     amount: amt,
     isNewBeneficiary,
     paymentIntent: paymentIntent || "Following instructions from a message",
+    // Prototype Risk Fusion
+    fusionResult,
+    isFused: true,
     // Statistical Behavioral Anomaly (Z-Score)
     behavioralStats,
     zScore: behavioralStats.zScore,

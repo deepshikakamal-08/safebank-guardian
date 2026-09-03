@@ -88,7 +88,7 @@ export function GuardianProvider({ children }) {
         beneficiaryStatus: paymentDraft.beneficiaryStatus,
         message: scamMessage,
         recipientName: paymentDraft.recipientName,
-        paymentIntent: paymentDraft.paymentIntent
+        paymentIntent: paymentDraft.paymentIntent || DEMO_SCENARIOS.highRisk.paymentIntent || "Following instructions from a message"
       });
       setAnalysisResult(result);
       setIsAnalyzing(false);

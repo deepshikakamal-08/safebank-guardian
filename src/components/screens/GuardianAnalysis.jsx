@@ -53,6 +53,15 @@ export default function GuardianAnalysis() {
     status: 'normal'
   };
 
+  // Extract prototype risk fusion values
+  const fusionResult = analysisResult.fusionResult || {
+    fusedScore: analysisResult.riskScore || 0,
+    riskLevel: analysisResult.riskLevel || 'LOW',
+    recommendation: analysisResult.recommendation,
+    contributingReasons: [],
+    components: {}
+  };
+
   return (
     <div className="guardian-analysis-hero-view" style={{ maxWidth: '980px', margin: '0 auto' }}>
       
@@ -66,7 +75,7 @@ export default function GuardianAnalysis() {
           <div className="risk-signals-cue-chip">
             <Sparkles size={14} style={{ flexShrink: 0 }} />
             <span>
-              ML Message Risk: <strong>{mlLabel}</strong> ({scamProbDisplay}) • Z-Score: <strong>{behavioralStats.zScore.toFixed(2)}</strong>
+              Prototype Risk Fusion: <strong>{fusionResult.fusedScore}/100</strong> ({analysisResult.riskLevel})
             </span>
           </div>
         </div>
@@ -77,6 +86,111 @@ export default function GuardianAnalysis() {
 
         <div className="diagnosis-explanation">
           {analysisResult.explanation}
+        </div>
+      </div>
+
+      {/* PROTOTYPE RISK FUSION ENGINE CARD */}
+      <div className="card" style={{ marginBottom: '24px', padding: '20px 24px', border: '1.5px solid var(--border-light)', borderRadius: 'var(--radius-lg)' }}>
+        <div style={{ display: 'flex', alignItems: 'flex-start', justifyContent: 'space-between', marginBottom: '14px', flexWrap: 'wrap', gap: 12 }}>
+          <div>
+            <div style={{ display: 'flex', alignItems: 'center', gap: 8 }}>
+              <Shield size={18} color="var(--brand-primary)" />
+              <h2 style={{ fontSize: '1.1rem', fontWeight: 800, margin: 0, color: 'var(--text-primary)' }}>
+                Prototype Risk Fusion Engine
+              </h2>
+              <span style={{ fontSize: '0.72rem', background: 'var(--brand-soft)', color: 'var(--brand-primary)', padding: '2px 8px', borderRadius: '4px', fontWeight: 700 }}>
+                Experimental Prototype
+              </span>
+            </div>
+            <p style={{ fontSize: '0.78rem', color: 'var(--text-muted)', marginTop: 4 }}>
+              Multi-signal risk synthesis combining ML message analysis (40%), behavioral Z-score (25%), payment intent (20%), and beneficiary exposure (15%). Not scientifically validated for production banking use.
+            </p>
+          </div>
+
+          <div style={{ textAlign: 'right' }}>
+            <span style={{ fontSize: '0.75rem', fontWeight: 700, color: 'var(--text-muted)', textTransform: 'uppercase', display: 'block' }}>
+              Fused Risk Score
+            </span>
+            <span style={{
+              fontFamily: 'var(--font-mono)',
+              fontWeight: 900,
+              fontSize: '1.6rem',
+              color: isHigh ? '#dc2626' : isMed ? '#d97706' : '#059669'
+            }}>
+              {fusionResult.fusedScore} <span style={{ fontSize: '0.9rem', color: 'var(--text-muted)', fontWeight: 600 }}>/ 100</span>
+            </span>
+          </div>
+        </div>
+
+        {/* 4 Multi-Signal Weight Components */}
+        <div style={{ display: 'grid', gridTemplateColumns: 'repeat(4, 1fr)', gap: '12px', marginBottom: '16px' }}>
+          {/* ML Component */}
+          <div style={{ background: 'var(--bg-subtle)', padding: '10px 12px', borderRadius: '8px', border: '1px solid var(--border-light)' }}>
+            <div style={{ fontSize: '0.7rem', color: 'var(--text-muted)', fontWeight: 600, display: 'flex', justifyContent: 'space-between' }}>
+              <span>ML SCAM PROB</span>
+              <span style={{ color: 'var(--brand-primary)', fontWeight: 700 }}>40% wt</span>
+            </div>
+            <div style={{ fontSize: '0.92rem', fontWeight: 800, marginTop: 4, color: 'var(--text-primary)' }}>
+              {analysisResult.scamProbabilityPercent || `${(analysisResult.scamProbability * 100).toFixed(1)}%`}
+            </div>
+            <div style={{ fontSize: '0.72rem', color: 'var(--text-secondary)', marginTop: 2 }}>
+              Contrib: +{fusionResult.components?.ml?.contribution ?? 0} pts
+            </div>
+          </div>
+
+          {/* Behavioral Component */}
+          <div style={{ background: 'var(--bg-subtle)', padding: '10px 12px', borderRadius: '8px', border: '1px solid var(--border-light)' }}>
+            <div style={{ fontSize: '0.7rem', color: 'var(--text-muted)', fontWeight: 600, display: 'flex', justifyContent: 'space-between' }}>
+              <span>BEHAVIORAL Z-SCORE</span>
+              <span style={{ color: 'var(--brand-primary)', fontWeight: 700 }}>25% wt</span>
+            </div>
+            <div style={{ fontSize: '0.92rem', fontWeight: 800, marginTop: 4, color: 'var(--text-primary)' }}>
+              {behavioralStats.zScore >= 0 ? '+' : ''}{behavioralStats.zScore.toFixed(2)}σ
+            </div>
+            <div style={{ fontSize: '0.72rem', color: 'var(--text-secondary)', marginTop: 2 }}>
+              Contrib: +{fusionResult.components?.behavior?.contribution ?? 0} pts
+            </div>
+          </div>
+
+          {/* Payment Intent Component */}
+          <div style={{ background: 'var(--bg-subtle)', padding: '10px 12px', borderRadius: '8px', border: '1px solid var(--border-light)' }}>
+            <div style={{ fontSize: '0.7rem', color: 'var(--text-muted)', fontWeight: 600, display: 'flex', justifyContent: 'space-between' }}>
+              <span>PAYMENT INTENT</span>
+              <span style={{ color: 'var(--brand-primary)', fontWeight: 700 }}>20% wt</span>
+            </div>
+            <div style={{ fontSize: '0.82rem', fontWeight: 800, marginTop: 4, color: 'var(--text-primary)', whiteSpace: 'nowrap', overflow: 'hidden', textOverflow: 'ellipsis' }} title={paymentDraft.paymentIntent}>
+              {paymentDraft.paymentIntent || 'Unspecified'}
+            </div>
+            <div style={{ fontSize: '0.72rem', color: 'var(--text-secondary)', marginTop: 2 }}>
+              Contrib: +{fusionResult.components?.intent?.contribution ?? 0} pts
+            </div>
+          </div>
+
+          {/* Beneficiary Status Component */}
+          <div style={{ background: 'var(--bg-subtle)', padding: '10px 12px', borderRadius: '8px', border: '1px solid var(--border-light)' }}>
+            <div style={{ fontSize: '0.7rem', color: 'var(--text-muted)', fontWeight: 600, display: 'flex', justifyContent: 'space-between' }}>
+              <span>BENEFICIARY STATUS</span>
+              <span style={{ color: 'var(--brand-primary)', fontWeight: 700 }}>15% wt</span>
+            </div>
+            <div style={{ fontSize: '0.92rem', fontWeight: 800, marginTop: 4, color: 'var(--text-primary)' }}>
+              {paymentDraft.beneficiaryStatus === 'new' ? 'New Payee' : 'Existing Contact'}
+            </div>
+            <div style={{ fontSize: '0.72rem', color: 'var(--text-secondary)', marginTop: 2 }}>
+              Contrib: +{fusionResult.components?.beneficiary?.contribution ?? 0} pts
+            </div>
+          </div>
+        </div>
+
+        {/* Contributing Reasons */}
+        <div style={{ background: isHigh ? '#fef2f2' : isMed ? '#fffbeb' : '#f0fdf4', padding: '12px 14px', borderRadius: '8px', border: `1px solid ${isHigh ? '#fecaca' : isMed ? '#fde68a' : '#bbf7d0'}` }}>
+          <div style={{ fontSize: '0.78rem', fontWeight: 700, color: 'var(--text-primary)', marginBottom: '6px' }}>
+            Signals Contributing to Fused Assessment:
+          </div>
+          <ul style={{ margin: 0, paddingLeft: '18px', fontSize: '0.78rem', color: 'var(--text-secondary)', display: 'flex', flexDirection: 'column', gap: '4px' }}>
+            {fusionResult.contributingReasons?.map((reason, idx) => (
+              <li key={idx}>{reason}</li>
+            ))}
+          </ul>
         </div>
       </div>
 
@@ -326,7 +440,7 @@ export default function GuardianAnalysis() {
             borderLeft: '3px solid #0284c7',
             lineHeight: 1.4
           }}>
-            <strong>Interim Layer Separation:</strong> Message risk is evaluated directly by the real ML model. Statistical transaction anomaly and multi-signal risk fusion will be added in subsequent steps.
+            <strong>Multi-Signal Risk Fusion:</strong> Linguistic features evaluated alongside behavioral baseline deviation (Z-Score) and customer payment intent. The customer always retains control over the payment.
           </div>
         </div>
       </div>
