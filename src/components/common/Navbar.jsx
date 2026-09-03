@@ -1,13 +1,11 @@
 import React from 'react';
-import { Shield, RefreshCw, AlertCircle } from 'lucide-react';
+import { Shield, RefreshCw } from 'lucide-react';
 import { useGuardian } from '../../context/GuardianContext';
 
 export default function Navbar() {
   const { 
     account, 
     activeScreen,
-    activeScenarioKey, 
-    switchScenario, 
     resetDemo, 
     setActiveScreen 
   } = useGuardian();
@@ -48,40 +46,35 @@ export default function Navbar() {
                 <span>Guardian Active</span>
               </div>
 
-              {/* Quick Scenario Switcher for Hackathon Judges */}
-              <div className="scenario-selector">
-                <span className="scenario-label">Demo Preset:</span>
-                <select
-                  className="scenario-select"
-                  value={activeScenarioKey}
-                  onChange={(e) => switchScenario(e.target.value)}
-                  title="Select a hackathon demonstration scenario"
-                >
-                  <option value="highRisk">🚨 High Risk: Impersonation Threat (₹50k)</option>
-                  <option value="mediumRisk">⚠️ Med Risk: Urgent Aid Request (₹15k)</option>
-                  <option value="lowRisk">✅ Low Risk: Routine Friend Transfer (₹1.2k)</option>
-                </select>
-              </div>
-
               {/* Account Profile Chip */}
               <div className="user-chip">
-                <div className="user-avatar">
+                <div className="user-avatar" style={{ position: 'relative' }}>
                   {account.accountHolder.split(' ').map(n => n[0]).join('')}
+                  <span style={{
+                    position: 'absolute',
+                    bottom: -1,
+                    right: -1,
+                    width: 8,
+                    height: 8,
+                    borderRadius: '50%',
+                    background: '#10b981',
+                    border: '1.5px solid white'
+                  }} />
                 </div>
                 <div>
                   <div className="user-name">{account.accountHolder}</div>
                 </div>
               </div>
 
-              {/* Quick Restart Demo */}
+              {/* Reset Flow Button */}
               <button 
                 className="btn btn-outline" 
-                style={{ padding: '6px 10px', fontSize: '0.78rem' }}
+                style={{ padding: '6px 12px', fontSize: '0.78rem', gap: '6px', borderRadius: 'var(--radius-full)' }}
                 onClick={resetDemo}
-                title="Reset flow to beginning"
+                title="Reset simulation to initial state"
               >
-                <RefreshCw size={13} />
-                <span>Reset Demo</span>
+                <RefreshCw size={12} />
+                <span>Reset Flow</span>
               </button>
             </>
           )}

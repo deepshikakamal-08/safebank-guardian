@@ -41,8 +41,6 @@ export default function StepTracker() {
                 <div className="step-number">
                   {isCompleted ? (
                     <Check size={14} strokeWidth={3} />
-                  ) : step.isHero ? (
-                    <ShieldAlert size={14} />
                   ) : (
                     idx + 1
                   )}

@@ -110,7 +110,7 @@ export default function BankingHome() {
                 </div>
                 <div className="btn-dominant-send-text">
                   <span className="btn-dominant-send-title">Send Money / Transfer Funds</span>
-                  <span className="btn-dominant-send-desc">Initiate transfer to test SafeBank Guardian's real-time protection demo</span>
+                  <span className="btn-dominant-send-desc">Instant UPI &amp; IMPS transfers with Guardian real-time protection</span>
                 </div>
               </div>
               <div className="btn-dominant-send-arrow">
