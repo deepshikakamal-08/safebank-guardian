@@ -1,0 +1,198 @@
+{
+  "dataset_summary": {
+    "total_samples": 500,
+    "train_samples": 400,
+    "test_samples": 100,
+    "train_class_counts": {
+      "LEGITIMATE": 200,
+      "SCAM": 200
+    },
+    "test_class_counts": {
+      "LEGITIMATE": 50,
+      "SCAM": 50
+    },
+    "random_seed": 42,
+    "test_ratio": 0.2
+  },
+  "metrics": {
+    "accuracy": 0.97,
+    "scam_recall": 1.0,
+    "scam_precision": 0.9434,
+    "scam_f1": 0.9709,
+    "legitimate_recall": 0.94,
+    "legitimate_precision": 1.0,
+    "legitimate_f1": 0.9691
+  },
+  "confusion_matrix": {
+    "labels": [
+      "LEGITIMATE",
+      "SCAM"
+    ],
+    "true_negatives": 47,
+    "false_positives": 3,
+    "false_negatives": 0,
+    "true_positives": 50,
+    "matrix": [
+      [
+        47,
+        3
+      ],
+      [
+        0,
+        50
+      ]
+    ]
+  },
+  "classification_report": {
+    "LEGITIMATE": {
+      "precision": 1.0,
+      "recall": 0.94,
+      "f1-score": 0.969072,
+      "support": 50.0
+    },
+    "SCAM": {
+      "precision": 0.943396,
+      "recall": 1.0,
+      "f1-score": 0.970874,
+      "support": 50.0
+    },
+    "accuracy": 0.97,
+    "macro avg": {
+      "precision": 0.971698,
+      "recall": 0.97,
+      "f1-score": 0.969973,
+      "support": 100.0
+    },
+    "weighted avg": {
+      "precision": 0.971698,
+      "recall": 0.97,
+      "f1-score": 0.969973,
+      "support": 100.0
+    }
+  },
+  "top_scam_features": [
+    {
+      "feature": "http",
+      "coefficient": 1.5872
+    },
+    {
+      "feature": "to",
+      "coefficient": 1.3091
+    },
+    {
+      "feature": "at http",
+      "coefficient": 1.145
+    },
+    {
+      "feature": "refund",
+      "coefficient": 1.1364
+    },
+    {
+      "feature": "at",
+      "coefficient": 1.0653
+    },
+    {
+      "feature": "and",
+      "coefficient": 0.8966
+    },
+    {
+      "feature": "immediately",
+      "coefficient": 0.8703
+    },
+    {
+      "feature": "kyc",
+      "coefficient": 0.8391
+    },
+    {
+      "feature": "our",
+      "coefficient": 0.775
+    },
+    {
+      "feature": "transfer",
+      "coefficient": 0.7159
+    },
+    {
+      "feature": "please",
+      "coefficient": 0.7018
+    },
+    {
+      "feature": "support",
+      "coefficient": 0.6967
+    },
+    {
+      "feature": "desk",
+      "coefficient": 0.6656
+    },
+    {
+      "feature": "in",
+      "coefficient": 0.6552
+    },
+    {
+      "feature": "verification",
+      "coefficient": 0.6255
+    }
+  ],
+  "top_legitimate_features": [
+    {
+      "feature": "00",
+      "coefficient": -2.0109
+    },
+    {
+      "feature": "inr",
+      "coefficient": -1.9186
+    },
+    {
+      "feature": "24",
+      "coefficient": -1.8313
+    },
+    {
+      "feature": "for",
+      "coefficient": -1.7586
+    },
+    {
+      "feature": "sep",
+      "coefficient": -1.5449
+    },
+    {
+      "feature": "sep 24",
+      "coefficient": -1.5192
+    },
+    {
+      "feature": "on",
+      "coefficient": -1.3022
+    },
+    {
+      "feature": "of inr",
+      "coefficient": -1.0523
+    },
+    {
+      "feature": "transferred",
+      "coefficient": -0.987
+    },
+    {
+      "feature": "for the",
+      "coefficient": -0.9548
+    },
+    {
+      "feature": "c",
+      "coefficient": -0.8947
+    },
+    {
+      "feature": "a c",
+      "coefficient": -0.8947
+    },
+    {
+      "feature": "safebank",
+      "coefficient": -0.8668
+    },
+    {
+      "feature": "a",
+      "coefficient": -0.848
+    },
+    {
+      "feature": "aug",
+      "coefficient": -0.8376
+    }
+  ],
+  "notes": "Trained on synthetic prototype dataset. Recall prioritizes catching social engineering attacks with 0 false negatives."
+}

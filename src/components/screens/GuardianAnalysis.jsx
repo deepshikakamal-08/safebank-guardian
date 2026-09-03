@@ -35,6 +35,14 @@ export default function GuardianAnalysis() {
 
   const riskClass = isHigh ? 'level-high' : isMed ? 'level-medium' : 'level-low';
 
+  // Extract structured ML values
+  const mlLabel = analysisResult.predictedLabel || (analysisResult.scamProbability >= 0.5 ? 'SCAM' : 'LEGITIMATE');
+  const isMlScam = mlLabel === 'SCAM';
+  const scamProbRaw = typeof analysisResult.scamProbability === 'number' ? analysisResult.scamProbability : 0;
+  const scamProbDisplay = analysisResult.scamProbabilityPercent || `${(scamProbRaw * 100).toFixed(1)}%`;
+  const legitProbDisplay = analysisResult.legitimateProbabilityPercent || `${((1 - scamProbRaw) * 100).toFixed(1)}%`;
+  const topFeatures = analysisResult.topFeatures || [];
+
   return (
     <div className="guardian-analysis-hero-view" style={{ maxWidth: '980px', margin: '0 auto' }}>
       
@@ -48,11 +56,7 @@ export default function GuardianAnalysis() {
           <div className="risk-signals-cue-chip">
             <Sparkles size={14} style={{ flexShrink: 0 }} />
             <span>
-              {isHigh 
-                ? 'Multiple high-confidence risk signals detected' 
-                : isMed 
-                  ? 'Multiple moderate-risk signals detected' 
-                  : 'Standard baseline signals verified'}
+              ML Message Risk: <strong>{mlLabel}</strong> ({scamProbDisplay}) • TF-IDF + LogReg
             </span>
           </div>
         </div>
@@ -74,7 +78,7 @@ export default function GuardianAnalysis() {
             <TrendingUp size={20} color="#0284c7" />
             <div>
               <div className="signal-group-title">Transaction Signals</div>
-              <div style={{ fontSize: '0.75rem', color: 'var(--text-muted)' }}>Payment Intent & Spending Baselines</div>
+              <div style={{ fontSize: '0.75rem', color: 'var(--text-muted)' }}>Payment Intent & Spending Baselines (Heuristic)</div>
             </div>
           </div>
 
@@ -106,38 +110,148 @@ export default function GuardianAnalysis() {
           </div>
         </div>
 
-        {/* GROUP 2: SCAM CONTEXT SIGNALS */}
+        {/* GROUP 2: ML SCAM MESSAGE ANALYSIS */}
         <div className="signal-group-card">
           <div className="signal-group-header">
-            <MessageSquare size={20} color="#dc2626" />
+            <MessageSquare size={20} color={isMlScam ? "#dc2626" : "#059669"} />
             <div>
-              <div className="signal-group-title">Scam Context Signals</div>
-              <div style={{ fontSize: '0.75rem', color: 'var(--text-muted)' }}>Customer-Provided Communication Analysis</div>
+              <div className="signal-group-title">ML Message Risk Analysis</div>
+              <div style={{ fontSize: '0.75rem', color: 'var(--text-muted)' }}>Trained TF-IDF + Logistic Regression Classifier</div>
             </div>
           </div>
 
-          <div className="signals-list">
-            {analysisResult.scamContextSignals.map(sig => {
-              const isDetected = sig.detected;
-              return (
-                <div 
-                  key={sig.id} 
-                  className={`signal-item ${isDetected ? 'signal-anomaly' : 'signal-normal'}`}
-                >
-                  <div className="signal-icon-wrap">
-                    {isDetected ? (
-                      <AlertTriangle size={18} color="#dc2626" />
-                    ) : (
-                      <CheckCircle2 size={18} color="#059669" />
-                    )}
-                  </div>
-                  <div className="signal-text">
-                    <div className="signal-item-name">{sig.title}</div>
-                    <div className="signal-item-desc">{sig.detail}</div>
-                  </div>
-                </div>
-              );
-            })}
+          {/* Model Prediction & Probability Card */}
+          <div style={{
+            background: isMlScam ? '#fef2f2' : '#f0fdf4',
+            border: `1.5px solid ${isMlScam ? '#fecaca' : '#bbf7d0'}`,
+            borderRadius: '12px',
+            padding: '16px',
+            marginBottom: '16px'
+          }}>
+            <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between', marginBottom: '10px' }}>
+              <div>
+                <span style={{ fontSize: '0.75rem', fontWeight: 700, color: 'var(--text-muted)', textTransform: 'uppercase', display: 'block' }}>
+                  Message Risk
+                </span>
+                <span style={{
+                  display: 'inline-flex',
+                  alignItems: 'center',
+                  gap: 6,
+                  fontWeight: 800,
+                  fontSize: '1.05rem',
+                  color: isMlScam ? '#dc2626' : '#059669',
+                  marginTop: 2
+                }}>
+                  {isMlScam ? <AlertTriangle size={16} /> : <CheckCircle2 size={16} />}
+                  {mlLabel}
+                </span>
+              </div>
+
+              <div style={{ textAlign: 'right' }}>
+                <span style={{ fontSize: '0.75rem', fontWeight: 700, color: 'var(--text-muted)', textTransform: 'uppercase', display: 'block' }}>
+                  Scam Probability
+                </span>
+                <span style={{
+                  fontFamily: 'var(--font-mono)',
+                  fontWeight: 800,
+                  fontSize: '1.25rem',
+                  color: isMlScam ? '#b91c1c' : '#047857'
+                }}>
+                  {scamProbDisplay}
+                </span>
+              </div>
+            </div>
+
+            {/* Probability Progress Bar */}
+            <div style={{ width: '100%', height: '6px', background: '#e2e8f0', borderRadius: '4px', overflow: 'hidden', marginBottom: '6px' }}>
+              <div style={{
+                width: `${Math.min(Math.max(scamProbRaw * 100, 2), 100)}%`,
+                height: '100%',
+                background: isMlScam ? 'linear-gradient(90deg, #f87171, #dc2626)' : 'linear-gradient(90deg, #34d399, #059669)',
+                borderRadius: '4px',
+                transition: 'width 0.4s ease'
+              }} />
+            </div>
+
+            <div style={{ display: 'flex', justifyContent: 'space-between', fontSize: '0.72rem', color: 'var(--text-muted)' }}>
+              <span>Legitimate Confidence: {legitProbDisplay}</span>
+              <span>Model: TF-IDF + LogReg (v1.0)</span>
+            </div>
+          </div>
+
+          {/* Explainability Section */}
+          <div style={{ marginBottom: '14px' }}>
+            <div style={{ fontSize: '0.84rem', fontWeight: 700, color: 'var(--text-primary)', marginBottom: '4px' }}>
+              &ldquo;These features contributed strongly to the risk assessment.&rdquo;
+            </div>
+            <div style={{ fontSize: '0.74rem', color: 'var(--text-muted)', marginBottom: '10px' }}>
+              Feature-level contributions derived from learned logistic regression weights:
+            </div>
+
+            {topFeatures && topFeatures.length > 0 ? (
+              <div style={{ display: 'flex', flexDirection: 'column', gap: '8px' }}>
+                {topFeatures.map((f, i) => {
+                  const isScamFeature = f.direction === 'SCAM';
+                  return (
+                    <div 
+                      key={i} 
+                      style={{
+                        display: 'flex',
+                        alignItems: 'center',
+                        justifyContent: 'space-between',
+                        padding: '8px 12px',
+                        background: isScamFeature ? '#fff1f2' : '#f0fdf4',
+                        border: `1px solid ${isScamFeature ? '#ffe4e6' : '#dcfce7'}`,
+                        borderRadius: '8px',
+                        fontSize: '0.82rem'
+                      }}
+                    >
+                      <div style={{ display: 'flex', alignItems: 'center', gap: '8px' }}>
+                        <span style={{ color: isScamFeature ? '#e11d48' : '#059669', fontWeight: 700 }}>•</span>
+                        <strong style={{ color: 'var(--text-primary)', fontFamily: 'var(--font-mono)' }}>
+                          &ldquo;{f.feature}&rdquo;
+                        </strong>
+                      </div>
+                      <div style={{ display: 'flex', alignItems: 'center', gap: '10px' }}>
+                        <span style={{
+                          fontWeight: 700,
+                          fontSize: '0.75rem',
+                          color: isScamFeature ? '#be123c' : '#047857'
+                        }}>
+                          {isScamFeature ? '+' : ''}{f.contribution.toFixed(4)} impact
+                        </span>
+                        <span style={{
+                          fontSize: '0.7rem',
+                          color: 'var(--text-muted)',
+                          padding: '2px 6px',
+                          background: 'rgba(0,0,0,0.04)',
+                          borderRadius: '4px'
+                        }}>
+                          {f.direction}
+                        </span>
+                      </div>
+                    </div>
+                  );
+                })}
+              </div>
+            ) : (
+              <div style={{ fontSize: '0.78rem', color: 'var(--text-muted)' }}>
+                No significant vocabulary triggers matched the model vocabulary.
+              </div>
+            )}
+          </div>
+
+          {/* Separation Notice */}
+          <div style={{
+            padding: '10px 12px',
+            background: 'var(--bg-subtle)',
+            borderRadius: '8px',
+            fontSize: '0.73rem',
+            color: 'var(--text-secondary)',
+            borderLeft: '3px solid #0284c7',
+            lineHeight: 1.4
+          }}>
+            <strong>Interim Layer Separation:</strong> Message risk is evaluated directly by the real ML model. Statistical transaction anomaly and multi-signal risk fusion will be added in subsequent steps.
           </div>
         </div>
       </div>

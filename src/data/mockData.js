@@ -117,28 +117,25 @@ export const DEMO_SCENARIOS = {
   }
 };
 
-// Analysis engine that inspects transaction intent + scam message context
+import { analyzeMessage } from '../ml/scamClassifier.js';
+
+// Analysis engine that inspects transaction intent + scam message context using real ML model
 export function analyzeTransactionWithGuardian({ amount, beneficiaryStatus, message, recipientName }) {
-  const normalizedMsg = (message || "").toLowerCase();
   const amt = Number(amount) || 0;
   const isNewBeneficiary = beneficiaryStatus === "new";
 
-  // SCAM CONTEXT SIGNALS
-  const urgencyKeywords = ["immediately", "urgent", "right now", "today", "within 1 hour", "hurry", "expire", "dying"];
-  const threatKeywords = ["blocked", "suspended", "frozen", "legal action", "arrest", "police", "penalty", "deactivate"];
-  const impersonationKeywords = ["bank", "verify your account", "kyc", "customer care", "officer", "rbi", "verification desk", "income tax"];
-  const paymentKeywords = ["transfer", "send", "pay", "deposit", "upi", "refund fee"];
+  // 1. REAL ML CLASSIFIER INFERENCE
+  // Runs verified TF-IDF + Logistic Regression directly in JavaScript
+  const mlResult = analyzeMessage(message || "");
+  const isScamDetected = mlResult.label === "SCAM";
+  const scamProb = mlResult.scamProbability;
+  const legitProb = mlResult.legitimateProbability;
+  const topFeatures = mlResult.topFeatures || [];
 
-  const hasUrgency = urgencyKeywords.some(kw => normalizedMsg.includes(kw));
-  const hasThreat = threatKeywords.some(kw => normalizedMsg.includes(kw));
-  const hasImpersonation = impersonationKeywords.some(kw => normalizedMsg.includes(kw));
-  const hasPaymentReq = paymentKeywords.some(kw => normalizedMsg.includes(kw));
-
-  // TRANSACTION SIGNALS
+  // 2. TRANSACTION SIGNALS (Payment Intent & Spending Baselines)
   const isUnusuallyLarge = amt >= 20000;
   const isModerateAmount = amt >= 10000 && amt < 20000;
 
-  // Signal Objects
   const transactionSignals = [
     {
       id: "sig_tx_1",
@@ -163,76 +160,64 @@ export function analyzeTransactionWithGuardian({ amount, beneficiaryStatus, mess
     {
       id: "sig_tx_3",
       title: "Timing & Pacing Disruption",
-      desc: isNewBeneficiary && (hasUrgency || isUnusuallyLarge)
+      desc: isNewBeneficiary && (isScamDetected || isUnusuallyLarge)
         ? "Rapid checkout initiated immediately upon message arrival (High cognitive pressure signature)"
         : "Standard deliberative timing observed on trusted device",
-      status: isNewBeneficiary && hasUrgency ? "anomaly" : "normal",
-      weight: isNewBeneficiary && hasUrgency ? 15 : 0
+      status: isNewBeneficiary && isScamDetected ? "anomaly" : "normal",
+      weight: isNewBeneficiary && isScamDetected ? 15 : 0
     }
   ];
 
+  // 3. ML SCAM CONTEXT SIGNALS (Derived directly from trained model inference)
   const scamContextSignals = [
     {
-      id: "sig_ctx_1",
-      title: "Urgency Language",
-      detail: hasUrgency ? "Urgency cues detected ('immediately', 'today', 'urgent')" : "No artificial urgency pressure found",
-      status: hasUrgency ? "anomaly" : "normal",
-      detected: hasUrgency
+      id: "sig_ctx_ml_1",
+      title: "ML Model Classification",
+      detail: isScamDetected
+        ? `Classified as SCAM by trained model (${(scamProb * 100).toFixed(1)}% scam probability)`
+        : `Classified as LEGITIMATE by trained model (${(legitProb * 100).toFixed(1)}% legitimate confidence)`,
+      status: isScamDetected ? "anomaly" : "normal",
+      detected: isScamDetected
     },
     {
-      id: "sig_ctx_2",
-      title: "Account-Threat Language",
-      detail: hasThreat ? "Threat language detected ('bank account will be blocked', 'suspended')" : "No coercive threats detected",
-      status: hasThreat ? "anomaly" : "normal",
-      detected: hasThreat
+      id: "sig_ctx_ml_2",
+      title: "Scam Probability Score",
+      detail: `${(scamProb * 100).toFixed(1)}% scam probability (computed via TF-IDF + Logistic Regression)`,
+      status: scamProb >= 0.7 ? "anomaly" : (scamProb >= 0.4 ? "caution" : "normal"),
+      detected: scamProb >= 0.5
     },
     {
-      id: "sig_ctx_3",
-      title: "Possible Bank Impersonation",
-      detail: hasImpersonation ? "Claims to represent bank verification or compliance desk" : "No institutional impersonation markers",
-      status: hasImpersonation ? "anomaly" : "normal",
-      detected: hasImpersonation
-    },
-    {
-      id: "sig_ctx_4",
-      title: "Payment Request",
-      detail: hasPaymentReq ? "Explicit demand to transfer money under coercive pretense" : "Informal or standard interpersonal context",
-      status: hasPaymentReq ? "anomaly" : "normal",
-      detected: hasPaymentReq
+      id: "sig_ctx_ml_3",
+      title: "Key Influential Tokens",
+      detail: topFeatures.length > 0
+        ? `Top contributing features: ${topFeatures.slice(0, 3).map(f => `'${f.feature}' (${f.direction === 'SCAM' ? '+' : ''}${f.contribution})`).join(', ')}`
+        : "Standard message vocabulary with no high-weight scam tokens",
+      status: isScamDetected ? "anomaly" : "normal",
+      detected: isScamDetected
     }
   ];
 
-  // Calculate Overall Risk Level
-  let riskScore = 12; // baseline
-  if (isNewBeneficiary) riskScore += 25;
-  if (isUnusuallyLarge) riskScore += 28;
-  if (isModerateAmount) riskScore += 12;
-  if (hasUrgency) riskScore += 15;
-  if (hasThreat) riskScore += 25;
-  if (hasImpersonation) riskScore += 20;
-
-  riskScore = Math.min(Math.max(riskScore, 8), 96);
-
+  // 4. Interim Risk Level calculation (Separating ML from future full fusion engine)
   let riskLevel = "LOW";
   let diagnosisTitle = "Routine Low Risk Transfer";
-  let explanation = "The transfer aligns with your normal payment patterns. SafeBank Guardian has not detected social engineering or coercive language.";
+  let explanation = `The message was classified as LEGITIMATE (${(legitProb * 100).toFixed(1)}% confidence). SafeBank Guardian detected no significant social engineering markers.`;
   let recommendation = "Safe to proceed with standard verification.";
 
-  if (riskScore >= 70 || (hasThreat && hasImpersonation && isNewBeneficiary)) {
+  if (isScamDetected && (isUnusuallyLarge || isNewBeneficiary)) {
     riskLevel = "HIGH";
-    diagnosisTitle = "Possible Bank Impersonation Scam";
-    explanation = "The message contains account-threat and urgency language, while this payment is unusually large and is being sent to a new beneficiary. These combined signals may indicate that you are being socially engineered.";
+    diagnosisTitle = "Possible Social Engineering Scam";
+    explanation = `The message was classified as SCAM by the trained ML model (${(scamProb * 100).toFixed(1)}% scam probability). Combined with high-value payment parameters to a new beneficiary, this indicates high manipulation risk.`;
     recommendation = "Pause Payment. Banks never ask customers to transfer funds to verify an account.";
-  } else if (riskScore >= 40 || (hasUrgency && isNewBeneficiary)) {
+  } else if (isScamDetected || scamProb >= 0.4 || (isUnusuallyLarge && isNewBeneficiary)) {
     riskLevel = "MEDIUM";
-    diagnosisTitle = "High-Pressure Coercion Alert";
-    explanation = "The transfer is being directed to a new beneficiary under urgent conditions. While account threats were not detected, artificial urgency is a hallmark of peer manipulation and distress scams.";
+    diagnosisTitle = "Elevated Scam Risk Alert";
+    explanation = `The message exhibits suspicious language patterns (${(scamProb * 100).toFixed(1)}% scam probability). Proceed with heightened caution and verify the payee.`;
     recommendation = "Verify the recipient's identity independently before releasing funds.";
   }
 
   return {
     riskLevel,
-    riskScore,
+    riskScore: Math.round(scamProb * 100),
     diagnosisTitle,
     explanation,
     recommendation,
@@ -240,8 +225,14 @@ export function analyzeTransactionWithGuardian({ amount, beneficiaryStatus, mess
     scamContextSignals,
     amount: amt,
     isNewBeneficiary,
-    hasThreat,
-    hasUrgency,
-    hasImpersonation
+    // Real ML fields
+    mlResult,
+    predictedLabel: mlResult.label,
+    scamProbability: mlResult.scamProbability,
+    legitimateProbability: mlResult.legitimateProbability,
+    scamProbabilityPercent: (scamProb * 100).toFixed(1) + "%",
+    legitimateProbabilityPercent: (legitProb * 100).toFixed(1) + "%",
+    topFeatures: mlResult.topFeatures,
+    explanationNote: "These features contributed strongly to the risk assessment."
   };
 }

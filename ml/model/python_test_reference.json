@@ -1,0 +1,66 @@
+[
+  {
+    "category": "bank impersonation scam",
+    "expected_label": "SCAM",
+    "text": "Dear Customer, your SBI account 4829 has been temporarily locked due to irregular transactions. Visit http://sbi-unblock-portal.net immediately to restore access.",
+    "python_prediction": "SCAM",
+    "python_scam_prob": 0.7426113927481762,
+    "python_legit_prob": 0.2573886072518238
+  },
+  {
+    "category": "KYC scam",
+    "expected_label": "SCAM",
+    "text": "Dear customer, your SBI KYC has expired today. Your account will be blocked within 24 hours. Update your Aadhaar and PAN immediately at http://sbi-kyc-update.com",
+    "python_prediction": "SCAM",
+    "python_scam_prob": 0.8253076180958209,
+    "python_legit_prob": 0.17469238190417913
+  },
+  {
+    "category": "refund scam",
+    "expected_label": "SCAM",
+    "text": "Dear customer, your excess electricity bill payment of \u20b93,450 has been approved for refund. Claim your refund instantly to your UPI account: http://bijli-bill-refund.in",
+    "python_prediction": "SCAM",
+    "python_scam_prob": 0.7368713299321056,
+    "python_legit_prob": 0.2631286700678944
+  },
+  {
+    "category": "OTP/PIN scam",
+    "expected_label": "SCAM",
+    "text": "SafeBank Alert: A debit request of \u20b948,000 is being processed on your account. To cancel this transaction immediately, provide OTP 839201 to our security agent.",
+    "python_prediction": "SCAM",
+    "python_scam_prob": 0.7535072227446227,
+    "python_legit_prob": 0.24649277725537733
+  },
+  {
+    "category": "investment scam",
+    "expected_label": "SCAM",
+    "text": "Work from Home Opportunity: Earn \u20b93,000 to \u20b98,000 daily by simply liking YouTube videos and rating Google maps. Deposit \u20b91,000 security fee to start earning today!",
+    "python_prediction": "SCAM",
+    "python_scam_prob": 0.8015626270473674,
+    "python_legit_prob": 0.19843737295263264
+  },
+  {
+    "category": "legitimate payment confirmation",
+    "expected_label": "LEGITIMATE",
+    "text": "Your A/C XX4829 has been debited by INR 1,450.00 on 03-Sep-24 via UPI to Swiggy. UPI Ref 424789123456. Avail Bal: INR 1,41,400.00. -SafeBank",
+    "python_prediction": "LEGITIMATE",
+    "python_scam_prob": 0.09666307365788768,
+    "python_legit_prob": 0.9033369263421123
+  },
+  {
+    "category": "legitimate salary/credit notification",
+    "expected_label": "LEGITIMATE",
+    "text": "Salary Credit: Your Salary for August 2024 of INR 95,000.00 has been credited to A/C XX4829 on 31-Aug-24 by Apex Technologies Ltd. UTR: APEX2489102931. -SafeBank",
+    "python_prediction": "LEGITIMATE",
+    "python_scam_prob": 0.1250337594210726,
+    "python_legit_prob": 0.8749662405789274
+  },
+  {
+    "category": "legitimate merchant payment",
+    "expected_label": "LEGITIMATE",
+    "text": "Thank you for shopping at Reliance Fresh Bandra. INR 1,450.00 paid via UPI on 03-Sep-24 18:30. Invoice No: RF-482910. Hope to see you again!",
+    "python_prediction": "LEGITIMATE",
+    "python_scam_prob": 0.17221591469347178,
+    "python_legit_prob": 0.8277840853065283
+  }
+]
