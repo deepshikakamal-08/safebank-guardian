@@ -112,7 +112,6 @@ export default function SendMoney() {
               Debiting from: {account.accountType} ({account.accountNumber}) • Available: ₹{account.balance.toLocaleString('en-IN')}
             </p>
           </div>
-          <span className="brand-badge">Step 2 of 5</span>
         </div>
 
         <form onSubmit={handleFormSubmit} className="form-grid">
@@ -154,7 +153,7 @@ export default function SendMoney() {
           <div className="form-group">
             <label className="form-label" htmlFor="amount">
               <span>Transfer Amount</span>
-              <span className="form-label-hint">Your 30-day average: ₹3,200</span>
+              <span className="form-label-hint">Your typical baseline: ₹{account.baselineAverageTransfer ? account.baselineAverageTransfer.toLocaleString('en-IN') : '3,200'}</span>
             </label>
             <div className="input-wrapper">
               <span className="amount-symbol-prefix">₹</span>
@@ -171,27 +170,27 @@ export default function SendMoney() {
 
             {/* Quick Amount Pills */}
             <div className="quick-amount-pills">
-              <span style={{ fontSize: '0.75rem', color: 'var(--text-muted)', alignSelf: 'center' }}>Demo quick sets:</span>
+              <span style={{ fontSize: '0.75rem', color: 'var(--text-muted)', alignSelf: 'center' }}>Quick amounts:</span>
               <button 
                 type="button"
                 className={`pill-btn ${paymentDraft.amount === 1200 ? 'active' : ''}`}
                 onClick={() => handleQuickAmount(1200)}
               >
-                ₹1,200 (Routine)
+                ₹1,200
               </button>
               <button 
                 type="button"
                 className={`pill-btn ${paymentDraft.amount === 15000 ? 'active' : ''}`}
                 onClick={() => handleQuickAmount(15000)}
               >
-                ₹15,000 (Medium)
+                ₹15,000
               </button>
               <button 
                 type="button"
                 className={`pill-btn ${paymentDraft.amount === 50000 ? 'active' : ''}`}
                 onClick={() => handleQuickAmount(50000)}
               >
-                ₹50,000 (Scam Target)
+                ₹50,000
               </button>
             </div>
           </div>

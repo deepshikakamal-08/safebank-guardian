@@ -1545,6 +1545,40 @@ body {
   to { opacity: 1; transform: scale(1); }
 }
 
+/* Guardian Analysis Visual Climax Styles */
+.hero-analysis-header {
+  padding: 24px 28px;
+  border-radius: var(--radius-xl);
+  box-shadow: var(--shadow-sm);
+  position: relative;
+  overflow: hidden;
+  transition: all 0.25s ease;
+}
+
+.hero-analysis-header.level-high {
+  background: linear-gradient(135deg, #fff7f7 0%, #ffffff 100%);
+  border: 1.5px solid #fecaca;
+  box-shadow: 0 4px 20px rgba(220, 38, 38, 0.08);
+}
+
+.hero-analysis-header.level-medium {
+  background: linear-gradient(135deg, #fffbeb 0%, #ffffff 100%);
+  border: 1.5px solid #fde68a;
+  box-shadow: 0 4px 20px rgba(217, 119, 6, 0.08);
+}
+
+.hero-analysis-header.level-low {
+  background: linear-gradient(135deg, #f0fdf4 0%, #ffffff 100%);
+  border: 1.5px solid #a7f3d0;
+  box-shadow: 0 4px 20px rgba(5, 150, 105, 0.08);
+}
+
+.flagged-signals-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 16px;
+}
+
 /* Responsive Styles */
 @media (max-width: 768px) {
   .balance-card-grid,

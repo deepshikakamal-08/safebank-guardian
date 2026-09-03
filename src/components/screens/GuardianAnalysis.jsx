@@ -81,7 +81,7 @@ export default function GuardianAnalysis() {
               Guardian Analysis
             </span>
             <div className={`risk-level-badge ${isMed ? 'badge-medium' : isLow ? 'badge-low' : ''}`} style={{ margin: 0 }}>
-              <ShieldAlert size={14} />
+              {isLow ? <ShieldCheck size={14} /> : <ShieldAlert size={14} />}
               <span>{analysisResult.riskLevel} RISK</span>
             </div>
           </div>

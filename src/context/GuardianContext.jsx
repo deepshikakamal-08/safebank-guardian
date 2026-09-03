@@ -1,10 +1,18 @@
 import React, { createContext, useContext, useState, useEffect } from 'react';
-import { INITIAL_ACCOUNT, INITIAL_TRANSACTIONS, DEMO_SCENARIOS, analyzeTransactionWithGuardian } from '../data/mockData';
+import { 
+  INITIAL_ACCOUNT, 
+  INITIAL_TRANSACTIONS, 
+  DEMO_SCENARIOS, 
+  CUSTOMER_PROFILES, 
+  analyzeTransactionWithGuardian 
+} from '../data/mockData';
 
 const GuardianContext = createContext();
 
 export function GuardianProvider({ children }) {
-  const [activeScreen, setActiveScreen] = useState('home'); // 'home' | 'send' | 'context' | 'analysis' | 'protection' | 'paused'
+  // Navigation: 'login' -> 'home' -> 'send' -> 'context' -> 'analysis' -> 'protection' | 'paused'
+  const [activeScreen, setActiveScreen] = useState('login');
+  const [selectedCustomerKey, setSelectedCustomerKey] = useState('aarav');
   const [activeScenarioKey, setActiveScenarioKey] = useState('highRisk');
   const [account, setAccount] = useState(INITIAL_ACCOUNT);
   const [transactions, setTransactions] = useState(INITIAL_TRANSACTIONS);
@@ -30,14 +38,49 @@ export function GuardianProvider({ children }) {
   const [trustedModalOpen, setTrustedModalOpen] = useState(false);
   const [continueDisclaimerOpen, setContinueDisclaimerOpen] = useState(false);
 
-  // Run initial analysis with default scenario
+  // Select a customer profile and update their account + baseline
+  const selectCustomer = (customerKey) => {
+    const profile = CUSTOMER_PROFILES[customerKey] || CUSTOMER_PROFILES.aarav;
+    setSelectedCustomerKey(customerKey);
+    setAccount({
+      accountHolder: profile.name,
+      accountNumber: profile.accountNumber,
+      accountType: profile.accountType,
+      ifscCode: profile.ifscCode,
+      balance: profile.balance,
+      currency: profile.currency,
+      guardianShieldStatus: profile.guardianShieldStatus,
+      baselineAverageTransfer: profile.baselineAverageTransfer,
+      deviceTrustScore: profile.deviceTrustScore,
+      currentDevice: profile.currentDevice,
+      currentNetwork: profile.currentNetwork,
+      customerId: profile.customerId,
+      trustedContact: profile.trustedContact || INITIAL_ACCOUNT.trustedContact
+    });
+    setTransactions(profile.recentTransactions || INITIAL_TRANSACTIONS);
+
+    // Recompute analysis with the newly selected customer's historical baseline
+    const updatedAnalysis = analyzeTransactionWithGuardian({
+      amount: paymentDraft.amount,
+      beneficiaryStatus: paymentDraft.beneficiaryStatus,
+      message: scamMessage,
+      recipientName: paymentDraft.recipientName,
+      paymentIntent: paymentDraft.paymentIntent || DEMO_SCENARIOS.highRisk.paymentIntent || "Following instructions from a message",
+      transferHistory: profile.historicalAmounts
+    });
+    setAnalysisResult(updatedAnalysis);
+  };
+
+  // Run initial analysis with default scenario and default customer
   useEffect(() => {
+    const profile = CUSTOMER_PROFILES[selectedCustomerKey] || CUSTOMER_PROFILES.aarav;
     const initialAnalysis = analyzeTransactionWithGuardian({
       amount: DEMO_SCENARIOS.highRisk.amount,
       beneficiaryStatus: DEMO_SCENARIOS.highRisk.beneficiaryStatus,
       message: DEMO_SCENARIOS.highRisk.scamMessage,
       recipientName: DEMO_SCENARIOS.highRisk.recipientName,
-      paymentIntent: DEMO_SCENARIOS.highRisk.paymentIntent || "Following instructions from a message"
+      paymentIntent: DEMO_SCENARIOS.highRisk.paymentIntent || "Following instructions from a message",
+      transferHistory: profile.historicalAmounts
     });
     setAnalysisResult(initialAnalysis);
   }, []);
@@ -68,13 +111,16 @@ export function GuardianProvider({ children }) {
     });
     setScamMessage(scenario.scamMessage);
 
-    // Re-evaluate analysis
+    const profile = CUSTOMER_PROFILES[selectedCustomerKey] || CUSTOMER_PROFILES.aarav;
+
+    // Re-evaluate analysis using the currently selected customer's baseline
     const result = analyzeTransactionWithGuardian({
       amount: scenario.amount,
       beneficiaryStatus: scenario.beneficiaryStatus,
       message: scenario.scamMessage,
       recipientName: scenario.recipientName,
-      paymentIntent: scenario.paymentIntent || "Following instructions from a message"
+      paymentIntent: scenario.paymentIntent || "Following instructions from a message",
+      transferHistory: profile.historicalAmounts
     });
     setAnalysisResult(result);
   };
@@ -83,12 +129,14 @@ export function GuardianProvider({ children }) {
   const performAnalysis = () => {
     setIsAnalyzing(true);
     setTimeout(() => {
+      const profile = CUSTOMER_PROFILES[selectedCustomerKey] || CUSTOMER_PROFILES.aarav;
       const result = analyzeTransactionWithGuardian({
         amount: paymentDraft.amount,
         beneficiaryStatus: paymentDraft.beneficiaryStatus,
         message: scamMessage,
         recipientName: paymentDraft.recipientName,
-        paymentIntent: paymentDraft.paymentIntent || DEMO_SCENARIOS.highRisk.paymentIntent || "Following instructions from a message"
+        paymentIntent: paymentDraft.paymentIntent || DEMO_SCENARIOS.highRisk.paymentIntent || "Following instructions from a message",
+        transferHistory: profile.historicalAmounts
       });
       setAnalysisResult(result);
       setIsAnalyzing(false);
@@ -102,13 +150,14 @@ export function GuardianProvider({ children }) {
     setActiveScreen('paused');
   };
 
-  // Restart demo flow
+  // Restart demo flow: restores Aarav Sharma, high-risk scenario, and returns to login
   const resetDemo = () => {
     setIsPaused(false);
     setContactNotified(false);
     setCoolingTimerSeconds(4 * 3600);
+    selectCustomer('aarav');
     switchScenario('highRisk');
-    setActiveScreen('home');
+    setActiveScreen('login');
   };
 
   // Format seconds to HH:MM:SS
@@ -124,6 +173,9 @@ export function GuardianProvider({ children }) {
       value={{
         activeScreen,
         setActiveScreen,
+        selectedCustomerKey,
+        selectCustomer,
+        customerProfiles: CUSTOMER_PROFILES,
         activeScenarioKey,
         switchScenario,
         account,

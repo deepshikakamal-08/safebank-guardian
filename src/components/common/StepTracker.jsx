@@ -13,6 +13,10 @@ const STEPS = [
 export default function StepTracker() {
   const { activeScreen, setActiveScreen, isPaused } = useGuardian();
 
+  if (activeScreen === 'login') {
+    return null;
+  }
+
   const getStepIndex = (screenId) => {
     if (screenId === 'paused') return 4;
     return STEPS.findIndex(s => s.id === screenId);
@@ -46,7 +50,6 @@ export default function StepTracker() {
                 <div className="step-text">
                   <span className="step-title">
                     {step.label}
-                    {step.isHero && <span style={{ marginLeft: 4, color: '#dc2626', fontSize: '0.65rem', fontWeight: 800 }}>★ HERO</span>}
                   </span>
                   <span className="step-sub">{step.sub}</span>
                 </div>

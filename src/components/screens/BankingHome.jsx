@@ -22,29 +22,6 @@ export default function BankingHome() {
 
   return (
     <div className="banking-home-view">
-      {/* Educational Paradigm Banner */}
-      <div className="guardian-manifesto-banner">
-        <span className="manifesto-badge">Guardian Differentiator</span>
-        <div className="manifesto-text">
-          <div>
-            <strong>The SafeBank Philosophy:</strong> Traditional fraud detection asks <em>"Is this transaction suspicious?"</em>. 
-            SafeBank Guardian asks <strong>"Is the customer being manipulated?"</strong> by evaluating emotional coercion, scam language, and intent before money ever leaves your account.
-          </div>
-          <div className="manifesto-flow-story">
-            <span className="flow-story-label">Demo Story:</span>
-            <span className="flow-step-pill">Scam Message</span>
-            <span className="flow-story-arrow">→</span>
-            <span className="flow-step-pill current">Payment Intent</span>
-            <span className="flow-story-arrow">→</span>
-            <span className="flow-step-pill">Guardian Analysis</span>
-            <span className="flow-story-arrow">→</span>
-            <span className="flow-step-pill danger">High Risk</span>
-            <span className="flow-story-arrow">→</span>
-            <span className="flow-step-pill safe">Protection</span>
-          </div>
-        </div>
-      </div>
-
       {/* Account Balance & Guardian Summary Grid */}
       <div className="balance-card-grid">
         {/* Left: Account Overview Card */}

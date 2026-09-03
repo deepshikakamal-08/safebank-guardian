@@ -7,6 +7,7 @@ import SendMoney from './components/screens/SendMoney';
 import ScamContext from './components/screens/ScamContext';
 import GuardianAnalysis from './components/screens/GuardianAnalysis';
 import ProtectionScreen from './components/screens/ProtectionScreen';
+import Login from './components/screens/Login';
 import { Shield } from 'lucide-react';
 
 function AppContent() {
@@ -14,6 +15,8 @@ function AppContent() {
 
   const renderActiveScreen = () => {
     switch (activeScreen) {
+      case 'login':
+        return <Login />;
       case 'home':
         return <BankingHome />;
       case 'send':

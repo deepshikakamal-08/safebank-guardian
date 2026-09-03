@@ -159,7 +159,10 @@ Official Bank Helpline: 1800-SAFE-BANK (1800-723-3226)`;
 
             <button 
               className="btn btn-primary" 
-              onClick={resetDemo}
+              onClick={() => {
+                if (typeof setIsPaused === 'function') setIsPaused(false);
+                setActiveScreen('home');
+              }}
             >
               <span>Back to Banking Home</span>
               <ArrowRight size={16} />

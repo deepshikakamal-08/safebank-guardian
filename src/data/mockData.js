@@ -1,17 +1,126 @@
-// Mock Banking & Security Data for SafeBank Guardian
+export const CUSTOMER_PROFILES = {
+  aarav: {
+    id: "aarav",
+    customerId: "SB-10482",
+    name: "Aarav Sharma",
+    avatarInitials: "AS",
+    tagline: "High-risk demonstration profile",
+    accountNumber: "•••• •••• 4829",
+    accountType: "SafeShield Premium Savings",
+    ifscCode: "SBNK0001428",
+    balance: 142850.0,
+    currency: "₹",
+    guardianShieldStatus: "Active",
+    baselineAverageTransfer: 3210.0,
+    deviceTrustScore: "98% (Known Personal Device)",
+    currentDevice: "Apple iPhone 15 Pro (iOS 18.2)",
+    currentNetwork: "Airtel Fiber (Home Trusted Network)",
+    historicalAmounts: [2400, 3100, 1850, 4200, 2900, 3800, 1500, 4500, 2750, 5100],
+    transferHistory: [
+      { id: "tx_hist_a1", date: "2024-08-04", amount: 2400, recipient: "Grocery Mart", category: "Daily Needs" },
+      { id: "tx_hist_a2", date: "2024-08-07", amount: 3100, recipient: "Priya Sharma", category: "Family Transfer" },
+      { id: "tx_hist_a3", date: "2024-08-11", amount: 1850, recipient: "Swiggy & Zomato", category: "Dining" },
+      { id: "tx_hist_a4", date: "2024-08-15", amount: 4200, recipient: "Urban Company", category: "Home Services" },
+      { id: "tx_hist_a5", date: "2024-08-19", amount: 2900, recipient: "Karan Mehta", category: "Shared Expenses" },
+      { id: "tx_hist_a6", date: "2024-08-23", amount: 3800, recipient: "Electricity Board", category: "Utilities" },
+      { id: "tx_hist_a7", date: "2024-08-26", amount: 1500, recipient: "Medical Pharmacy", category: "Health" },
+      { id: "tx_hist_a8", date: "2024-08-28", amount: 4500, recipient: "Amazon India", category: "Shopping" },
+      { id: "tx_hist_a9", date: "2024-08-30", amount: 2750, recipient: "BookMyShow", category: "Entertainment" },
+      { id: "tx_hist_a10", date: "2024-09-01", amount: 5100, recipient: "Vehicle Maintenance", category: "Automotive" }
+    ],
+    recentTransactions: [
+      { id: "tx_101", recipient: "Swiggy Online Food", account: "swiggy@icici", category: "Food & Dining", amount: 420.0, date: "Today, 1:15 PM", type: "debit", status: "Completed", guardianVerdict: "Safe" },
+      { id: "tx_102", recipient: "Tata Power Mumbai", account: "tatapower.billdesk@hdfc", category: "Utilities", amount: 2150.0, date: "Yesterday, 6:40 PM", type: "debit", status: "Completed", guardianVerdict: "Safe" },
+      { id: "tx_103", recipient: "Karan Mehta", account: "karan.mehta@oksbi", category: "Friend Transfer", amount: 1200.0, date: "28 Aug, 4:20 PM", type: "debit", status: "Completed", guardianVerdict: "Safe" }
+    ]
+  },
+
+  priya: {
+    id: "priya",
+    customerId: "SB-20731",
+    name: "Priya Nair",
+    avatarInitials: "PN",
+    tagline: "Moderate activity customer profile",
+    accountNumber: "•••• •••• 7315",
+    accountType: "SafeShield Regular Savings",
+    ifscCode: "SBNK0002073",
+    balance: 86420.0,
+    currency: "₹",
+    guardianShieldStatus: "Active",
+    baselineAverageTransfer: 7000.0,
+    deviceTrustScore: "96% (Known Personal Device)",
+    currentDevice: "Samsung Galaxy S24 (Android 14)",
+    currentNetwork: "Jio True5G (Mobile Network)",
+    historicalAmounts: [5500, 7200, 6800, 8400, 6100, 7900, 8200, 5900, 7500, 6500],
+    transferHistory: [
+      { id: "tx_hist_p1", date: "2024-08-05", amount: 5500, recipient: "Apartment Maintenance", category: "Housing" },
+      { id: "tx_hist_p2", date: "2024-08-09", amount: 7200, recipient: "Cult.fit Wellness", category: "Fitness" },
+      { id: "tx_hist_p3", date: "2024-08-13", amount: 6800, recipient: "FabIndia Store", category: "Shopping" },
+      { id: "tx_hist_p4", date: "2024-08-17", amount: 8400, recipient: "Apollo Clinic", category: "Health" },
+      { id: "tx_hist_p5", date: "2024-08-20", amount: 6100, recipient: "Broadband Services", category: "Utilities" },
+      { id: "tx_hist_p6", date: "2024-08-24", amount: 7900, recipient: "Sneha Rao", category: "Family Transfer" },
+      { id: "tx_hist_p7", date: "2024-08-27", amount: 8200, recipient: "Flight Tickets", category: "Travel" },
+      { id: "tx_hist_p8", date: "2024-08-29", amount: 5900, recipient: "Organic Bazaar", category: "Groceries" },
+      { id: "tx_hist_p9", date: "2024-08-31", amount: 7500, recipient: "BookMyShow Events", category: "Entertainment" },
+      { id: "tx_hist_p10", date: "2024-09-02", amount: 6500, recipient: "Course Tutoring", category: "Education" }
+    ],
+    recentTransactions: [
+      { id: "tx_201", recipient: "Cult.fit Wellness", account: "cultfit@hdfc", category: "Fitness", amount: 7200.0, date: "Today, 11:30 AM", type: "debit", status: "Completed", guardianVerdict: "Safe" },
+      { id: "tx_202", recipient: "Broadband Services", account: "actfibernet@icici", category: "Utilities", amount: 1199.0, date: "Yesterday, 3:15 PM", type: "debit", status: "Completed", guardianVerdict: "Safe" },
+      { id: "tx_203", recipient: "Sneha Rao", account: "sneha.rao@okaxis", category: "Friend Transfer", amount: 2500.0, date: "29 Aug, 7:00 PM", type: "debit", status: "Completed", guardianVerdict: "Safe" }
+    ]
+  },
+
+  rahul: {
+    id: "rahul",
+    customerId: "SB-31864",
+    name: "Rahul Mehta",
+    avatarInitials: "RM",
+    tagline: "High-volume business / merchant profile",
+    accountNumber: "•••• •••• 8642",
+    accountType: "SafeShield Current Account",
+    ifscCode: "SBNK0003186",
+    balance: 218600.0,
+    currency: "₹",
+    guardianShieldStatus: "Active",
+    baselineAverageTransfer: 21000.0,
+    deviceTrustScore: "99% (Known Workstation)",
+    currentDevice: "MacBook Pro M3 (macOS Sonoma)",
+    currentNetwork: "Office Secure Wi-Fi (Static IP)",
+    historicalAmounts: [16500, 22000, 18500, 25000, 19200, 24500, 17800, 21000, 26500, 19000],
+    transferHistory: [
+      { id: "tx_hist_r1", date: "2024-08-03", amount: 16500, recipient: "Apex Paper Suppliers", category: "Inventory" },
+      { id: "tx_hist_r2", date: "2024-08-08", amount: 22000, recipient: "Logistics Freight", category: "Shipping" },
+      { id: "tx_hist_r3", date: "2024-08-12", amount: 18500, recipient: "Vendor Packaging", category: "Supplies" },
+      { id: "tx_hist_r4", date: "2024-08-16", amount: 25000, recipient: "Commercial Lease", category: "Rent" },
+      { id: "tx_hist_r5", date: "2024-08-19", amount: 19200, recipient: "IT Cloud Infrastructure", category: "Software" },
+      { id: "tx_hist_r6", date: "2024-08-23", amount: 24500, recipient: "Digital Marketing Co", category: "Advertising" },
+      { id: "tx_hist_r7", date: "2024-08-26", amount: 17800, recipient: "Equipment Service", category: "Maintenance" },
+      { id: "tx_hist_r8", date: "2024-08-28", amount: 21000, recipient: "Raw Material Hub", category: "Inventory" },
+      { id: "tx_hist_r9", date: "2024-08-30", amount: 26500, recipient: "Staff Stipends", category: "Payroll" },
+      { id: "tx_hist_r10", date: "2024-09-02", amount: 19000, recipient: "Wholesale Trade Ltd", category: "Purchases" }
+    ],
+    recentTransactions: [
+      { id: "tx_301", recipient: "Apex Paper Suppliers", account: "apex.paper@kotak", category: "Vendor Payment", amount: 16500.0, date: "Today, 9:20 AM", type: "debit", status: "Completed", guardianVerdict: "Safe" },
+      { id: "tx_302", recipient: "AWS Cloud Services", account: "aws.india@citi", category: "Software & Cloud", amount: 8450.0, date: "Yesterday, 8:10 PM", type: "debit", status: "Completed", guardianVerdict: "Safe" },
+      { id: "tx_303", recipient: "Commercial Lease", account: "realty.lease@hdfc", category: "Rent", amount: 25000.0, date: "28 Aug, 11:00 AM", type: "debit", status: "Completed", guardianVerdict: "Safe" }
+    ]
+  }
+};
 
 export const INITIAL_ACCOUNT = {
-  accountHolder: "Aarav Sharma",
-  accountNumber: "•••• •••• 4829",
-  accountType: "SafeShield Premium Savings",
-  ifscCode: "SBNK0001428",
-  balance: 142850.0,
-  currency: "₹",
-  guardianShieldStatus: "Active",
-  baselineAverageTransfer: 3200.0,
-  deviceTrustScore: "98% (Known Personal Device)",
-  currentDevice: "Apple iPhone 15 Pro (iOS 18.2)",
-  currentNetwork: "Airtel Fiber (Home Trusted Network)",
+  accountHolder: CUSTOMER_PROFILES.aarav.name,
+  accountNumber: CUSTOMER_PROFILES.aarav.accountNumber,
+  accountType: CUSTOMER_PROFILES.aarav.accountType,
+  ifscCode: CUSTOMER_PROFILES.aarav.ifscCode,
+  balance: CUSTOMER_PROFILES.aarav.balance,
+  currency: CUSTOMER_PROFILES.aarav.currency,
+  guardianShieldStatus: CUSTOMER_PROFILES.aarav.guardianShieldStatus,
+  baselineAverageTransfer: CUSTOMER_PROFILES.aarav.baselineAverageTransfer,
+  deviceTrustScore: CUSTOMER_PROFILES.aarav.deviceTrustScore,
+  currentDevice: CUSTOMER_PROFILES.aarav.currentDevice,
+  currentNetwork: CUSTOMER_PROFILES.aarav.currentNetwork,
+  customerId: CUSTOMER_PROFILES.aarav.customerId,
   trustedContact: {
     name: "Priya Sharma",
     relation: "Sister",
